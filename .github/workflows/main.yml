@@ -1,10 +1,41 @@
-- name: Deploy to Cloud Run
-  run: |
-    gcloud run deploy worker-service \
-      --image gcr.io/clinicpro-sheets-worker/worker:latest \
-      --platform managed \
-      --region australia-southeast1 \
-      --allow-unauthenticated \
-      --set-env-vars CORS_ALLOW_ORIGINS=clinicpro-crawler.vercel.app,RATE_LIMIT_RPS=1,AFFILIATION_KEYWORDS_JSON='{"tend":"Tend","medplus":"MedPlus"}' \
-      --max-instances=1 \
-      --concurrency=1
+name: Build & Deploy Worker to Cloud Run
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v1
+        with:
+          project_id: clinicpro-sheets-worker
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          export_default_credentials: true
+
+      - name: Configure Docker authentication for GCR
+        run: gcloud auth configure-docker
+
+      - name: Build Docker image
+        run: docker build -t gcr.io/clinicpro-sheets-worker/worker:latest ./apps/worker
+
+      - name: Push Docker image to GCR
+        run: docker push gcr.io/clinicpro-sheets-worker/worker:latest
+
+      - name: Deploy to Cloud Run
+        run: |
+          gcloud run deploy worker-service \
+            --image gcr.io/clinicpro-sheets-worker/worker:latest \
+            --platform managed \
+            --region australia-southeast1 \
+            --allow-unauthenticated \
+            --set-env-vars CORS_ALLOW_ORIGINS=clinicpro-crawler.vercel.app,RATE_LIMIT_RPS=1,AFFILIATION_KEYWORDS_JSON='{"tend":"Tend","medplus":"MedPlus"}' \
+            --max-instances=1 \
+            --concurrency=1
