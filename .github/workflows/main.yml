@@ -1,0 +1,10 @@
+- name: Deploy to Cloud Run
+  run: |
+    gcloud run deploy worker-service \
+      --image gcr.io/clinicpro-sheets-worker/worker:latest \
+      --platform managed \
+      --region australia-southeast1 \
+      --allow-unauthenticated \
+      --set-env-vars CORS_ALLOW_ORIGINS=clinicpro-crawler.vercel.app,RATE_LIMIT_RPS=1,AFFILIATION_KEYWORDS_JSON='{"tend":"Tend","medplus":"MedPlus"}' \
+      --max-instances=1 \
+      --concurrency=1
