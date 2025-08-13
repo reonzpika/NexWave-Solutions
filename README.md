@@ -1,107 +1,33 @@
-# React
+# Healthpoint GP Crawler Monorepo
 
-A modern React-based project utilizing the latest frontend technologies and tools for building responsive web applications.
+Minimal Next.js UI (Vercel) + Python FastAPI worker (Railway) to crawl Healthpoint GP regions at 1 req/sec and write a Google Sheet.
 
-## 🚀 Features
+## Apps
+- `apps/ui`: Next.js 14 UI with a single page to start a crawl, show progress, and link to results.
+- `apps/worker`: FastAPI worker that runs the crawl, aggregates data, and writes to Google Sheets.
 
-- **React 18** - React version with improved rendering and concurrent features
-- **Vite** - Lightning-fast build tool and development server
-- **Redux Toolkit** - State management with simplified Redux setup
-- **TailwindCSS** - Utility-first CSS framework with extensive customization
-- **React Router v6** - Declarative routing for React applications
-- **Data Visualization** - Integrated D3.js and Recharts for powerful data visualization
-- **Form Management** - React Hook Form for efficient form handling
-- **Animation** - Framer Motion for smooth UI animations
-- **Testing** - Jest and React Testing Library setup
+## Quick Start
 
-## 📋 Prerequisites
+### Worker (Railway)
+1. Create a new Railway service from `apps/worker` with the included Dockerfile.
+2. Set env vars:
+   - `GOOGLE_SHEETS_CREDENTIALS_JSON`: Service account JSON (full JSON string).
+   - `AFFILIATION_KEYWORDS_JSON` (optional): Mapping e.g. `{ "tend": "Tend", "medplus": "MedPlus" }`.
+   - `RATE_LIMIT_RPS`: `1` (default polite rate).
+   - `CORS_ALLOW_ORIGINS`: Comma-separated origins or `*`.
+3. Deploy. Note the public URL (e.g., `https://hp-worker.up.railway.app`).
 
-- Node.js (v14.x or higher)
-- npm or yarn
+### UI (Vercel)
+1. Create a new Vercel project from `apps/ui`.
+2. Set env var `NEXT_PUBLIC_WORKER_BASE_URL` to the Railway worker URL.
+3. Deploy and open the app.
 
-## 🛠️ Installation
+## Usage
+- Paste any Healthpoint GP region URL (e.g.,
+  `https://www.healthpoint.co.nz/gps-accident-urgent-medical-care/north-auckland/`).
+- Click "Run Crawl". Wait for completion; open the Google Sheet link.
 
-1. Install dependencies:
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
-   
-2. Start the development server:
-   ```bash
-   npm start
-   # or
-   yarn start
-   ```
-
-## 📁 Project Structure
-
-```
-react_app/
-├── public/             # Static assets
-├── src/
-│   ├── components/     # Reusable UI components
-│   ├── pages/          # Page components
-│   ├── styles/         # Global styles and Tailwind configuration
-│   ├── App.jsx         # Main application component
-│   ├── Routes.jsx      # Application routes
-│   └── index.jsx       # Application entry point
-├── .env                # Environment variables
-├── index.html          # HTML template
-├── package.json        # Project dependencies and scripts
-├── tailwind.config.js  # Tailwind CSS configuration
-└── vite.config.js      # Vite configuration
-```
-
-## 🧩 Adding Routes
-
-To add new routes to the application, update the `Routes.jsx` file:
-
-```jsx
-import { useRoutes } from "react-router-dom";
-import HomePage from "pages/HomePage";
-import AboutPage from "pages/AboutPage";
-
-const ProjectRoutes = () => {
-  let element = useRoutes([
-    { path: "/", element: <HomePage /> },
-    { path: "/about", element: <AboutPage /> },
-    // Add more routes as needed
-  ]);
-
-  return element;
-};
-```
-
-## 🎨 Styling
-
-This project uses Tailwind CSS for styling. The configuration includes:
-
-- Forms plugin for form styling
-- Typography plugin for text styling
-- Aspect ratio plugin for responsive elements
-- Container queries for component-specific responsive design
-- Fluid typography for responsive text
-- Animation utilities
-
-## 📱 Responsive Design
-
-The app is built with responsive design using Tailwind CSS breakpoints.
-
-
-## 📦 Deployment
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-## 🙏 Acknowledgments
-
-- Built with [Rocket.new](https://rocket.new)
-- Powered by React and Vite
-- Styled with Tailwind CSS
-
-Built with ❤️ on Rocket.new
+## Notes
+- The worker is polite (1 req/sec + jitter) and retries transient errors.
+- Output columns: clinic_name, address, phone, email, website, affiliation_type, gp_names, clinic_url, region, crawl_timestamp_utc.
+- Link sharing is set to "anyone with link can view" via Drive API.

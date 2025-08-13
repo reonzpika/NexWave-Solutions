@@ -1,0 +1,46 @@
+seed_urls:
+  - "{{ seed_url }}"
+
+rate_limit: 1
+max_depth: 3
+
+selectors:
+  - name: nextPage
+    type: Link
+    selector: "a.pagination__next"
+
+  - name: clinicLink
+    type: Link
+    selector: "a[href*='/gps-accident-urgent-medical-care/gp/']"
+
+  - name: gpLink
+    type: Link
+    selector: "a[href*='/gps-accident-urgent-medical-care/general-practitioner/']"
+
+  - name: clinicName
+    type: Text
+    selector: "h1.hp-title"
+
+  - name: address
+    type: Text
+    selector: ".hp-text--address"
+
+  - name: phone
+    type: Text
+    selector: ".hp-contact-link__phone"
+
+  - name: email
+    type: Text
+    selector: ".hp-contact-link__email"
+
+  - name: website
+    type: Link
+    selector: ".hp-contact-link__web"
+
+  - name: gpName
+    type: Text
+    selector: "h1.hp-title"
+
+  - name: workplaces
+    type: Links
+    selector: ".hp-person__workplaces a"
