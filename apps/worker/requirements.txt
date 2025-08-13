@@ -1,0 +1,12 @@
+fastapi==0.111.0
+uvicorn[standard]==0.30.1
+httpx==0.27.2
+tenacity==8.5.0
+PyYAML==6.0.2
+beautifulsoup4==4.12.3
+lxml==5.2.2; platform_system != "Linux"
+# On Linux, avoid building lxml from source in this dev container
+crawl4ai==0.7.3
+google-api-python-client==2.131.0
+google-auth==2.32.0
+google-auth-httplib2==0.2.0
