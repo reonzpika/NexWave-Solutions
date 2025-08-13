@@ -1,0 +1,18 @@
+{
+	"startUrls": ["https://example.com/guidelines"],
+	"includePatterns": ["^https://example.com/.*"],
+	"excludePatterns": [],
+	"maxDepth": 1,
+	"maxPages": 20,
+	"rateLimit": { "requestsPerMinute": 30, "concurrency": 2 },
+	"userAgent": "ClinicProCrawler/1.0 (+https://clinicpro.co.nz)",
+	"extractionSchema": {
+		"title": ["meta[property='og:title']", "title"],
+		"contentSelectors": ["main", "article", ".content"],
+		"headingSelectors": ["h1", "h2", "h3"],
+		"publishedTimeSelectors": ["meta[property='article:published_time']", "time[datetime]"],
+		"updatedTimeSelectors": ["meta[property='article:modified_time']"]
+	},
+	"chunk": { "words": 400 },
+	"emit": { "format": "ndjson" }
+}
