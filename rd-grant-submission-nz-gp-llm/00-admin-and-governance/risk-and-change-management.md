@@ -232,6 +232,7 @@ This document tracks:
 ### `project-master-index.md`
 | Version | Date | Status | Changes | Approved By |
 |---------|------|--------|---------|-------------|
+| v1.1 | 2025-11-01 | Active | Added "For LLM Agents" section with task-based guidance (A-F) and common workflows | NexWave Director |
 | v1.0 | 2025-11-01 | Active | Navigation hub and project overview | NexWave Director |
 
 ### `risk-and-change-management.md`

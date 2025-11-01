@@ -2,7 +2,7 @@
 ## R&D Grant Submission ? NZ GP Clinical LLM (ClinicPro)
 
 **Last Updated:** 2025-11-01  
-**Version:** 1.0  
+**Version:** 1.1  
 **Status:** Active
 
 ---
@@ -257,6 +257,168 @@ See `00-admin-and-governance/risk-and-change-management.md` for all document ver
 2. **`cost-template.md`** ? Verify quarterly costs
 3. **`capability-development-evidence-pack.md`** ? Attach Q1 artefacts
 4. **`risk-and-change-management.md`** ? Update change log
+
+---
+
+## ?? For LLM Agents: Task-Based Guidance
+
+**Note:** Read this section ONCE at task start. Do NOT re-read during multi-turn conversations.
+
+### How to Use This Section
+
+1. **Identify your task type** (A-F below)
+2. **Note which files to read** for your task
+3. **Note what to update** when task is complete
+4. **Work on the task** (refer to domain docs as needed)
+5. **Complete updates** (change log, cross-references)
+
+---
+
+### A. Compliance Tasks (DPIA, IPP 12, DPA, Consent Notices)
+
+**Read these files:**
+1. `04-compliance-and-safety/privacy-compliance-quick-reference.md` (IPP 12, HISO, DPA clauses, consent text)
+2. **If material change** (new sub-processor/region): `04-compliance-and-safety/dpia-draft.md` (full DPIA)
+3. **If transparency update needed**: `04-compliance-and-safety/safety-and-transparency-framework.md`
+
+**Always update at task end:**
+- Change log in `risk-and-change-management.md`
+- Document version and "Last Updated" date
+- If sub-processor/source changed: Update registers in `safety-and-transparency-framework.md`
+- If material change: Flag for DPIA update (requires Privacy Lead + Director approval)
+
+**Prohibitions:**
+- ? No sub-processors without Privacy Lead approval
+- ? No PHI storage outside NZ (ephemeral AU inference only)
+- ? No DPIA updates without Director sign-off
+
+**Escalation triggers:**
+- ?? New sub-processor or region ? Stop; requires Privacy Lead approval
+- ?? Material DPIA change ? Stop; requires Privacy Lead + Director approval
+
+---
+
+### B. Financial Tasks (Cost Template, Cashflow, Claims)
+
+**Read these files:**
+1. `02-financials/cost-template.md` (if working on costs/objectives)
+2. `02-financials/cashflow-12-month.md` (if working on cashflow/co-funding)
+3. **If preparing claim**: `05-claims-and-tracking/claims-toolkit.md`
+4. **If Q1 claim**: `03-capability-development/capability-development-evidence-pack.md`
+
+**Always check:**
+- CapDev ? 5% of grant ($2,880 ? $2,145 ?)
+- Cashflow remains positive (minimum $8,216 in Month 1)
+- All costs linked to Objectives in cost-template.md
+
+**Always update at task end:**
+- Change log in `risk-and-change-management.md`
+- Document version and "Last Updated" date
+- If objectives/costs changed: Update quick reference tables in this file (project-master-index.md)
+
+**Escalation triggers:**
+- ?? Cashflow negative ? Stop; escalate to NexWave Director
+- ?? CapDev < 5% ? Adjust before Q1 claim
+
+---
+
+### C. Safety Tasks (Safety Regressions, Incident Response)
+
+**Read these files:**
+1. `04-compliance-and-safety/safety-and-transparency-framework.md` (safety regression template, incident runbook)
+2. **If incident**: `00-admin-and-governance/risk-and-change-management.md` (escalation procedures)
+
+**Always update at task end:**
+- Change log in `risk-and-change-management.md`
+- Safety dashboard (track metrics over time)
+- If safety regression: Store pack in `07-optional-strengthening/safety-regressions/YYYY-MM/`
+
+**Escalation triggers:**
+- ?? Prohibited-claim rate > 0.5% ? Stop releases; escalate to Security Lead
+- ?? PHI leakage detected ? Activate incident runbook; notify Privacy Lead immediately
+- ?? Safety regression FAIL ? Do not release; investigate root cause
+
+---
+
+### D. Capability Development Tasks (Courses, Evidence, Setups)
+
+**Read these files:**
+1. `03-capability-development/capability-development-evidence-pack.md` (courses, setups, evidence requirements)
+
+**Always update at task end:**
+- Change log in `risk-and-change-management.md`
+- Document version and "Last Updated" date
+- Evidence pack index (if new artefacts created)
+
+**Always check:**
+- Certificates dated within Months 1-2
+- One-off setups sum to 30 hours ($2,880)
+- Evidence naming follows conventions
+
+---
+
+### E. Governance Tasks (Risks, Stage-Gates, Change Log)
+
+**Read these files:**
+1. `00-admin-and-governance/risk-and-change-management.md` (risk register, stage-gates, change log, release checklist)
+
+**Always update at task end:**
+- Change log (obviously!)
+- Document version and "Last Updated" date
+- Risk register if new risks identified
+- If objective complete: Verify stage-gate exit criteria met
+
+**Escalation triggers:**
+- ?? Stage-gate exit criteria not met ? Do not proceed to next objective
+- ?? Critical risk identified ? Escalate per risk owner
+
+---
+
+### F. General / Exploring / New Task
+
+**Start here:**
+1. This file (`project-master-index.md`) ? you're already reading it ?
+2. Follow cross-references below to specific documents
+3. Re-identify task type (A-E above) once you understand the request
+
+---
+
+### Common Task Workflows (Quick Reference)
+
+#### Preparing a Quarterly Claim
+1. Read `claims-toolkit.md`
+2. Gather evidence per checklist (timesheets, payroll, M&C invoices, certificates if Q1)
+3. Complete Cost Template for the quarter
+4. Create GST invoice to Callaghan
+5. Update change log
+6. Submit in Forge
+
+#### Adding a New Sub-Processor
+1. ?? **STOP** ? Requires Privacy Lead approval (escalate first)
+2. After approval: Update sub-processors register in `safety-and-transparency-framework.md`
+3. Sign DPA with new sub-processor
+4. Re-run DPIA (update `dpia-draft.md`)
+5. Update transparency page
+6. Notify clinics (15 business days per DPA)
+7. Update change log
+
+#### Running Monthly Safety Regression
+1. Use template in `safety-and-transparency-framework.md`
+2. Run test suite (prohibited-claim rate, refusal appropriateness, PHI leakage)
+3. Generate safety pack markdown
+4. Store in `07-optional-strengthening/safety-regressions/YYYY-MM/`
+5. Update safety dashboard
+6. If FAIL: ?? Stop releases; escalate to Security Lead
+
+#### Releasing a Model Version
+1. Run release checklist in `risk-and-change-management.md`
+2. ? Pass safety regression
+3. ? Security checks (dependency scan, encryption verified)
+4. ? Compliance checks (DPIA up-to-date, transparency page updated)
+5. ? Approvals (Security Lead + Director)
+6. Update transparency page (model version, change log)
+7. Update change log
+8. Test rollback plan
 
 ---
 
