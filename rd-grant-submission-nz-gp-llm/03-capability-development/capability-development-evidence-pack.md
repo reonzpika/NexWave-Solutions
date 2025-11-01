@@ -3,6 +3,23 @@
 
 ---
 
+## Description
+
+Capability Development courses, one-off setups, and evidence requirements. Tracks completion of 3 certificate courses and 30 hours of one-off setup labour across 3 categories.
+
+**Content List:**
+- Purpose and scope (3 categories: Regulatory & Compliance, R&D Information Management, Project Management)
+- 3 certificate courses (OPC Privacy Act, OPC HIPC, Ko Awatea)
+- One-off setups (CD-A: 12h regulatory; CD-B: 10h R&D info; CD-C: 8h PM)
+- Evidence pack index (file naming conventions)
+- Acceptance criteria for each deliverable
+- Timesheet mapping examples
+- Claim mapping (Q1-Q4: what to upload when)
+- Training record template
+- Summary: $2,880 CapDev (6.7% of grant)
+
+---
+
 ## Purpose and Scope
 
 Build enduring capability in:

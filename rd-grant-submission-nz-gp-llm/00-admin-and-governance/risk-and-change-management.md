@@ -7,6 +7,19 @@
 
 ---
 
+## Description
+
+Living governance document tracking project risks, document versions, stage-gates, and release procedures. Updated quarterly or on material changes.
+
+**Content List:**
+- Risk register (9 active risks: privacy, safety, technical, financial, operational)
+- Change log (version history for all 10 documents)
+- Stage-gates (O1-O5 entry/exit criteria and safety gates)
+- Release checklist (security, safety, compliance, approvals)
+- Review and escalation procedures (quarterly reviews, escalation triggers)
+
+---
+
 ## Purpose
 
 This document tracks:

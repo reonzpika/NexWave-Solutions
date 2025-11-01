@@ -3,6 +3,25 @@
 
 ---
 
+## Description
+
+Complete DPIA with IPP 12 cross-border controls, HISO 10029 security mapping, and DPA key clauses. Covers Option B: AU inference with no persistent PHI outside NZ.
+
+**Content List:**
+- Project overview and hosting stance (Option B: AU inference, NZ storage)
+- Roles and contacts (Controller, Processor, Sub-processors)
+- Purpose and lawful basis
+- Data subjects and categories (patients, clinicians, health information)
+- Data flows and storage (NZ at rest, AU transient inference)
+- IPP 12 cross-border control checklist
+- HISO 10029 control mapping (12 domains)
+- Safety and clinical-use restrictions (NAIAEAG aligned)
+- Risk assessment (7 risks + mitigations)
+- Controller-Processor DPA key clauses
+- Approvals and review cycle
+
+---
+
 ## Project Overview
 
 ### Project Name

@@ -3,6 +3,24 @@
 
 ---
 
+## Description
+
+Templates and checklists for quarterly claims preparation and submission. Includes timesheets, GST invoices, evidence checklists, and Forge submission guidance.
+
+**Content List:**
+- Weekly timesheet template (with Objective codes)
+- Quarterly claim evidence checklist (Q1 specific + Q2-Q4 updates)
+- GST invoice template (to Callaghan)
+- Claim calculation steps (with worked example)
+- Claim calendar (Q1-Q4 submission and payment dates)
+- Progress note template (reusable for each claim)
+- File naming conventions
+- Common pitfalls and solutions (6 issues)
+- 5-step Forge submission guide
+- Quarterly claim summary table
+
+---
+
 ## Timesheet Template (Weekly; Copy/Paste into a Doc or Sheet)
 
 ### Header
