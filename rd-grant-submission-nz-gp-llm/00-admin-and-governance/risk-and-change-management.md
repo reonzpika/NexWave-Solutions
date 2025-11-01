@@ -240,6 +240,11 @@ This document tracks:
 |---------|------|--------|---------|-------------|
 | v1.0 | 2025-11-01 | Active | Initial risk register, change log, stage-gates | NexWave Director |
 
+### `document-summary.md`
+| Version | Date | Status | Changes | Approved By |
+|---------|------|--------|---------|-------------|
+| v1.0 | 2025-11-01 | Active | Quick reference guide with descriptions and content lists for all 10 documents | NexWave Director |
+
 ### `privacy-compliance-quick-reference.md`
 | Version | Date | Status | Changes | Approved By |
 |---------|------|--------|---------|-------------|

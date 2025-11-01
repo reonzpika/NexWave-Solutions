@@ -40,6 +40,10 @@ Scribe, inbox management, and clinical history summaries
 **Purpose:** Navigation hub and project overview  
 **When to use:** Start here for project context; find the right document
 
+#### `document-summary.md`
+**Purpose:** Quick reference guide with descriptions and content lists for all 10 documents  
+**When to use:** Get brief overview of what each document contains; quick content lookup
+
 #### `risk-and-change-management.md`
 **Purpose:** Risk register, change log, stage-gates, release checklist  
 **When to use:** Log risks, track document versions, review stage-gate criteria, pre-release checks
