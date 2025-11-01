@@ -13,24 +13,6 @@
 
 ---
 
-## Description
-
-Complete Forge portal submission narrative ready for copy-paste. Contains all required sections including R&D activities, uncertainty, newness, objectives, and success metrics.
-
-**Content List:**
-- Background and compliance statement (~250 words)
-- Eligibility confirmations
-- R&D activities description (~250 words)
-- Uncertainty, R&D challenge, and knowledge availability (~250 words each)
-- Newness statement (~250 words)
-- Why it's better (~250 words)
-- Hosting and data residency statement
-- 5 R&D Objectives (O1-O5) with deliverables and targets
-- 2 Capability Development streams (CD-A, CD-B) with deliverables
-- Success metrics (utility, safety, performance)
-
----
-
 ## Background and Compliance (?250 words)
 
 NexWave Solutions Ltd develops privacy-preserving AI tools for NZ general practice. We will build an original NZ GP clinical LLM to improve work efficiency in three areas:

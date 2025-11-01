@@ -6,21 +6,6 @@
 
 ---
 
-## Description
-
-Operational safety procedures and transparency requirements for ClinicPro. Includes monthly safety regressions, incident response, and transparency page management.
-
-**Content List:**
-- NAIAEAG alignment note (assist-only, no PHI in unapproved LLMs)
-- Safety regression pack template (prohibited-claim rate, refusal appropriateness, PHI leakage)
-- Incident runbook (6 phases: detect ? contain ? notify ? investigate ? recover ? learn)
-- Transparency page draft (public-facing: sources, regions, sub-processors)
-- Transparency SOP (update cadence, change log process)
-- Source register and sub-processors register (tables)
-- Synthetic and de-identification SOPs
-
----
-
 ## Purpose
 
 This document consolidates **operational safety and transparency procedures** for ClinicPro.

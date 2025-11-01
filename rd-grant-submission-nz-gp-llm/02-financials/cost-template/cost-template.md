@@ -3,22 +3,6 @@
 
 ---
 
-## Description
-
-Cost breakdown by Objective (R&D + CapDev) with quarterly claims schedule. Includes internal labour, materials & consumables, and capability development allocations.
-
-**Content List:**
-- Assumptions (rates, hours ramp, M&C, CapDev)
-- Internal labour tab (O1-O5: 1,062 hours @ $96/hr = $101,952)
-- Capability Development tab (30 hours @ $96/hr = $2,880; 3 courses)
-- Materials & consumables tab ($200/month ? 12 = $2,400)
-- Objective costing tab (linkage and dates)
-- Totals summary ($107,232 eligible; $42,893 grant @ 40%)
-- Quarterly claims schedule (Q1-Q4)
-- Evidence requirements checklist
-
----
-
 ## Assumptions (for All Tabs)
 
 - **Shareholder-employee internal labour rate:** $96/hour (= $80/hr + 20% overhead), PAYE, timesheets required

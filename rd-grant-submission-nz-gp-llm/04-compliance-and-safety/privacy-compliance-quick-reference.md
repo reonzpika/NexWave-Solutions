@@ -7,18 +7,6 @@
 
 ---
 
-## Description
-
-Extracted privacy compliance artefacts for quick LLM lookup without reading the full DPIA. Contains standalone checklists and templates ready for use.
-
-**Content List:**
-- IPP 12 cross-border control checklist (Option B: AU inference, NZ keys)
-- HISO 10029 control mapping summary (12 domains)
-- DPA key clauses (Controller-Processor, Sub-processor templates)
-- Consent and notice text (clinician-facing, patient scribing, cross-border disclosure)
-
----
-
 ## Purpose
 
 This document consolidates privacy compliance artefacts for **quick LLM lookup** without reading the full 560-line DPIA.

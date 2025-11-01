@@ -4,21 +4,6 @@
 
 ---
 
-## Description
-
-Monthly cashflow forecast with grant timing and co-funding capacity demonstration. Shows positive cash position throughout project lifecycle.
-
-**Content List:**
-- Assumptions (rates, hours ramp, operating profit, opening cash)
-- Monthly labour plan (hours breakdown: Q1 16hrs/wk ? Q2 20hrs/wk ? Q3-Q4 24hrs/wk)
-- Quarterly eligible totals and grant receipts (Q1-Q4)
-- Monthly cashflow table (13 months: opening ? inflows ? outflows ? closing)
-- Spreadsheet structure recommendations
-- Summary: 12-month cash position (min $8,216; closes at $73,461)
-- Upload requirements for Forge
-
----
-
 ## Assumptions (Put These in an "Assumptions" Tab)
 
 - **Rate (shareholder-employee):** $96/hour (= $80/hr + 20% overhead), PAYE required

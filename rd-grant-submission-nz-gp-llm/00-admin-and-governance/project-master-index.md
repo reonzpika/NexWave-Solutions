@@ -7,23 +7,6 @@
 
 ---
 
-## Description
-
-Navigation hub and project overview for the ClinicPro R&D grant submission. Provides central access to all project documents, key dates, objectives, and task-based guidance for LLM agents.
-
-**Content List:**
-- Project overview and key details
-- Document map (all 10 documents organized by folder)
-- Key dates and milestones timeline
-- Objectives quick reference (O1-O5, CD-A/B/C)
-- Version control and file naming conventions
-- Document cross-references by use case
-- Task-based guidance for LLM agents (A-F)
-- Common task workflows
-- Success metrics and next actions
-
----
-
 ## Project Overview
 
 ### Project Name
