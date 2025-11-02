@@ -68,7 +68,7 @@ Build a **small, NZ-controlled LLM** (7B-13B parameters) that:
 **No AI Tools for NZ GP Workflow:**
 - **No AI solution for NZ-specific inbox management** (region-specific lab formats: LabTests Auckland ? SCL ? Medlab; DHB letter structures vary)
 - **No NZ clinical coding assistant** (ACC codes, PHO subsidy rules, Care Plus criteria not in GPT-4/5 training data)
-- **No tool checks HealthPathways criteria** before sending referrals (16 DHBs = 16 variations per specialty)
+- **No tool checks HealthPathways criteria** before sending referrals (10 regional Community HealthPathways sites with variations per specialty)
 - **No AI tracks NZ-guideline care gaps** (NZGG diabetes protocols, NZ CVD risk charts, PHO quality indicators)
 
 **Cost Barrier with Commercial LLMs:**
@@ -121,12 +121,12 @@ A **small, NZ-controlled LLM** (7B-13B parameters) fine-tuned for 4 clinical use
 
 **What it does:**
 - Classifies GP inbox items: Labs (urgent/routine), Letters (specialist/discharge/other), Referrals (incoming/updates), Patient messages, Pharmacy queries, Admin
-- Summarizes key points (e.g., "HbA1c 68 ? increased from 52 six months ago ? action required")
+- Summarises key points (e.g., "HbA1c 68 ? increased from 52 six months ago ? action required")
 - Routes to correct workflow (e.g., "Urgent cardiology result ? flag for today's review")
 
 **Why it's R&D:**
 - **NZ-specific challenge:** Lab formats vary by region (LabTests Auckland header structure ? SCL ? Medlab)
-- **Noisy, heterogeneous data:** Inboxes contain everything from structured lab results to rambling patient complaints
+- **Noisy, heterogeneous data:** Inboxes contain everything from structured lab results to unstructured patient messages and pharmacy queries
 - **Multi-label classification:** Single item might need multiple tags (e.g., "Urgent + Cardiology + Action Required")
 - **Uncertainty:** Can a small model handle this variety with regional NZ variations?
 
@@ -140,7 +140,7 @@ A **small, NZ-controlled LLM** (7B-13B parameters) fine-tuned for 4 clinical use
 #### **Use Case 2: Clinical Coding Assistant**
 
 **What it does:**
-- Reads draft SOAP note
+- Reads consultation note
 - Suggests NZ billing codes:
   - **ACC codes** (ACC45, soft tissue injury, gradual process)
   - **PHO codes** (consultation types, age bands)
@@ -149,10 +149,10 @@ A **small, NZ-controlled LLM** (7B-13B parameters) fine-tuned for 4 clinical use
 - Flags potential underbilling (e.g., "Patient has diabetes + hypertension + COPD ? eligible for Care Plus")
 
 **Why it's R&D:**
-- **NZ-unique rules:** ACC codes, PHO subsidies, Care Plus criteria don't exist in GPT-4 training data
+- **NZ-unique rules:** ACC codes, PHO subsidies, Care Plus criteria don't exist in GPT-4/5 training data
 - **Complex logic:** Care Plus requires specific combinations of chronic conditions (not just "3+ conditions")
 - **Extraction challenge:** Pull billable elements from unstructured notes
-- **Limited training data:** Few thousand NZ billing examples vs GPT-4's billions of tokens
+- **Limited training data:** Few thousand NZ billing examples vs GPT-4/5's billions of tokens
 - **Uncertainty:** Can a small model learn these rules from limited data?
 
 **Success metrics:**
@@ -166,14 +166,14 @@ A **small, NZ-controlled LLM** (7B-13B parameters) fine-tuned for 4 clinical use
 
 **What it does:**
 - Reviews outgoing specialist referrals before sending
-- Cross-checks against HealthPathways criteria by DHB (Canterbury ? Auckland ? Wellington)
+- Cross-checks against regional HealthPathways criteria (Canterbury, Auckland, Wellington, etc.)
 - Flags missing information:
   - Example (Cardiology): Missing ECG, lipid panel, smoking status, CVD risk score
   - Example (Dermatology): Missing photo, lesion duration, prior treatments
 - Suggests additions: "?? HealthPathways Cardiology (Canterbury) requires: ECG, lipids, BP, smoking status. Missing: ECG."
 
 **Why it's R&D:**
-- **Regional variation:** Each DHB has different HealthPathways criteria (16 DHBs = 16 variations per specialty)
+- **Regional variation:** 10 regional Community HealthPathways sites with different criteria for each specialty
 - **Unstructured referral letters:** Extract structured fields from free-text narratives
 - **Dynamic requirements:** HealthPathways updates quarterly
 - **Uncertainty:** Can small model track region-specific, evolving criteria and extract required fields?
@@ -217,7 +217,8 @@ A **small, NZ-controlled LLM** (7B-13B parameters) fine-tuned for 4 clinical use
 - Self-host on NZ/AU GPU infrastructure (NZ data sovereignty)
 
 **NZ-Specific Fine-Tuning:**
-- **Domain adaptation:** Continual pretraining on NZ public clinical sources (BPAC, NZGG, Pharmac, NZMA journals)
+- **Domain adaptation:** Continual pretraining on NZ public clinical sources (BPAC, NZGG, Pharmac formulary, NZMA journals, HealthPathways criteria)
+- **NZ health system knowledge:** Train on NZ-specific entities (ACC codes, PHO subsidies, Care Plus criteria, regional lab formats, available tests per region)
 - **Task-specific tuning:** Instruction tuning for 4 use cases using synthetic/de-identified NZ data
 - **Multi-task architecture:** ONE model handles all 4 use cases (shared knowledge, cost-efficient)
 
@@ -238,14 +239,14 @@ A **small, NZ-controlled LLM** (7B-13B parameters) fine-tuned for 4 clinical use
 
 **The Technical Uncertainty:**
 
-> **Research Question:** Can a small model (7B-13B params) achieve 70-80% of GPT-4 quality for NZ-specific clinical tasks while being 100x cheaper at scale?
+> **Research Question:** Can a small model (7B-13B params) achieve 70-80% of GPT-4/5 quality for NZ-specific clinical tasks while being 20-50x cheaper at scale?
 
 **What Makes This Uncertain:**
-1. **No published solution** for achieving GPT-4-like quality with small models under NZ privacy + cost + latency constraints
-2. **NZ-specific data is sparse** (few thousand examples vs GPT-4's trillions of tokens) ? Can small model learn from limited data?
-3. **Multi-task challenge** ? Can ONE model handle 4 diverse tasks (classification, extraction, temporal logic, coding) or do we need 4 specialized models?
+1. **No published solution** for achieving GPT-4/5-like quality with small models under NZ privacy + cost + latency constraints
+2. **NZ-specific data is sparse** (few thousand examples vs GPT-4/5's trillions of tokens) ? Can small model learn from limited data?
+3. **Multi-task challenge** ? Can ONE model handle 4 diverse tasks (classification, extraction, temporal logic, coding) or do we need 4 specialised models?
 4. **Safety vs usefulness trade-off** ? How aggressive can refusal scaffolds be without making the model useless?
-5. **Regional variation** ? Can model handle 16 DHBs' worth of HealthPathways variations?
+5. **Regional variation** ? Can model handle 10 regional Community HealthPathways sites' variations?
 
 **What We Cannot Deduce in Advance:**
 - Optimal model size (7B too small? 13B sufficient? 30B needed?)
@@ -262,7 +263,7 @@ A **small, NZ-controlled LLM** (7B-13B parameters) fine-tuned for 4 clinical use
 ### **4.1 The Challenge**
 
 **Microsoft Azure OpenAI Service (AU-hosted) exists and solves privacy:**
-- GPT-4 deployed in Australia East (Sydney)
+- GPT-4/5 deployed in Australia East (Sydney)
 - Data residency guarantees (no persistent storage outside selected region)
 - Microsoft compliance (SOC 2, ISO 27001, HIPAA-equivalent)
 
@@ -272,28 +273,28 @@ A **small, NZ-controlled LLM** (7B-13B parameters) fine-tuned for 4 clinical use
 
 ### **4.2 The Cost Problem at Scale**
 
-**Azure OpenAI Pricing:**
-- GPT-4: ~$0.03/1k input tokens + ~$0.06/1k output tokens
-- Average GP request: ~1k input + 500 output tokens = **~$0.06/request**
+**Azure OpenAI Pricing (GPT-4 Turbo):**
+- Input: $0.01/1k tokens; Output: $0.03/1k tokens
+- Average GP request: ~1k input + 300 output tokens = **~$0.019/request**
 
-**At National Scale (10,000 GPs):**
-- 10,000 GPs ? 50 requests/day = **500,000 requests/day**
-- 500,000 ? $0.06 = **$30,000/day**
-- **$30,000/day ? 30 days = $900,000/month** ??
-- **$10.8 million/year for just the API costs**
+**At National Scale (5,000 NZ GPs):**
+- 5,000 GPs ? 50 requests/day = **250,000 requests/day**
+- 250,000 ? $0.019 = **$4,750/day**
+- **$4,750/day ? 30 days = $142,500/month**
+- **$1.71 million/year for just the API costs**
 
 **Self-Hosted Small Model:**
 - Fixed infrastructure: ~$5-10k/month (GPU servers in NZ/AU)
-- **Same 500k requests/day = $5-10k/month**
+- **Same 250k requests/day = $5-10k/month**
 - **$60-120k/year**
 
-**Savings: 100x cheaper at national scale**
+**Savings: 17-28x cheaper at national scale**
 
 ---
 
 ### **4.3 The R&D Justification**
 
-> "Azure OpenAI solves privacy but creates a NEW problem: **unsustainable cost at scale**. Our R&D explores: **Can we achieve 70-80% of GPT-4 quality at 1% of the cost?** If yes, NZ health sector saves $10+ million/year."
+> "Azure OpenAI solves privacy but creates a NEW problem: **unsustainable cost at scale**. Our R&D explores: **Can we achieve 70-80% of GPT-4/5 quality at 20-50x lower cost?** If yes, NZ health sector saves $1.5+ million/year."
 
 **This positions the R&D as:**
 - ? **Cost optimization for national scale** (aligns with govt priorities)
@@ -546,7 +547,7 @@ Beyond cost:
 |------|------------|--------|------------|
 | **1. PHI Leakage (Cross-Border)** | Low | Critical | ? No persistent PHI outside NZ; NZ-held keys; ephemeral AU caches only; SIEM monitoring for unusual data flows; monthly PHI leakage tests |
 | **2. Unsafe Model Outputs** | Medium | Critical | ? Assist-only policy engine; claim/PII classifiers; refusal scaffolds; clinician-in-the-loop (human review); monthly safety regressions (hard stop if prohibited-claim >0.5%) |
-| **3. Small Model Quality Insufficient** | Medium | High | ? Systematic experimentation (O1-O2); baseline GPT-4 comparison; iterative tuning; acceptance threshold: 70-80% of GPT-4 quality (not 100%); pivots possible if 7B too small (try 13B) |
+| **3. Small Model Quality Insufficient** | Medium | High | ? Systematic experimentation (O1-O2); baseline GPT-4/5 comparison; iterative tuning; acceptance threshold: 70-80% of GPT-4/5 quality (not 100%); pivots possible if 7B too small (try 13B) |
 | **4. Cashflow Shortfall** | Low | High | ? Sustainable revenue from ClinicPro operations; cash position positive throughout ($5k opening ? $73k closing); quarterly grant receipts; contingency: reduce hours if needed |
 | **5. Over-Reliance by Clinicians** | Medium | High | ? Clear labeling ("AI-generated; use clinical judgment"); no auto-insert (manual review required); training materials for pilot clinics; periodic UI reminders |
 | **6. Scope Creep / Misconfiguration** | Medium | Medium | ? Least-privilege Medtech scopes (only access necessary fields); change control gates (Privacy Lead approval for new data uses); quarterly reviews |
@@ -740,11 +741,11 @@ Disciplined scope prevents mission creep:
 
 ### **10.4 R&D Success Threshold**
 
-**We DO NOT need to match GPT-4 100%.** Success = achieving **70-80% of GPT-4 quality at 1% of the cost**.
+**We DO NOT need to match GPT-4/5 100%.** Success = achieving **70-80% of GPT-4/5 quality at 20-50x lower cost**.
 
 **Example:**
-- If GPT-4 gets 95% coding accuracy, we need ?70% accuracy (acceptable for assist-only use)
-- If GPT-4 costs $0.06/request, we need ?$0.001/request (100x cheaper)
+- If GPT-4/5 gets 95% coding accuracy, we need ?70% accuracy (acceptable for assist-only use)
+- If GPT-4/5 costs $0.019/request (Azure), we need ?$0.0005/request (self-hosted: 20-50x cheaper)
 
 **This trade-off is the R&D question:** Is 70-80% quality sufficient for clinical utility? Unknown ? requires pilot evaluation.
 
@@ -755,13 +756,13 @@ Disciplined scope prevents mission creep:
 **We'd value your input on:**
 
 1. **R&D justification:**
-   - Is the "small model vs GPT-4 under NZ constraints" framing strong enough?
+   - Is the "small model vs GPT-4/5 under NZ constraints" framing strong enough?
    - Are the 4 use cases defensible as true R&D (not just product development)?
-   - Does the "Azure costs 100x more at scale" counter-argument hold up?
+   - Does the "Azure costs 20-50x more at scale" counter-argument hold up?
 
 2. **Success criteria:**
    - Are the targets realistic? (90% inbox accuracy, 85% coding accuracy, 5s latency)
-   - Is 70-80% of GPT-4 quality an acceptable success threshold?
+   - Is 70-80% of GPT-4/5 quality an acceptable success threshold?
    - Are we measuring the right things?
 
 3. **Cashflow/co-funding:**
