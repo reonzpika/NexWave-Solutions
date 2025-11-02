@@ -41,12 +41,12 @@ Build a **small, NZ-controlled LLM** (7B-13B parameters) that:
 ### **Grant Ask & Timeline**
 - **Total eligible costs:** $107,232 (excl. GST)
 - **Grant (40%):** $42,893
-- **Co-funding (60%):** $64,339 (from sustainable ClinicPro revenue)
+- **Co-funding (60%):** $64,339 (from GP clinical work income)
 - **Timeline:** 12 months (5 R&D Objectives + Capability Development)
 
 ### **Key Differentiators**
 ? **NZ data sovereignty** (self-hosted in NZ/AU, NZ-held keys)  
-? **Cost-effective at scale** (20-50x cheaper than Azure OpenAI)  
+? **Cost-effective at scale** (fixed infrastructure vs pay-per-request)  
 ? **NZ-tuned** (Pharmac, ACC, HealthPathways, regional variations)  
 ? **Medtech partnership** (NZ's largest PMS = real-world testing)  
 ? **Privacy-first** (no training on production PHI; synthetic/de-identified only)
@@ -74,7 +74,7 @@ Build a **small, NZ-controlled LLM** (7B-13B parameters) that:
 **Cost Barrier with Commercial LLMs:**
 - Azure OpenAI (AU-hosted, solves privacy) costs **$140-170k/month at national scale** (5,000 GPs ? 50 requests/day)
 - Self-hosted small model: **$5-10k/month** (fixed, regardless of volume within capacity)
-- **20-50x cost difference at scale**
+- **Dramatically more cost-effective at scale**
 
 **Privacy Concerns with Commercial LLMs:**
 - GPT-4/5 API sends PHI to US servers (some NZ privacy officers won't allow this)
@@ -239,7 +239,7 @@ A **small, NZ-controlled LLM** (7B-13B parameters) fine-tuned for 4 clinical use
 
 **The Technical Uncertainty:**
 
-> **Research Question:** Can a small model (7B-13B params) achieve 70-80% of GPT-4/5 quality for NZ-specific clinical tasks while being 20-50x cheaper at scale?
+> **Research Question:** Can a small model (7B-13B params) achieve 70-80% of GPT-4/5 quality for NZ-specific clinical tasks under strict cost, privacy, and latency constraints?
 
 **What Makes This Uncertain:**
 1. **No published solution** for achieving GPT-4/5-like quality with small models under NZ privacy + cost + latency constraints
@@ -411,8 +411,8 @@ Beyond cost:
 ### **6.2 Cashflow Confidence**
 
 **Co-Funding Source:**
-- ? **Sustainable revenue** from existing ClinicPro operations (AI scribe with third-party LLM)
-- ? **Monthly revenue consistently exceeds R&D costs** (co-funding sourced from current business)
+- ? **Income from GP clinical work** (shareholder-director compensated via PAYE for R&D labour)
+- ? **Consistent income stream** exceeds R&D costs throughout the project
 - ? **Cash position remains positive throughout** 12-month project:
   - Opening cash: $5,000
   - Minimum cash position: $8,216 (Month 1)
@@ -428,10 +428,8 @@ Beyond cost:
 
 ### **6.3 Labour Plan**
 
-**Stepped Hours Approach (Sustainable Scaling):**
-- Q1 (Jan-Mar): 16 hrs/week R&D + CapDev setups
-- Q2 (Apr-Jun): 20 hrs/week R&D
-- Q3-Q4 (Jul-Dec): 24 hrs/week R&D
+**Consistent R&D Commitment:**
+- ~20 hrs/week throughout 12 months
 
 **Total Hours:**
 - R&D: 1,062 hours across 5 Objectives
@@ -548,7 +546,7 @@ Beyond cost:
 | **1. PHI Leakage (Cross-Border)** | Low | Critical | ? No persistent PHI outside NZ; NZ-held keys; ephemeral AU caches only; SIEM monitoring for unusual data flows; monthly PHI leakage tests |
 | **2. Unsafe Model Outputs** | Medium | Critical | ? Assist-only policy engine; claim/PII classifiers; refusal scaffolds; clinician-in-the-loop (human review); monthly safety regressions (hard stop if prohibited-claim >0.5%) |
 | **3. Small Model Quality Insufficient** | Medium | High | ? Systematic experimentation (O1-O2); baseline GPT-4/5 comparison; iterative tuning; acceptance threshold: 70-80% of GPT-4/5 quality (not 100%); pivots possible if 7B too small (try 13B) |
-| **4. Cashflow Shortfall** | Low | High | ? Sustainable revenue from ClinicPro operations; cash position positive throughout ($5k opening ? $73k closing); quarterly grant receipts; contingency: reduce hours if needed |
+| **4. Cashflow Shortfall** | Low | High | ? Income from GP clinical work funds co-contribution; cash position positive throughout ($5k opening ? $73k closing); quarterly grant receipts; contingency: reduce hours if needed |
 | **5. Over-Reliance by Clinicians** | Medium | High | ? Clear labeling ("AI-generated; use clinical judgment"); no auto-insert (manual review required); training materials for pilot clinics; periodic UI reminders |
 | **6. Scope Creep / Misconfiguration** | Medium | Medium | ? Least-privilege Medtech scopes (only access necessary fields); change control gates (Privacy Lead approval for new data uses); quarterly reviews |
 | **7. Vendor/Sub-Processor Breach** | Low | Critical | ? Due diligence on AU GPU provider; DPA with breach notification (24hr); NZ-held key revocation (immediate lockout); isolation and rollback plan tested |
@@ -604,7 +602,7 @@ This isn't a concept ? **ClinicPro is live**:
 
 **Why R&D is needed:** Third-party LLMs have:
 - ? Privacy concerns (PHI sent to US servers)
-- ? Cost at scale (Azure OpenAI: $900k/month for 10k GPs)
+- ? Cost at scale (Azure OpenAI: $140k+/month for 5,000 GPs)
 - ? Not NZ-tuned (miss Pharmac, ACC codes, HealthPathways, NZ lab formats)
 - ? Limited use cases (scribing only; no inbox management, coding, referrals, care gaps)
 
@@ -766,7 +764,7 @@ Disciplined scope prevents mission creep:
    - Are we measuring the right things?
 
 3. **Cashflow/co-funding:**
-   - Is "sustainable revenue from existing ClinicPro" sufficient justification?
+   - Is "income from GP clinical work" sufficient co-funding justification?
    - Should we provide more financial detail or is current level appropriate?
 
 4. **Compliance approach:**
