@@ -1,7 +1,7 @@
 # Forge Application Narrative and Objectives
 
 ## Application Title
-**Original NZ GP clinical LLM (assist-only) for scribing, inbox management and history summaries**
+**NZ-Sovereign Clinical LLM (assist-only) for GP workflow: inbox management, clinical coding, referral quality, and care gap monitoring**
 
 ## Proposed Dates
 - **Start:** 27 Jan 2026
@@ -15,11 +15,12 @@
 
 ## Background and Compliance (?250 words)
 
-NexWave Solutions Ltd develops privacy-preserving AI tools for NZ general practice. We will build an original NZ GP clinical LLM to improve work efficiency in three areas:
+NexWave Solutions Ltd develops privacy-preserving AI tools for NZ general practice. We will build a NZ-sovereign clinical LLM to improve work efficiency in four areas:
 
-- **AI scribe:** assist-only SOAP drafting with fewer edits
 - **Inbox management:** classify, summarise and route items to reduce triage time
-- **Clinical history summaries:** concise, safe overviews for clinician review
+- **Clinical coding assistant:** suggest NZ billing codes (ACC, PHO, Care Plus)
+- **Referral quality checker:** flag missing HealthPathways criteria before sending
+- **Chronic care gap identifier:** alert overdue NZ-guideline monitoring
 
 The system is strictly assist-only. It never provides diagnostic or treatment directives. Development uses synthetic and de-identified data only; no production PHI is used for model training.
 
@@ -34,17 +35,18 @@ Initial integration is Medtech-first using synthetic workloads. Any pilot will r
 - NZ-incorporated company; solvent; intends to conduct ongoing R&D.
 - **New to R&D:** ? $150k total R&D in last three years; no R&D grants/loans > $5k in last three years.
 - Not grouped with an R&D performer (> $150k in last three years).
-- Able to fund 60% co-funding from operating profit and cash; evidence provided.
+- Able to fund 60% co-funding from GP clinical work income; evidence provided.
 
 ---
 
 ## Describe Planned R&D Activities (?250 words)
 
-Build a small/medium NZ-tuned LLM with task adapters for:
+Build a small NZ-tuned LLM (7B-13B parameters) with task adapters for:
 
-- **Scribing:** streaming SOAP drafting to reduce edit burden
-- **Inbox management:** safe classification/summarisation/routing
-- **History summaries:** concise overviews for clinician review
+- **Inbox management:** safe classification/summarisation/routing of labs, letters, referrals
+- **Clinical coding:** suggest ACC codes, PHO subsidies, Care Plus eligibility from consultation notes
+- **Referral quality:** check against 10 regional Community HealthPathways criteria
+- **Care gap monitoring:** track NZ-guideline chronic disease monitoring (NZGG, PHO indicators)
 
 **Domain adaptation:** continual pretraining and instruction tuning on NZ public clinical sources (as permitted) and synthetic/de-identified corpora. No training on production PHI.
 
@@ -138,12 +140,12 @@ Inference may occur in Australia with no persistent PHI outside New Zealand. All
 ### O2: NZ GP Domain Adaptation (10 Feb ? 30 May 2026)
 
 **Deliverables:**
-- Continual pretraining and instruction tuning for scribe, inbox, history
+- Continual pretraining and instruction tuning for 4 use cases (inbox, coding, referrals, care gaps)
 - Model v0.1
 
 **Targets:**
-- ? 20% scribe edit-distance reduction vs transcript-only
-- Template conformity ? 90%
+- Inbox classification accuracy ? 70% (baseline)
+- Clinical coding accuracy ? 60% (baseline)
 
 ---
 
@@ -203,8 +205,10 @@ Inference may occur in Australia with no persistent PHI outside New Zealand. All
 ## Success Metrics (for Internal Tracking)
 
 ### Utility
-- ? 30% reduction in scribe edit distance by Month 10
-- Clinician-rated usefulness ? 80% for inbox and summaries
+- ? 30% reduction in inbox triage time by Month 10
+- Clinician-rated usefulness ? 80% for all 4 use cases
+- ? 5% appropriate billing revenue uplift (coding assistant)
+- Referral acceptance rate ? 90% (reduced bounce-backs)
 
 ### Safety
 - Prohibited-claim rate ? 0.5%
@@ -212,6 +216,6 @@ Inference may occur in Australia with no persistent PHI outside New Zealand. All
 - Zero PHI leakage in tests
 
 ### Performance
-- P95 ? 5.0 s per scribe section
-- P95 ? 5.0 s per inbox action
-- Stable unit economics on local infrastructure
+- Response time P95 ? 5.0 s (all use cases)
+- Stable throughput under load
+- Cost-effective at scale (20-50x cheaper than Azure OpenAI)

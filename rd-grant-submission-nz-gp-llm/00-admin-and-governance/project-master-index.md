@@ -10,8 +10,8 @@
 ## Project Overview
 
 ### Project Name
-**ClinicPro: Original NZ GP clinical LLM (assist-only)**  
-Scribe, inbox management, and clinical history summaries
+**ClinicPro: NZ-Sovereign Clinical LLM (assist-only)**  
+Inbox management, clinical coding, referral quality, and care gap monitoring
 
 ### Organisation
 **NexWave Solutions Ltd**
@@ -22,7 +22,7 @@ Scribe, inbox management, and clinical history summaries
 - **Grant Type:** New to R&D Grant (Callaghan Innovation)
 - **Total Eligible Costs:** $107,232 (excl. GST)
 - **Grant (40%):** $42,893
-- **Co-funding (60%):** $64,339 (from operating profit)
+- **Co-funding (60%):** $64,339 (from GP clinical work income)
 
 ### Contacts
 - **NexWave Director:** [insert name/email/phone]
@@ -55,8 +55,9 @@ Scribe, inbox management, and clinical history summaries
 - Background and compliance (?250 words)
 - R&D activities, uncertainty, newness (?250 words each)
 - 5 R&D Objectives (O1?O5) with deliverables and targets
-- 2 Capability Development streams (CD-A, CD-B)
+- 3 Capability Development streams (CD-A, CD-B, CD-C)
 - Success metrics (utility, safety, performance)
+- **4 Use Cases:** Inbox management, clinical coding, referral quality, care gap monitoring
 
 ---
 
@@ -75,10 +76,10 @@ Scribe, inbox management, and clinical history summaries
 **Purpose:** Monthly cashflow forecast with grant timing  
 **When to use:** Demonstrate co-funding capacity; track cash position  
 **Key sections:**
-- Monthly labour plan (hours ramp: 16?20?24 hrs/week)
+- Monthly labour plan (~20 hrs/week throughout)
 - Monthly inflows/outflows (Months 1?13)
 - Cash position: $5,000 opening ? $73,461 closing (always positive ?)
-- Operating profit: $11,000/month funds co-funding
+- GP clinical work income funds co-funding
 
 ---
 
@@ -464,8 +465,8 @@ See `00-admin-and-governance/risk-and-change-management.md` for all document ver
 - ? Zero PHI leakage in red-team tests
 
 ### Performance Targets
-- ? P95 ? 5.0 s per scribe section
-- ? P95 ? 5.0 s per inbox action
+- ? Response time P95 ? 5.0 s (all use cases)
+- ? Cost-effective at scale (20-50x cheaper than Azure OpenAI)
 - ? Stable unit economics on local infrastructure
 
 ---

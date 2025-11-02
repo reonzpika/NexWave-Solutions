@@ -6,7 +6,7 @@
 ## Project Overview
 
 ### Project Name
-**ClinicPro NZ GP clinical LLM (assist-only)** ? scribe, inbox management, history summaries
+**ClinicPro NZ GP clinical LLM (assist-only)** ? inbox management, clinical coding, referral quality, and care gap monitoring
 
 ### Organisation
 **NexWave Solutions Ltd (ClinicPro)**
@@ -210,7 +210,7 @@ Synthetic data retained per R&D governance; no PHI
 - No training on PHI; access/correction routes; contact details
 
 ### Patient Consent/Notice for Scribing (Example Text)
-> "With your consent, your clinician may use an AI scribe to help draft notes. The AI does not make medical decisions. Information may be processed on secure servers in Australia but is not stored there; your records remain in New Zealand. You can say no at any time."
+> "Your clinician may use AI assistance to help manage their workflow (inbox, coding, referrals, care gaps). The AI does not make medical decisions. Information may be processed on secure servers in Australia but is not stored there; your records remain in New Zealand."
 
 ---
 
@@ -385,7 +385,7 @@ Quarterly; earlier on material change (new regions, new sub-processors, new data
 
 ### Lawful Basis and Scope
 - [ ] Identify personal/health information categories, purposes, and minimal fields disclosed cross-border
-- [ ] Confirm disclosure is necessary for the stated service (assist-only scribe, inbox, summaries)
+- [ ] Confirm disclosure is necessary for the stated service (assist-only inbox, coding, referrals, care gaps)
 
 ### Comparable Safeguards (Contractual)
 - [ ] Controller?Processor DPA in place with clinic
@@ -485,7 +485,7 @@ Quarterly; earlier on material change (new regions, new sub-processors, new data
 - Named sub-processors listed in annex
 
 ### Purpose Limitation and Instructions
-- Processing solely to deliver assist-only scribe, inbox, and history summaries
+- Processing solely to deliver assist-only inbox management, clinical coding, referral quality checking, and care gap monitoring
 - Follow documented Controller instructions
 - Notify if instructions conflict with law
 

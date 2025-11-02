@@ -7,13 +7,10 @@
 ## Assumptions (Put These in an "Assumptions" Tab)
 
 - **Rate (shareholder-employee):** $96/hour (= $80/hr + 20% overhead), PAYE required
-- **Hours ramp (claimable R&D hours):**
-  - Q1: 16 hrs/week
-  - Q2: 20 hrs/week
-  - Q3?Q4: 24 hrs/week
+- **Hours commitment (claimable R&D hours):** ~20 hrs/week throughout (monthly breakdown varies by objective timing)
 - **Capability Development labour:** 30 one-off hours (Month 1 = 10h; Month 2 = 10h; Month 4 = 10h)
 - **Materials & consumables (M&C):** $200/month (software $100 + infrastructure $100)
-- **Operating profit available to fund R&D:** $11,000 per month
+- **GP clinical work income available to fund R&D:** $11,000 per month
 - **Opening cash:** $5,000
 - **Claim cadence:** End of Months 3, 6, 9, 12 (Q1?Q4); grant (40%) paid the following month (Months 4, 7, 10, 13)
 - **Figures:** GST-exclusive (track GST on a separate line in the sheet)
@@ -70,7 +67,7 @@
 |------|--------------|
 | **Opening Cash** | $5,000 |
 | **Inflows:** | |
-| Operating Profit | $11,000 |
+| GP Clinical Income | $11,000 |
 | Grant Received | $0 |
 | **Total Inflows** | **$11,000** |
 | **Outflows:** | |
@@ -88,7 +85,7 @@
 |------|--------------|
 | **Opening Cash** | $8,216 |
 | **Inflows:** | |
-| Operating Profit | $11,000 |
+| GP Clinical Income | $11,000 |
 | Grant Received | $0 |
 | **Total Inflows** | **$11,000** |
 | **Outflows:** | |
@@ -106,7 +103,7 @@
 |------|--------------|
 | **Opening Cash** | $11,432 |
 | **Inflows:** | |
-| Operating Profit | $11,000 |
+| GP Clinical Income | $11,000 |
 | Grant Received | $0 |
 | **Total Inflows** | **$11,000** |
 | **Outflows:** | |
@@ -124,7 +121,7 @@
 |------|--------------|
 | **Opening Cash** | $17,432 |
 | **Inflows:** | |
-| Operating Profit | $11,000 |
+| GP Clinical Income | $11,000 |
 | Grant Received (Q1: 40% of $22,568) | $9,027 |
 | **Total Inflows** | **$20,027** |
 | **Outflows:** | |
@@ -142,7 +139,7 @@
 |------|--------------|
 | **Opening Cash** | $28,235 |
 | **Inflows:** | |
-| Operating Profit | $11,000 |
+| GP Clinical Income | $11,000 |
 | Grant Received | $0 |
 | **Total Inflows** | **$11,000** |
 | **Outflows:** | |
@@ -160,7 +157,7 @@
 |------|--------------|
 | **Opening Cash** | $31,067 |
 | **Inflows:** | |
-| Operating Profit | $11,000 |
+| GP Clinical Income | $11,000 |
 | Grant Received | $0 |
 | **Total Inflows** | **$11,000** |
 | **Outflows:** | |
@@ -178,7 +175,7 @@
 |------|--------------|
 | **Opening Cash** | $33,899 |
 | **Inflows:** | |
-| Operating Profit | $11,000 |
+| GP Clinical Income | $11,000 |
 | Grant Received (Q2: 40% of $25,560) | $10,224 |
 | **Total Inflows** | **$21,224** |
 | **Outflows:** | |
@@ -196,7 +193,7 @@
 |------|--------------|
 | **Opening Cash** | $44,939 |
 | **Inflows:** | |
-| Operating Profit | $11,000 |
+| GP Clinical Income | $11,000 |
 | Grant Received | $0 |
 | **Total Inflows** | **$11,000** |
 | **Outflows:** | |
@@ -214,7 +211,7 @@
 |------|--------------|
 | **Opening Cash** | $45,755 |
 | **Inflows:** | |
-| Operating Profit | $11,000 |
+| GP Clinical Income | $11,000 |
 | Grant Received | $0 |
 | **Total Inflows** | **$11,000** |
 | **Outflows:** | |
@@ -232,7 +229,7 @@
 |------|--------------|
 | **Opening Cash** | $46,571 |
 | **Inflows:** | |
-| Operating Profit | $11,000 |
+| GP Clinical Income | $11,000 |
 | Grant Received (Q3: 40% of $30,552) | $12,221 |
 | **Total Inflows** | **$23,221** |
 | **Outflows:** | |
@@ -250,7 +247,7 @@
 |------|--------------|
 | **Opening Cash** | $59,608 |
 | **Inflows:** | |
-| Operating Profit | $11,000 |
+| GP Clinical Income | $11,000 |
 | Grant Received | $0 |
 | **Total Inflows** | **$11,000** |
 | **Outflows:** | |
@@ -268,7 +265,7 @@
 |------|--------------|
 | **Opening Cash** | $60,424 |
 | **Inflows:** | |
-| Operating Profit | $11,000 |
+| GP Clinical Income | $11,000 |
 | Grant Received | $0 |
 | **Total Inflows** | **$11,000** |
 | **Outflows:** | |
@@ -286,7 +283,7 @@
 |------|--------------|
 | **Opening Cash** | $61,240 |
 | **Inflows:** | |
-| Operating Profit | $0 |
+| GP Clinical Income | $0 |
 | Grant Received (Q4: 40% of $30,552) | $12,221 |
 | **Total Inflows** | **$12,221** |
 | **Outflows:** | |
@@ -301,10 +298,10 @@
 ### Recommended Tabs
 
 1. **Assumptions**
-   - Rates, hours ramp, M&C, profit, claim months, grant lag, GST rate
+   - Rates, hours commitment, M&C, GP income, claim months, grant lag, GST rate
 
 2. **Cashflow**
-   - Columns: Month | Opening | Profit | Grants | R&D Labour | CapDev Labour | M&C | Total Outflows | GST Net | Closing
+   - Columns: Month | Opening | GP Income | Grants | R&D Labour | CapDev Labour | M&C | Total Outflows | GST Net | Closing
 
 3. **Hours Plan**
    - Per month split of R&D/CapDev hours
@@ -337,7 +334,7 @@
 
 **Closing cash:**
 ```
-= Opening + Profit + Grants ? Total_outflows ? GST_net
+= Opening + GP_Income + Grants ? Total_outflows ? GST_net
 ```
 
 **GST net (advice):** Model GST collected/paid on separate lines; keep above figures GST-exclusive.
@@ -348,7 +345,7 @@
 
 *Include on a "Notes" tab*
 
-- The company funds 60% co-funding and the working-capital float from operating profit (~$11k/month)
+- The company funds 60% co-funding and the working-capital float from GP clinical work income (~$11k/month)
 - **Closing cash remains positive throughout** (ranging from $8,216 in Month 1 to $73,461 in Month 13)
 - No production PHI is used for training; development uses synthetic/de-identified data only
 - **Overseas labour is $0**; AU usage is transient inference only (no persistent PHI outside NZ)
@@ -363,7 +360,7 @@
 | Metric | Amount (NZD) |
 |--------|--------------|
 | Opening Cash (Month 1) | $5,000 |
-| Total Operating Profit (Months 1-12) | $132,000 |
+| Total GP Clinical Income (Months 1-12) | $132,000 |
 | Total Grants Received (Months 4, 7, 10, 13) | $43,693 |
 | Total R&D Labour | $101,952 |
 | Total CapDev Labour | $2,880 |
@@ -388,7 +385,7 @@
 ### Optional (Strengthens Application)
 
 4. **One-page visual "Grant timing & cash buffer" chart**
-   - Shows profit inflows
+   - Shows GP income inflows
    - Claim submission months
    - Grant receipt months
    - Demonstrates positive cash position throughout

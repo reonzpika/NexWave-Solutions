@@ -103,7 +103,7 @@ This document tracks:
 
 ### R05: Scope Creep / Misconfiguration
 - **Category:** Operational
-- **Description:** Excessive data access or unintended uses (beyond scribe, inbox, history summaries)
+- **Description:** Excessive data access or unintended uses (beyond inbox, coding, referrals, care gaps)
 - **Likelihood:** Medium (complex integration)
 - **Impact:** Medium (privacy breach, wasted effort)
 - **Mitigations:**
@@ -168,11 +168,11 @@ This document tracks:
 
 ### R09: Cashflow Shortfall (Co-Funding)
 - **Category:** Financial
-- **Description:** Operating profit insufficient to fund 60% co-funding or working capital float
+- **Description:** GP clinical work income insufficient to fund 60% co-funding or working capital float
 - **Likelihood:** Low (with forecast)
 - **Impact:** High (project pause, grant breach)
 - **Mitigations:**
-  - $11,000/month operating profit demonstrated in cashflow forecast
+  - $11,000/month GP clinical work income demonstrated in cashflow forecast
   - Positive cash position throughout (minimum $8,216; closes at $73,461)
   - Quarterly review of actual vs forecast cashflow
   - Contingency: reduce R&D hours if revenue drops
@@ -284,9 +284,9 @@ Each Objective has entry/exit criteria and safety gates to ensure quality and co
 ### Exit Criteria
 - [ ] NZ public corpus curated (with source register)
 - [ ] Synthetic/de-identified datasets created and tagged in DVC
-- [ ] Eval harness built (scribe edit-distance, inbox quality, latency)
+- [ ] Eval harness built (inbox classification, coding accuracy, referral completeness, care gap detection, latency)
 - [ ] Baseline model selected and quantized
-- [ ] Baseline metrics measured: latency P95, scribe edit distance, inbox quality
+- [ ] Baseline metrics measured: latency P95, inbox classification accuracy, coding accuracy baseline
 
 ### Safety Gates
 - [ ] No production PHI used in datasets
@@ -303,9 +303,9 @@ Each Objective has entry/exit criteria and safety gates to ensure quality and co
 
 ### Exit Criteria
 - [ ] Continual pretraining on NZ public sources completed
-- [ ] Instruction tuning for scribe, inbox, history completed
+- [ ] Instruction tuning for 4 use cases (inbox, coding, referrals, care gaps) completed
 - [ ] Model v0.1 released
-- [ ] ? 20% scribe edit-distance reduction vs transcript-only
+- [ ] ? 70% inbox classification accuracy (baseline); ? 60% coding accuracy (baseline)
 - [ ] Template conformity ? 90%
 
 ### Safety Gates
@@ -378,7 +378,7 @@ Each Objective has entry/exit criteria and safety gates to ensure quality and co
   - [ ] Transparency page live
   - [ ] Safety regressions up-to-date (last 3 months)
   - [ ] Rollback plan tested
-- [ ] Utility targets met: ?30% scribe edit-distance reduction; ?80% usefulness
+- [ ] Utility targets met: ?30% inbox triage time reduction; ?85% coding accuracy; ?80% usefulness (all 4 use cases)
 - [ ] Safety targets met: prohibited-claim ?0.5%; refusal ?95%; zero PHI leakage
 
 ### Safety Gates (Pre-Pilot)
@@ -408,7 +408,7 @@ Each Objective has entry/exit criteria and safety gates to ensure quality and co
   - [ ] Refusal appropriateness ? 95%
   - [ ] Zero PHI leakage in test suite
 - [ ] Red-team tests passed (no diagnostic/treatment directives)
-- [ ] Latency benchmarks met (P95 ? 5.0s scribe; ? 5.0s inbox)
+- [ ] Latency benchmarks met (Response time P95 ? 5.0s for all use cases)
 - [ ] Monthly safety pack generated and reviewed
 
 ### Compliance Checks

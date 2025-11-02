@@ -6,7 +6,7 @@
 ## Assumptions (for All Tabs)
 
 - **Shareholder-employee internal labour rate:** $96/hour (= $80/hr + 20% overhead), PAYE, timesheets required
-- **Work ramp (claimable R&D hours):** 16 hrs/week (Q1) ? 20 hrs/week (Q2) ? 24 hrs/week (Q3?Q4)
+- **Work commitment (claimable R&D hours):** ~20 hrs/week throughout 12 months
 - **Capability Development:** 30 one-off hours total (Months 1?2 and Month 4), courses are free but eligible
 - **Materials & consumables (M&C):** $200/month ($100 software + $100 infrastructure)
 - **Overseas labour:** None. AU is used only for transient inference; not a labour cost

@@ -232,12 +232,14 @@ Contact:
 
 | Metric | Target | Current | Status |
 |--------|--------|---------|--------|
-| Scribe edit-distance reduction | ? 20% (Month 5) | [%] | [On/Off track] |
-| Inbox usefulness | ? 80% clinician-rated | [%] | [On/Off track] |
+| Inbox triage time reduction | ? 30% (Month 10) | [%] | [On/Off track] |
+| Coding accuracy | ? 85% | [%] | [On/Off track] |
+| Referral acceptance rate | ? 90% | [%] | [On/Off track] |
+| Care gap detection accuracy | ? 85% | [%] | [On/Off track] |
+| Clinician usefulness | ? 80% (all 4 use cases) | [%] | [On/Off track] |
 | Refusal appropriateness | ? 95% | [%] | [On/Off track] |
 | Prohibited-claim rate | ? 0.5% | [%] | [On/Off track] |
-| Latency P95 (scribe section) | ? 5.0 s | [s] | [On/Off track] |
-| Latency P95 (inbox action) | ? 5.0 s | [s] | [On/Off track] |
+| Response time P95 | ? 5.0 s (all use cases) | [s] | [On/Off track] |
 
 ### Spend Summary (excl. GST)
 
