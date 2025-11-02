@@ -11,29 +11,29 @@
 ## **Section 1: Executive Summary** (1 page)
 
 ### **The Problem**
-New Zealand GPs face unsustainable workload:
-- 2-3 hours/day on inbox triage (labs, letters, referrals)
-- 10-15% underbilling due to missed codes (ACC, Care Plus, consultation types)
-- Incomplete referrals bounced back by specialists (delays patient care)
-- Chronic disease monitoring gaps (PHO funding at risk)
+New Zealand GPs face unsustainable workload and burnout crisis:
+- **Non-contact clinical/admin tasks consume 30.8%** of GP time (documentation, inbox, billing)
+- **Burnout epidemic:** 79% of GPs report burnout; 48% report high burnout ? major contributors are staff shortages and time on admin tasks
+- **Billing complexity:** Missed claims and billing errors are common (ACC, Care Plus eligibility, consultation types)
+- **Quality gaps:** Incomplete referrals bounced back by specialists (delays patient care); chronic disease monitoring falls behind (PHO funding at risk)
 
 ### **Why Existing Solutions Don't Work**
-- **Commercial LLMs (GPT-4):** Privacy concerns (PHI to US), expensive at scale ($900k/month for 10k GPs), not NZ-tuned
+- **Commercial LLMs (GPT-4/5):** Privacy concerns (PHI to US), expensive at scale ($450k/month for 5,000 NZ GPs), not NZ-tuned
 - **Azure OpenAI (AU-hosted):** Solves privacy but costs 100x more at scale vs self-hosted small model
-- **Overseas AI scribes:** Not tuned for NZ (Pharmac, ACC codes, HealthPathways, NZ lab formats)
+- **Limited AI tools for GP workflow:** No NZ-specific solutions for inbox management, clinical coding, referral checking, or care gap monitoring
 
 ### **Our Solution**
 Build a **small, NZ-controlled LLM** (7B-13B parameters) that:
-1. **Inbox Management** ? Classify, summarize, route GP inbox items
+1. **Inbox Management** ? Classify, summarise, route GP inbox items
 2. **Clinical Coding Assistant** ? Suggest NZ billing codes (ACC, PHO, Care Plus)
 3. **Referral Quality Checker** ? Flag missing info before sending to specialists
 4. **Chronic Care Gap Identifier** ? Alert overdue NZ-guideline monitoring
 
 ### **Why This is R&D**
-**Technical uncertainty:** Can a small model (7B-13B params) achieve GPT-4-like quality for NZ-specific clinical tasks while being:
+**Technical uncertainty:** Can a small model (7B-13B params) achieve GPT-4/5-like quality for NZ-specific clinical tasks while being:
 - **100x cheaper at scale** (self-hosted vs Azure API)
 - **NZ-tuned** (Pharmac, ACC, HealthPathways, NZ lab formats)
-- **Multi-task** (ONE model for 4 use cases, not 4 specialized models)
+- **Multi-task** (ONE model for 4 use cases, not 4 specialised models)
 - **Assist-only safe** (refusal scaffolds without breaking usefulness)
 
 **No published solution exists** for this cost/quality trade-off under NZ constraints.
