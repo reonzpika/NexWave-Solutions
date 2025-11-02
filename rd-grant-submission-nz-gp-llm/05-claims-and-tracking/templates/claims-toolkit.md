@@ -236,8 +236,8 @@ Contact:
 | Inbox usefulness | ? 80% clinician-rated | [%] | [On/Off track] |
 | Refusal appropriateness | ? 95% | [%] | [On/Off track] |
 | Prohibited-claim rate | ? 0.5% | [%] | [On/Off track] |
-| Latency P95 (scribe section) | ? 2.5 s | [s] | [On/Off track] |
-| Latency P95 (inbox action) | ? 2.0 s | [s] | [On/Off track] |
+| Latency P95 (scribe section) | ? 5.0 s | [s] | [On/Off track] |
+| Latency P95 (inbox action) | ? 5.0 s | [s] | [On/Off track] |
 
 ### Spend Summary (excl. GST)
 

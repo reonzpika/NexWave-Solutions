@@ -350,7 +350,7 @@ Each Objective has entry/exit criteria and safety gates to ensure quality and co
 - [ ] Synthetic inbox generators created
 - [ ] Latency/throughput tests completed
 - [ ] Transparency page v1 published (sources, regions, sub-processors)
-- [ ] Inbox response P95 ? 2.0 s
+- [ ] Inbox response P95 ? 5.0 s
 - [ ] Stable throughput demonstrated
 - [ ] No persistent PHI outside NZ confirmed (ephemeral only)
 
@@ -408,7 +408,7 @@ Each Objective has entry/exit criteria and safety gates to ensure quality and co
   - [ ] Refusal appropriateness ? 95%
   - [ ] Zero PHI leakage in test suite
 - [ ] Red-team tests passed (no diagnostic/treatment directives)
-- [ ] Latency benchmarks met (P95 ? 2.5s scribe; ? 2.0s inbox)
+- [ ] Latency benchmarks met (P95 ? 5.0s scribe; ? 5.0s inbox)
 - [ ] Monthly safety pack generated and reviewed
 
 ### Compliance Checks

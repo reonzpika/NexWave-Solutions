@@ -173,7 +173,7 @@ Inference may occur in Australia with no persistent PHI outside New Zealand. All
 - Transparency page v1
 
 **Targets:**
-- Inbox response P95 ? 2.0 s
+- Inbox response P95 ? 5.0 s
 - Stable throughput
 - No persistent PHI outside NZ
 
@@ -212,6 +212,6 @@ Inference may occur in Australia with no persistent PHI outside New Zealand. All
 - Zero PHI leakage in tests
 
 ### Performance
-- P95 ? 2.5 s per scribe section
-- P95 ? 2.0 s per inbox action
+- P95 ? 5.0 s per scribe section
+- P95 ? 5.0 s per inbox action
 - Stable unit economics on local infrastructure

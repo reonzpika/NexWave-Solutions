@@ -170,7 +170,7 @@ Scribe, inbox management, and clinical history summaries
 | **30 Jun 2026** | Q2 ends | Submit Q2 claim (~$10,224 grant) |
 | **30 Jul 2026** | O3 complete | Safety pack; prohibited-claim ?0.5%; refusal ?95% |
 | **Month 7** | Q2 grant receipt | $10,224 received |
-| **30 Sep 2026** | Q3 ends; O4 complete | Transparency page v1; inbox P95 ?2.0s |
+| **30 Sep 2026** | Q3 ends; O4 complete | Transparency page v1; inbox P95 ?5.0s |
 | **Month 10** | Q3 grant receipt | $12,221 received |
 | **31 Dec 2026** | Q4 ends | Submit Q4 claim (~$12,221 grant) |
 | **26 Jan 2027** | Project end | O5 complete; final report due within 3 months |
@@ -464,8 +464,8 @@ See `00-admin-and-governance/risk-and-change-management.md` for all document ver
 - ? Zero PHI leakage in red-team tests
 
 ### Performance Targets
-- ? P95 ? 2.5 s per scribe section
-- ? P95 ? 2.0 s per inbox action
+- ? P95 ? 5.0 s per scribe section
+- ? P95 ? 5.0 s per inbox action
 - ? Stable unit economics on local infrastructure
 
 ---
