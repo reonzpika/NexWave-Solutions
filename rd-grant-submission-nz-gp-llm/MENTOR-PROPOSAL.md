@@ -31,7 +31,7 @@ Build a **small, NZ-controlled LLM** (7B-13B parameters) that:
 
 ### **Why This is R&D**
 **Technical uncertainty:** Can a small model (7B-13B params) achieve GPT-4/5-like quality for NZ-specific clinical tasks while being:
-- **100x cheaper at scale** (self-hosted vs Azure API)
+- **20-50x cheaper at scale** (self-hosted vs Azure API)
 - **NZ-tuned** (Pharmac, ACC, HealthPathways, NZ lab formats)
 - **Multi-task** (ONE model for 4 use cases, not 4 specialised models)
 - **Assist-only safe** (refusal scaffolds without breaking usefulness)
@@ -46,7 +46,7 @@ Build a **small, NZ-controlled LLM** (7B-13B parameters) that:
 
 ### **Key Differentiators**
 ? **NZ data sovereignty** (self-hosted in NZ/AU, NZ-held keys)  
-? **Cost-effective at scale** (100x cheaper than Azure OpenAI)  
+? **Cost-effective at scale** (20-50x cheaper than Azure OpenAI)  
 ? **NZ-tuned** (Pharmac, ACC, HealthPathways, regional variations)  
 ? **Medtech partnership** (NZ's largest PMS = real-world testing)  
 ? **Privacy-first** (no training on production PHI; synthetic/de-identified only)
@@ -55,38 +55,35 @@ Build a **small, NZ-controlled LLM** (7B-13B parameters) that:
 
 ## **Section 2: The Opportunity** (1-2 pages)
 
-### **2.1 What is a Large Language Model (LLM)?**
+### **2.1 Problem Statement**
 
-A Large Language Model (LLM) is AI trained to understand and generate human language. Think of it as advanced autocomplete?you give it a prompt (e.g., "Summarize this lab result"), and it generates a relevant response based on patterns learned from training data.
-
-**Why for healthcare?** LLMs can read, summarize, and draft clinical text faster than manual work?but they must be **assist-only** (help with documentation, not clinical decisions).
-
----
-
-### **2.2 Problem Statement**
+**Large Language Models (LLMs)** are AI systems trained to understand and generate human language?they can read, summarise, and draft clinical text faster than manual work, but must be **assist-only** (help with documentation, not clinical decisions).
 
 **GP Workload Crisis:**
-- Average GP spends **2-3 hours/day on inbox** (labs, letters, referrals, patient messages)
-- **Documentation burden:** 30-40 minutes/hour of consultation time goes to notes
-- **Billing complexity:** 10-15% underbilling (~$5-10k/year per GP lost revenue)
-- **Quality gaps:** Chronic disease monitoring falls behind (PHO funding at risk)
+- **Inbox overload:** Non-contact clinical/admin tasks consume 30.8% of GP time?triaging labs, letters, referrals, patient messages
+- **Billing complexity:** Missed claims and billing errors are common (ACC codes, Care Plus eligibility, PHO subsidies)
+- **Referral delays:** Incomplete referrals bounced back by specialists due to missing HealthPathways criteria
+- **Care gap monitoring:** Chronic disease monitoring falls behind (PHO quality targets missed; funding at risk)
 
-**No NZ-Specific AI Solutions:**
-- Overseas AI scribes (Nabla, Nuance DAX) not tuned for NZ:
-  - Don't know Pharmac medication names
-  - Don't know ACC codes or Care Plus criteria
-  - Don't know HealthPathways referral requirements by DHB
-  - Don't understand NZ lab formats (LabTests Auckland vs SCL vs Medlab)
-- Azure OpenAI (AU-hosted) exists but costs **$900k/month at national scale** (10k GPs ? 50 requests/day ? $0.06/request)
+**No AI Tools for NZ GP Workflow:**
+- **No AI solution for NZ-specific inbox management** (region-specific lab formats: LabTests Auckland ? SCL ? Medlab; DHB letter structures vary)
+- **No NZ clinical coding assistant** (ACC codes, PHO subsidy rules, Care Plus criteria not in GPT-4/5 training data)
+- **No tool checks HealthPathways criteria** before sending referrals (16 DHBs = 16 variations per specialty)
+- **No AI tracks NZ-guideline care gaps** (NZGG diabetes protocols, NZ CVD risk charts, PHO quality indicators)
+
+**Cost Barrier with Commercial LLMs:**
+- Azure OpenAI (AU-hosted, solves privacy) costs **$140-170k/month at national scale** (5,000 GPs ? 50 requests/day)
+- Self-hosted small model: **$5-10k/month** (fixed, regardless of volume within capacity)
+- **20-50x cost difference at scale**
 
 **Privacy Concerns with Commercial LLMs:**
-- GPT-4 API sends PHI to US servers (some NZ privacy officers won't allow this)
+- GPT-4/5 API sends PHI to US servers (some NZ privacy officers won't allow this)
 - Under Privacy Act IPP 12, cross-border PHI disclosure requires risk assessment
 - Te Whatu Ora NAIAEAG guidance: avoid unapproved commercial LLMs for PHI
 
 ---
 
-### **2.3 Market Gap**
+### **2.2 Market Gap**
 
 **Four Unmet Needs in NZ General Practice:**
 
@@ -102,13 +99,13 @@ A Large Language Model (LLM) is AI trained to understand and generate human lang
 
 ---
 
-### **2.4 Why Now?**
+### **2.3 Why Now?**
 
-? **LLM technology matured** (small models now viable with quantization, LoRA tuning)  
+? **LLM technology matured** (small models now viable with quantisation, LoRA tuning)  
 ? **NZ privacy framework clear** (IPP 12, HIPC, HISO 10029, NAIAEAG guidance)  
 ? **Self-hosting infrastructure affordable** (GPU servers in NZ/AU: ~$5-10k/month)  
-? **ClinicPro traction** (already operational AI scribe with third-party LLM = proven demand)  
-? **Medtech partnership** (testing environment ready)
+? **ClinicPro operational** (proven demand for AI-assisted GP workflows)  
+? **Medtech partnership** (testing environment ready; direct access to 3,000+ GPs)
 
 ---
 
