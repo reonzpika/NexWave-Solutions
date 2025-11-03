@@ -13,7 +13,7 @@
 ### **The Problem**
 New Zealand GPs face unsustainable workload and burnout crisis:
 - **Non-contact clinical/admin tasks consume 30.8%** of GP time (documentation, inbox, billing)
-- **Burnout epidemic:** 79% of GPs report burnout; 48% report high burnout — major contributors are staff shortages and time on admin tasks
+- **Burnout epidemic:** 79% of GPs report burnout; 48% report high burnout - major contributors are staff shortages and time on admin tasks
 - **Billing complexity:** Missed claims and billing errors are common (ACC, Care Plus eligibility, consultation types)
 - **Quality gaps:** Incomplete referrals bounced back by specialists (delays patient care); chronic disease monitoring falls behind (PHO funding at risk)
 
@@ -24,10 +24,10 @@ New Zealand GPs face unsustainable workload and burnout crisis:
 
 ### **Our Solution**
 Build a **small, NZ-controlled LLM** (7B-13B parameters) that:
-1. **Inbox Management** — Classify, summarise, route GP inbox items
-2. **Clinical Coding Assistant** — Suggest NZ billing codes (ACC, PHO, Care Plus)
-3. **Referral Quality Checker** — Flag missing info before sending to specialists
-4. **Chronic Care Gap Identifier** — Alert overdue NZ-guideline monitoring
+1. **Inbox Management** - Classify, summarise, route GP inbox items
+2. **Clinical Coding Assistant** - Suggest NZ billing codes (ACC, PHO, Care Plus)
+3. **Referral Quality Checker** - Flag missing info before sending to specialists
+4. **Chronic Care Gap Identifier** - Alert overdue NZ-guideline monitoring
 
 ### **Why This is R&D**
 **Technical uncertainty:** Can a small model (7B-13B params) achieve GPT-4/5-like quality for NZ-specific clinical tasks while being:
@@ -57,10 +57,10 @@ Build a **small, NZ-controlled LLM** (7B-13B parameters) that:
 
 ### **2.1 Problem Statement**
 
-**Large Language Models (LLMs)** are AI systems trained to understand and generate human language—they can read, summarise, and draft clinical text faster than manual work, but must be **assist-only** (help with documentation, not clinical decisions).
+**Large Language Models (LLMs)** are AI systems trained to understand and generate human language. They can read, summarise, and draft clinical text faster than manual work, but must be **assist-only** (help with documentation, not clinical decisions).
 
 **GP Workload Crisis:**
-- **Inbox overload:** Non-contact clinical/admin tasks consume 30.8% of GP time—triaging labs, letters, referrals, patient messages
+- **Inbox overload:** Non-contact clinical/admin tasks consume 30.8% of GP time - triaging labs, letters, referrals, patient messages
 - **Billing complexity:** Missed claims and billing errors are common (ACC codes, Care Plus eligibility, PHO subsidies)
 - **Referral delays:** Incomplete referrals bounced back by specialists due to missing HealthPathways criteria
 - **Care gap monitoring:** Chronic disease monitoring falls behind (PHO quality targets missed; funding at risk)
@@ -243,10 +243,10 @@ A **small, NZ-controlled LLM** (7B-13B parameters) fine-tuned for 4 clinical use
 
 **What Makes This Uncertain:**
 1. **No published solution** for achieving GPT-4/5-like quality with small models under NZ privacy + cost + latency constraints
-2. **NZ-specific data is sparse** (few thousand examples vs GPT-4/5's trillions of tokens)— Can small model learn from limited data?
-3. **Multi-task challenge**— Can ONE model handle 4 diverse tasks (classification, extraction, temporal logic, coding) or do we need 4 specialised models?
-4. **Safety vs usefulness trade-off**— How aggressive can refusal scaffolds be without making the model useless?
-5. **Regional variation**— Can model handle 10 regional Community HealthPathways sites' variations?
+2. **NZ-specific data is sparse** (few thousand examples vs GPT-4/5's trillions of tokens): Can small model learn from limited data?
+3. **Multi-task challenge**: Can ONE model handle 4 diverse tasks (classification, extraction, temporal logic, coding) or do we need 4 specialised models?
+4. **Safety vs usefulness trade-off**: How aggressive can refusal scaffolds be without making the model useless?
+5. **Regional variation**: Can model handle 10 regional Community HealthPathways sites' variations?
 
 **What We Cannot Deduce in Advance:**
 - Optimal model size (7B too small? 13B sufficient? 30B needed?)
@@ -254,7 +254,7 @@ A **small, NZ-controlled LLM** (7B-13B parameters) fine-tuned for 4 clinical use
 - Best multi-task architecture (shared encoder? Task-specific adapters? LoRA layers?)
 - Guardrail configuration (refusal threshold that balances safety + usefulness)
 
-**This requires systematic experimentation** — not just "apply known techniques."
+**This requires systematic experimentation** - not just "apply known techniques."
 
 ---
 
@@ -320,7 +320,7 @@ Beyond cost:
 - ✓ **NZ only** (encrypted with NZ-held encryption keys in KMS/HSM)
 
 **Inference (AI Processing):**
-- ✓ **AU (Sydney)** — transient only (no persistent storage outside NZ)
+- ✓ **AU (Sydney)** - transient only (no persistent storage outside NZ)
 - Encrypted requests over TLS to AU GPU servers
 - Processing time: <5 seconds
 - Response returned to NZ; no data retained in AU
@@ -334,7 +334,7 @@ Beyond cost:
 
 ### **5.2 Compliance Framework**
 
-**Privacy Act 2020 (IPP 12 — Cross-Border Disclosure):**
+**Privacy Act 2020 (IPP 12 - Cross-Border Disclosure):**
 - ✓ Contractual safeguards (Data Processing Agreements with AU provider)
 - ✓ Technical safeguards (TLS in transit, AES-256 at rest, NZ-held keys)
 - ✓ Organisational safeguards (staff training, access controls, quarterly reviews)
@@ -398,7 +398,7 @@ Beyond cost:
 | **Co-Funding (60%)** | **$64,339** |
 
 **Capability Development Breakdown:**
-- 3 privacy courses (OPC Privacy Act, OPC HIPC, Ko Awatea) — free but eligible
+- 3 privacy courses (OPC Privacy Act, OPC HIPC, Ko Awatea) - free but eligible
 - 30 hours one-off setups:
   - CD-A: DPIA, IPP 12, HISO mapping, DPA templates (12h = $1,152)
   - CD-B: MLflow, DVC, safety dashboard, transparency SOP (10h = $960)
@@ -565,9 +565,9 @@ This project uniquely combines **clinical expertise**, **technical depth**, and 
 ---
 
 #### **Clinical Expertise (GP Practitioner)**
-- **Active GP:** I'm a practicing general practitioner — I understand the problem **firsthand**
+- **Active GP:** I'm a practicing general practitioner - I understand the problem **firsthand**
 - **User insight:** I experience documentation burden, inbox overload, and workflow constraints daily
-- **Clinical safety:** I know what "assist-only" means in practice — what's helpful vs dangerous
+- **Clinical safety:** I know what "assist-only" means in practice - what's helpful vs dangerous
 - **Real-world validation:** I can test in my own practice before asking other GPs to pilot
 
 **Why this matters:** Most AI health startups are built by technologists who guess at clinical needs. I **live** the problem every day.
@@ -596,7 +596,7 @@ This project uniquely combines **clinical expertise**, **technical depth**, and 
 
 ### **9.2 Commercial Validation: ClinicPro is Already Operational**
 
-This isn't a concept — **ClinicPro is live**:
+This isn't a concept - **ClinicPro is live**:
 
 **Current offering:** AI scribe using third-party LLM (OpenAI/Anthropic API)
 
@@ -745,7 +745,7 @@ Disciplined scope prevents mission creep:
 - If GPT-4/5 gets 95% coding accuracy, we need ≥70% accuracy (acceptable for assist-only use)
 - If GPT-4/5 costs $0.019/request (Azure), we need ?$0.0005/request (self-hosted: 20-50x cheaper)
 
-**This trade-off is the R&D question:** Is 70-80% quality sufficient for clinical utility? Unknown— requires pilot evaluation.
+**This trade-off is the R&D question:** Is 70-80% quality sufficient for clinical utility? Unknown - requires pilot evaluation.
 
 ---
 
