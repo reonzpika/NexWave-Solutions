@@ -12,21 +12,12 @@
 
 ### **The Problem**
 
-New Zealand general practitioners (GPs) face a severe workforce and workload crisis that threatens the sustainability of primary healthcare.
+New Zealand GPs face a severe workforce and workload crisis:
 
-- **Burnout driving early retirement and workforce depletion:**  
-  Burnout among GPs remains unacceptably high, with 70% reporting moderate-to-severe levels in 2024. Although the proportion of those rating "high" burnout (level 7-10) fell from 48% in 2022 to 38% in 2024, the overall burden is significant. Unreasonable workloads, unfunded and additional roles, and non-remunerated work are primary drivers. These conditions are causing many GPs to consider early retirement: 35% intend to retire within five years, and half plan to retire within a decade, threatening significant workforce shrinkage ([RNZCGP Workforce Survey](https://www.rnzcgp.org.nz/our-voice/workforce-survey/)).
-
-- **Significant and rising administrative and inbox management burdens:**  
-  Inbox management - processing hospital letters, lab results, referrals, and other communications - now constitutes a major and growing complaint among GPs. The incoming volume of items (which can be hundreds per day in busy clinics) is a substantial cognitive burden, detracting from patient care and driving burnout. The increase in non-consultation (admin, governance, training) tasks is rising, largely unfunded and often unrecognised, with average GP weekly working hours increasing from 35.9 in 2022 to 38.1 in 2024 ([RNZCGP Workforce Survey](https://www.rnzcgp.org.nz/our-voice/workforce-survey/), [Pinnacle Survey](https://www.pinnaclepractices.co.nz/assets/Resource-files/Pinnacle-workforce-survey-report-2023-v3.pdf)).
-
-- **Rising responsibility without increased support:**  
-  GPs face expanded scope - coordinating care pathways, maintaining compliance, fulfilling documentation requirements, and ensuring ongoing follow-up, all amidst increasing inbox volume and administrative complexity. Without proportional increases in support or automation, these responsibilities worsen stress and can compromise patient safety ([Pinnacle Workforce Survey Report](https://www.pinnaclepractices.co.nz/assets/Resource-files/Pinnacle-workforce-survey-report-2023-v3.pdf)).
-
-- **Interest in AI, but major limitations:**  
-  Recent surveys show openness to using AI for workload relief, particularly in notetaking and scribing, but major concerns remain around data privacy, Māori data sovereignty, and system integration ([RNZCGP Workforce Survey](https://www.rnzcgp.org.nz/our-voice/workforce-survey/)). Better IT, automation, and AI are cited as necessary innovations to relieve the widening administrative challenges ([Pinnacle Workforce Survey Report](https://www.pinnaclepractices.co.nz/assets/Resource-files/Pinnacle-workforce-survey-report-2023-v3.pdf)).
-
-Together, these factors create an unsustainable environment that **drives GP burnout, workforce attrition, and threatens the quality of primary care.** Addressing these systemic issues requires innovative solutions that reduce administrative load, support clinical decision-making, and retain workforce capacity.
+- **70% burnout; 35% retiring in 5 years** - unreasonable workloads, unfunded admin roles driving early retirement
+- **Inbox overload** - hundreds of items daily (letters, labs, referrals); GP working hours rising (35.9→38.1 hrs/week)
+- **Rising responsibility without support** - expanded scope, compliance, documentation with no proportional support
+- **GPs want AI but concerns exist** - privacy, Māori data sovereignty, system integration barriers
 
 ### **Why AI Can Help**
 
@@ -34,10 +25,10 @@ AI can rapidly process clinical text - triaging inbox items, extracting billing 
 
 ### **Current AI Tools Fall Short**
 
-- **Most only do scribing** - no tools for inbox management, clinical coding, referral checking, or care gap monitoring
-- **Not NZ-tuned** - lack ACC codes, Pharmac formulary, HealthPathways criteria, PHO indicators
+- **Most only do scribing** - no tools for inbox, coding, referrals, or care gaps
+- **Lacks New Zealand Health System knowledge** - not trained on local requirements
 - **Privacy concerns** - patient data sent offshore; Māori data sovereignty issues
-- **Expensive at scale** - commercial APIs cost $140k+/month vs $5-10k/month self-hosted
+- **Expensive at scale** - $140k+/month vs $5-10k/month self-hosted
 
 ### **Our Solution**
 
