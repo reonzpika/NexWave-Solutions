@@ -30,30 +30,18 @@ Together, these factors create an unsustainable environment that **drives GP bur
 
 ### **Why AI Can Help**
 
-AI models can process and analyse large amounts of clinical text quickly - reading lab results, extracting billing codes, checking referral criteria, and identifying care gaps. These are tasks that currently consume hours of GP time daily, but AI can perform them in seconds while maintaining accuracy.
+AI can rapidly process clinical text - triaging inbox items, extracting billing codes, checking referral criteria, identifying care gaps - freeing hours of GP time daily.
 
 ### **Current AI Tools Fall Short**
 
-**Most AI tools for GPs focus only on scribing** (turning dictation into notes). **No AI tools exist for other critical GP workflows:** inbox management, clinical coding, referral checking, or care gap monitoring.
-
-**Existing tools have significant limitations:**
-- **Commercial AI (GPT-4/5):** Privacy concerns (patient data sent overseas to US servers), expensive at scale, not tuned for NZ-specific rules
-- **Azure-hosted options:** Solve privacy but much more expensive for high-volume use compared to self-hosted models
-- **None understand NZ requirements:** ACC codes, Pharmac formulary, HealthPathways criteria, PHO quality indicators
+- **Most only do scribing** - no tools for inbox management, clinical coding, referral checking, or care gap monitoring
+- **Not NZ-tuned** - lack ACC codes, Pharmac formulary, HealthPathways criteria, PHO indicators
+- **Privacy concerns** - patient data sent offshore; Māori data sovereignty issues
+- **Expensive at scale** - commercial APIs cost $140k+/month vs $5-10k/month self-hosted
 
 ### **Our Solution**
 
-**Building our own AI model is the foundation for capturing the full power of AI for NZ general practice.** By owning the model infrastructure, we can adapt it to NZ's unique needs, control costs at scale, and ensure patient data sovereignty - none of which are possible with commercial API-based solutions.
-
-**We're building a small, NZ-controlled AI model that directly solves each problem:**
-
-| Problem | Our Solution |
-|---------|--------------|
-| **Privacy concerns** | Self-hosted in NZ/Australia - patient data stays in NZ, NZ-held encryption keys |
-| **High cost at scale** | Small model (fixed $5-10k/month infrastructure) vs pay-per-request APIs ($140k+/month at national scale) |
-| **Not NZ-tuned** | Trained specifically on NZ clinical rules: ACC codes, Pharmac formulary, HealthPathways criteria, PHO guidelines |
-| **Limited to scribing only** | **4 use cases:** Inbox management, Clinical coding assistant, Referral quality checker, Care gap monitoring |
-| **One-size-fits-all commercial tools** | Multi-task model - one AI efficiently handles all 4 GP workflows |
+We're building a small, NZ-controlled AI model for 4 critical workflows: **inbox management, clinical coding, referral checking, and care gap monitoring.** Self-hosted for privacy, NZ-tuned for accuracy, cost-effective at scale.
 
 **Why we can deliver this:**  
 I'm a practicing GP, founder of ClinicPro (operational AI scribe service), and full-stack developer with AI/machine learning expertise. This unique combination of clinical insight, proven building capability, and technical depth means I understand both the problem (I experience it daily in practice) and can execute the technical solution. We're partnering with Medtech, NZ's largest practice management system, which provides direct access to real-world testing environments and rapid adoption pathways across 3,000+ GPs.
@@ -83,37 +71,76 @@ I'm a practicing GP, founder of ClinicPro (operational AI scribe service), and f
 
 ---
 
-## **Section 2: The Opportunity** (1-2 pages)
+## **Section 2: The Opportunity** (2-3 pages)
 
 ### **2.1 Problem Statement**
 
-**Large Language Models (LLMs)** are AI systems trained to understand and generate human language. They can read, summarise, and draft clinical text faster than manual work, but must be **assist-only** (help with documentation, not clinical decisions).
+New Zealand general practitioners (GPs) face a severe workforce and workload crisis that threatens the sustainability of primary healthcare.
 
-**GP Workload Crisis:**
-- **Inbox overload:** Non-contact clinical/admin tasks consume 30.8% of GP time - triaging labs, letters, referrals, patient messages
-- **Billing complexity:** Missed claims and billing errors are common (ACC codes, Care Plus eligibility, PHO subsidies)
-- **Referral delays:** Incomplete referrals bounced back by specialists due to missing HealthPathways criteria
-- **Care gap monitoring:** Chronic disease monitoring falls behind (PHO quality targets missed; funding at risk)
+- **Burnout driving early retirement and workforce depletion:**  
+  Burnout among GPs remains unacceptably high, with 70% reporting moderate-to-severe levels in 2024. Although the proportion of those rating "high" burnout (level 7-10) fell from 48% in 2022 to 38% in 2024, the overall burden is significant. Unreasonable workloads, unfunded and additional roles, and non-remunerated work are primary drivers. These conditions are causing many GPs to consider early retirement: 35% intend to retire within five years, and half plan to retire within a decade, threatening significant workforce shrinkage ([RNZCGP Workforce Survey](https://www.rnzcgp.org.nz/our-voice/workforce-survey/)).
 
-**No AI Tools for NZ GP Workflow:**
-- **No AI solution for NZ-specific inbox management** (region-specific lab formats: LabTests Auckland ≠ SCL ≠ Medlab; DHB letter structures vary)
-- **No NZ clinical coding assistant** (ACC codes, PHO subsidy rules, Care Plus criteria not in GPT-4/5 training data)
-- **No tool checks HealthPathways criteria** before sending referrals (10 regional Community HealthPathways sites with variations per specialty)
-- **No AI tracks NZ-guideline care gaps** (NZGG diabetes protocols, NZ CVD risk charts, PHO quality indicators)
+- **Significant and rising administrative and inbox management burdens:**  
+  Inbox management - processing hospital letters, lab results, referrals, and other communications - now constitutes a major and growing complaint among GPs. The incoming volume of items (which can be hundreds per day in busy clinics) is a substantial cognitive burden, detracting from patient care and driving burnout. The increase in non-consultation (admin, governance, training) tasks is rising, largely unfunded and often unrecognised, with average GP weekly working hours increasing from 35.9 in 2022 to 38.1 in 2024 ([RNZCGP Workforce Survey](https://www.rnzcgp.org.nz/our-voice/workforce-survey/), [Pinnacle Survey](https://www.pinnaclepractices.co.nz/assets/Resource-files/Pinnacle-workforce-survey-report-2023-v3.pdf)).
 
-**Cost Barrier with Commercial LLMs:**
-- Azure OpenAI (AU-hosted, solves privacy) costs **$140-170k/month at national scale** (5,000 GPs × 50 requests/day)
-- Self-hosted small model: **$5-10k/month** (fixed, regardless of volume within capacity)
-- **Dramatically more cost-effective at scale**
+- **Rising responsibility without increased support:**  
+  GPs face expanded scope - coordinating care pathways, maintaining compliance, fulfilling documentation requirements, and ensuring ongoing follow-up, all amidst increasing inbox volume and administrative complexity. Without proportional increases in support or automation, these responsibilities worsen stress and can compromise patient safety ([Pinnacle Workforce Survey Report](https://www.pinnaclepractices.co.nz/assets/Resource-files/Pinnacle-workforce-survey-report-2023-v3.pdf)).
 
-**Privacy Concerns with Commercial LLMs:**
-- GPT-4/5 API sends PHI to US servers (some NZ privacy officers won't allow this)
-- Under Privacy Act IPP 12, cross-border PHI disclosure requires risk assessment
-- Te Whatu Ora NAIAEAG guidance: avoid unapproved commercial LLMs for PHI
+- **Interest in AI, but major limitations:**  
+  Recent surveys show openness to using AI for workload relief, particularly in notetaking and scribing, but major concerns remain around data privacy, Māori data sovereignty, and system integration ([RNZCGP Workforce Survey](https://www.rnzcgp.org.nz/our-voice/workforce-survey/)). Better IT, automation, and AI are cited as necessary innovations to relieve the widening administrative challenges ([Pinnacle Workforce Survey Report](https://www.pinnaclepractices.co.nz/assets/Resource-files/Pinnacle-workforce-survey-report-2023-v3.pdf)).
+
+Together, these factors create an unsustainable environment that **drives GP burnout, workforce attrition, and threatens the quality of primary care.** Addressing these systemic issues requires innovative solutions that reduce administrative load, support clinical decision-making, and retain workforce capacity.
 
 ---
 
-### **2.2 Market Gap**
+### **2.2 Why AI Can Help**
+
+AI can address the most urgent pain points in New Zealand general practice:
+
+**Inbox and admin burden relief:**
+- AI models can rapidly triage, classify, and summarise the massive daily influx of hospital letters, results, and referrals - tasks currently consuming a significant proportion of GP time, contributing to burnout and workforce loss
+- This frees GPs from routine, repetitive documentation work, allowing them to focus on patient-facing care
+
+**Retention and workforce sustainability:**
+- By reducing cognitive load and manual admin, AI supports GP wellbeing and keeps skilled clinicians in the workforce longer - directly countering early retirement trends spotlighted in national surveys ([RNZCGP Workforce Survey](https://www.rnzcgp.org.nz/our-voice/workforce-survey/))
+
+**Alignment with clinician priorities:**
+- Recent NZ workforce surveys show GPs are already experimenting with AI tools, especially for notetaking and scribing, and express strong demand for technology that can automate or streamline non-clinical tasks ([Pinnacle Workforce Survey](https://www.pinnaclepractices.co.nz/assets/Resource-files/Pinnacle-workforce-survey-report-2023-v3.pdf))
+- However, GPs also highlight concerns about data privacy, local relevance, and system integration, which our solution directly addresses
+
+**Patient care and system benefits:**
+- By giving GPs more time for direct care and proactive patient management, AI can help improve access, safety, continuity, and even health funding outcomes
+
+---
+
+### **2.3 Current AI Tools Fall Short**
+
+**Lack of NZ-specific tuning and integration:**
+- Current tools are not tailored to New Zealand's healthcare environment
+- They lack training on local clinical codes (ACC, Pharmac), referral pathways (HealthPathways), and practice funding requirements (PHO indicators)
+- This leads to limited accuracy and relevance in daily GP workflows
+
+**Failure to address core administrative burden (inbox management, non-visit tasks):**
+- Most tools only support scribing/note-taking, leaving the largest pain points untouched
+- No tools exist for inbox triage, clinical coding, referral checking, or care gap monitoring
+
+**Local privacy and sovereignty concerns:**
+- Sending patient data offshore is not acceptable, especially for Māori data sovereignty
+- Commercial APIs send data to US servers; even Azure-hosted options raise concerns about foreign control
+- GPs have explicitly flagged these as barriers to adoption ([RNZCGP Workforce Survey](https://www.rnzcgp.org.nz/our-voice/workforce-survey/))
+
+**Cost and scalability issues for NZ clinics:**
+- Commercial deployed models can be prohibitively expensive at volume
+- Azure OpenAI: $140-170k/month at national scale (5,000 GPs × 50 requests/day)
+- Small GP practices need cost-effective, scale-adapted solutions
+
+**Integration barriers:**
+- Existing tools are poorly integrated with local PMS systems (like Medtech) and workflows identified in local surveys
+- Lack of seamless integration creates friction and reduces adoption
+
+---
+
+### **2.4 Market Gap**
 
 **Four Unmet Needs in NZ General Practice:**
 
@@ -129,7 +156,7 @@ I'm a practicing GP, founder of ClinicPro (operational AI scribe service), and f
 
 ---
 
-### **2.3 Why Now?**
+### **2.5 Why Now?**
 
 ✓ **LLM technology matured** (small models now viable with quantisation, LoRA tuning)  
 ✓ **NZ privacy framework clear** (IPP 12, HIPC, HISO 10029, NAIAEAG guidance)  
@@ -139,13 +166,130 @@ I'm a practicing GP, founder of ClinicPro (operational AI scribe service), and f
 
 ---
 
-## **Section 3: Our Solution** (2-3 pages)
+## **Section 3: Our Solution** (3-4 pages)
 
-### **3.1 What We're Building**
-
-A **small, NZ-controlled LLM** (7B-13B parameters) fine-tuned for 4 clinical use cases:
+To address the unsustainable workload, inbox burden, and burnout crisis facing New Zealand GPs, we propose building a locally controlled, NZ-specific AI assistant designed to directly target the highest-impact pain points identified by frontline clinicians and workforce surveys.
 
 ---
+
+### **3.1 Direct Relief for Administrative and Inbox Overload**
+
+The AI model will triage, prioritise, and summarise clinical inbox items - including letters, results, and referrals - reducing manual sorting and freeing GPs from repetitive documentation. This targets the primary source of time pressure and stress for GPs.
+
+**Key capabilities:**
+- Automatic classification of inbox items by type, urgency, and clinical specialty
+- Concise summaries highlighting actionable information
+- Intelligent routing to appropriate workflows
+- Processing hundreds of items per day without fatigue
+
+**Impact:** Directly addresses the inbox burden identified as a major driver of burnout in recent surveys.
+
+---
+
+### **3.2 Multifunctional Design for Maximum Clinical Impact**
+
+Unlike existing solutions limited to note-taking, our model is purpose-built to automate and assist with four critical workflows:
+
+**1. Inbox Management**
+- Triage and summarise hospital letters, lab results, referrals, patient messages
+- Reduce time spent on daily inbox processing by 30%+
+
+**2. Clinical Coding (including ACC, Pharmac)**
+- Extract billable codes from consultation notes
+- Identify ACC eligibility, PHO subsidies, Care Plus criteria
+- Reduce revenue leakage from missed billing codes
+
+**3. Referral Quality Checking**
+- Ensure HealthPathways criteria are met before submission
+- Reduce referral bounce-backs and patient care delays
+- Regional variation support (10 Community HealthPathways sites)
+
+**4. Care Gap Monitoring**
+- Track chronic disease and preventive care requirements
+- Alert overdue NZ-guideline monitoring (NZGG, BPAC, PHO indicators)
+- Improve PHO quality outcomes and funding
+
+This broad feature set directly addresses the functions NZ GPs have identified as most problematic.
+
+---
+
+### **3.3 NZ-Tuned and Privacy-First**
+
+**Local training and knowledge:**
+- Trained on New Zealand's local care standards, coding systems, PHO and HealthPathways requirements
+- Understands ACC codes, Pharmac formulary, regional lab format variations
+- Aligned with NZ clinical guidelines (NZGG, BPAC) and funding requirements
+
+**Data sovereignty and privacy:**
+- Hosted on New Zealand or Australia-based infrastructure with strict access controls
+- Patient data remains in NZ; NZ-held encryption keys
+- No offshore data transmission for training or inference (AU inference is transient only, no persistent storage)
+- Compliance with Privacy Act 2020 (IPP 12), HIPC 2020, HISO 10029
+- Supports Māori data sovereignty requirements
+
+**Regulatory alignment:**
+- DPIA completed before pilot
+- Te Whatu Ora NAIAEAG guidance compliance (assist-only, transparency, human oversight)
+- Monthly safety regressions to ensure assist-only behaviour
+
+This ensures compliance with local privacy laws and supports Māori data sovereignty, overcoming a key barrier to AI adoption in NZ practice.
+
+---
+
+### **3.4 Cost-Effective, Scalable, and Interoperable**
+
+**Predictable, sustainable economics:**
+- Fixed infrastructure costs: $5-10k/month at national scale
+- Compare to commercial APIs: $140-170k/month for same volume
+- **20-50x more cost-effective** at scale
+- Enables equitable access across all practice sizes
+
+**Seamless integration:**
+- Direct integration with Medtech, NZ's most widely used practice management system (~60% market share)
+- Enables seamless workflow adoption with minimal training
+- Real-world clinical utility from day one
+- Rapid testing and feedback cycles
+
+**Scalability:**
+- Designed to serve all 5,000 NZ GPs
+- Performance maintained under high load
+- No per-request pricing risk as volume grows
+
+---
+
+### **3.5 Built with Deep Clinical Insight**
+
+**Clinical + technical + commercial expertise:**
+- Led by a practicing GP who experiences the problems firsthand
+- Founder of ClinicPro (operational AI scribe service)
+- Full-stack developer with AI/machine learning expertise
+- Proven track record in medical AI and workflow automation
+
+**Real-world validation:**
+- Strong relationship with Medtech provides direct access to testing environments
+- Rapid feedback from 3,000+ GPs through Medtech partnership
+- Ability to iterate based on actual clinical workflows, not assumptions
+
+**Grounded in daily clinical realities:**
+- Not just technical ambitions - built by someone living the problem
+- Understanding of what "assist-only" means in practice
+- Knowledge of what's helpful vs dangerous in clinical decision-making
+
+---
+
+### **3.6 Why It's Different**
+
+Our solution stands apart from existing AI tools:
+
+✓ **NZ data sovereignty and privacy by default** - not an afterthought  
+✓ **Meaningful cost savings at national scale** - sustainable for NZ health sector  
+✓ **NZ-tuned logic and coding** - understands local requirements  
+✓ **Focus on root-cause workflow pain points** - not just scribe replacement  
+✓ **Partnership for direct, real-world integration and validation** - Medtech access
+
+---
+
+### **3.7 Use Case Details**
 
 #### **Use Case 1: Inbox Management**
 
