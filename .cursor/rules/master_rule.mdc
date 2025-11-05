@@ -21,15 +21,15 @@ globs: []
 - **Template-First**: Use `/Templates/` for new projects. Auto-select based on stage/type. Load on-demand only.
 - **Traceability**: Date-stamp all significant changes. Update `last_updated` and bump `version` (patch).
 
-## Project Structure
-**Required**:
-- Root: `PROJECTS_OVERVIEW.md` (dashboard), `/Templates/` (templates + index)
-- Each project: One directory with `PROJECT_SUMMARY.md` (MANDATORY)
+## System Structure (Workspace/Repository Level)
+**Overall Structure**:
+- **Root Level**: `PROJECTS_OVERVIEW.md` (global dashboard), `/Templates/` (templates + index)
+- **Project Level**: Each project = one directory containing `PROJECT_SUMMARY.md` (MANDATORY per project)
 
 **Prohibited**:
-- Multiple `PROJECT_SUMMARY.md` files per project
-- Project folders without `PROJECT_SUMMARY.md`
-- Storing authoritative data outside `PROJECT_SUMMARY.md`
+- Multiple `PROJECT_SUMMARY.md` files per project directory
+- Project directories without `PROJECT_SUMMARY.md`
+- Storing authoritative project data outside the project's `PROJECT_SUMMARY.md`
 
 ## Metadata (YAML Front Matter)
 **Required**: `project_name`, `project_stage` (Ideation|Validation|Build|Operational|Archived), `owner`, `last_updated` (ISO), `version` (semver), `tags`
