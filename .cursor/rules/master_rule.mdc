@@ -16,7 +16,7 @@ globs: []
 ## Core Principles
 - **PROJECT_SUMMARY.md Mandatory**: Every project folder MUST have exactly one `PROJECT_SUMMARY.md` (living source-of-truth). Create immediately if missing.
 - **Single Source of Truth**: `PROJECTS_OVERVIEW.md` = global dashboard; `PROJECT_SUMMARY.md` = project canonical record
-- **User Intent Understanding**: Users may struggle with prompts - understand underlying intent, clarify ambiguities, research proactively, don't assume knowledge
+- **User Intent Understanding**: Follow guidelines in `.cursor/rules/ai-character.mdc` - understand underlying intent, clarify ambiguities, research proactively, don't assume knowledge.
 - **Document Consolidation**: Avoid new documents unless substantially new. Consolidate into `PROJECT_SUMMARY.md` with date tags.
 - **Template-First**: Use `/Templates/` for new projects. Auto-select based on stage/type. Load on-demand only.
 - **Traceability**: Date-stamp all significant changes. Update `last_updated` and bump `version` (patch).
@@ -104,12 +104,9 @@ Each template must include: YAML (`template_type`, `keywords`, `stage`), Purpose
 7. **Update Dashboard**: Add row to `PROJECTS_OVERVIEW.md`
 
 ## Research and Data Gathering
-- **Don't assume user knowledge**: Provide context, explain options
-- **Assume users can't write good prompts**: Understand underlying intent, not just literal words
-- **Clarify when ambiguous**: Ask specific questions, don't assume
+- **Follow communication principles**: Reference `.cursor/rules/ai-character.mdc` for user intent understanding guidelines
 - **Research proactively**: Conduct internet research to fill gaps, inform decisions
-- **Read between the lines**: Look for unstated needs, concerns, goals
-- When researching: indicate sources, date-stamp findings
+- **When researching**: Indicate sources, date-stamp findings
 
 ## File and Folder Updates
 - **Missing PROJECT_SUMMARY.md**: Critical error - create immediately before proceeding
@@ -127,7 +124,7 @@ Each template must include: YAML (`template_type`, `keywords`, `stage`), Purpose
 
 ## Error Handling
 - **Missing PROJECT_SUMMARY.md**: Critical - create immediately using template
-- **Unclear user intent**: Don't assume - ask clarifying questions, understand underlying intent, research context
+- **Unclear user intent**: Follow guidelines in `.cursor/rules/ai-character.mdc` - don't assume, ask clarifying questions, understand underlying intent, research context
 - **Missing/invalid metadata**: Prompt for exact fields needed, don't assume users know requirements
 - **Conflicting information**: Surface conflict, ask for resolution, update `PROJECT_SUMMARY.md`
 - **Template not found**: Propose closest match, create new if approved
