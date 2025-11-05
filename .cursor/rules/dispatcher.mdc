@@ -1,0 +1,16 @@
+---
+description: "Dispatcher Rule - Thin interactive guide; defers to Current Task and Master Rule"
+alwaysApply: true
+globs: []
+---
+
+# Dispatcher Rule
+
+- Read the Master Rule at `.cursor/rules/master_rule.mdc` at the start and end of each task.
+- Follow `.cursor/rules/current-task.mdc` for the session working loop and interaction behavior.
+- Treat root `PROJECTS_OVERVIEW.md` as the global dashboard and each project `PROJECT_SUMMARY.md` as the single source of truth.
+- Route detailed policy and enforcement to the Master Rule.
+
+---
+
+# End of Dispatcher Rule
