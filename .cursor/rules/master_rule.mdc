@@ -6,376 +6,155 @@ globs: []
 
 # Master Rule
 
-## Purpose and Scope
-This document is the authoritative source of truth for how the AI manages multiple projects, enforces documentation consistency, validates metadata, and delegates to domain-specific rules. It defines the policies, workflows, and safeguards that ensure reliable, repeatable project operations.
+## Quick Reference - Critical Rules
+1. **PROJECT_SUMMARY.md REQUIRED**: Every project MUST have `PROJECT_SUMMARY.md` - create immediately if missing
+2. **Single Source of Truth**: `PROJECTS_OVERVIEW.md` = global dashboard; `PROJECT_SUMMARY.md` = project truth
+3. **User Intent**: Assume users can't write good prompts - understand intent, clarify ambiguities, research proactively
+4. **Template-Driven**: Auto-select templates, load on-demand only, adapt folder structures
+5. **Update Dashboard**: After major changes, update `PROJECTS_OVERVIEW.md` with highlights and status
 
 ## Core Principles
-- **PROJECT_SUMMARY.md is Always Required**: Every project folder MUST have exactly one `PROJECT_SUMMARY.md` file. This is a mandatory requirement, not optional. It serves as the living source-of-truth document, continuously updated to reflect the latest insights, status, and summaries for that project. This keeps tracking, documentation, and knowledge management structured and prevents key info from being omitted or scattered.
-- Single Source of Truth: Root `PROJECTS_OVERVIEW.md` is the global dashboard; each project folder has exactly one `PROJECT_SUMMARY.md` as the project's canonical record and living document.
-- Minimal Surprises: Structural or destructive changes require explicit confirmation.
-- Consistency Over Time: Keep metadata and content synchronized; avoid drift between instructions, files, and memory.
-- Document Consolidation: Avoid creating new documents unless the topic is substantially new and unrelated to existing documents. Consolidate related information within existing central files (especially `PROJECT_SUMMARY.md`) using clear section headings and date tags.
-- Template-First: Prefer `/Templates/` for creating new projects or augmenting structure; create a new template only when none is suitable.
-- Delegation: The short dispatcher (`.cursor/rules/current-task.mdc`) governs the interactive loop; this Master Rule governs policies and execution details.
-- Traceability: Keep all output in clean Markdown with dates for traceability. Date-stamp significant changes and updates.
+- **PROJECT_SUMMARY.md Mandatory**: Every project folder MUST have exactly one `PROJECT_SUMMARY.md` (living source-of-truth). Create immediately if missing.
+- **Single Source of Truth**: `PROJECTS_OVERVIEW.md` = global dashboard; `PROJECT_SUMMARY.md` = project canonical record
+- **User Intent Understanding**: Users may struggle with prompts - understand underlying intent, clarify ambiguities, research proactively, don't assume knowledge
+- **Document Consolidation**: Avoid new documents unless substantially new. Consolidate into `PROJECT_SUMMARY.md` with date tags.
+- **Template-First**: Use `/Templates/` for new projects. Auto-select based on stage/type. Load on-demand only.
+- **Traceability**: Date-stamp all significant changes. Update `last_updated` and bump `version` (patch).
 
-## Project Structure and Governance
-- Root level contains:
-  - Global `PROJECTS_OVERVIEW.md` dashboard summarizing all projects.
-  - `/Templates/` containing scenario templates and an index.
-  - One directory per project with its own `PROJECT_SUMMARY.md` (REQUIRED).
-- **PROJECT_SUMMARY.md Requirement**:
-  - Every project folder MUST contain a `PROJECT_SUMMARY.md` file.
-  - This file is created immediately when a new project is initialized.
-  - If a project folder exists without `PROJECT_SUMMARY.md`, create it immediately.
-  - This document serves as the living source-of-truth, continuously updated with latest insights, status, and summaries.
-- Prohibited:
-  - Multiple `PROJECT_SUMMARY.md` files in the same project folder.
-  - Storing authoritative project data outside the project `PROJECT_SUMMARY.md`.
-  - Project folders without a `PROJECT_SUMMARY.md` file.
+## Project Structure
+**Required**:
+- Root: `PROJECTS_OVERVIEW.md` (dashboard), `/Templates/` (templates + index)
+- Each project: One directory with `PROJECT_SUMMARY.md` (MANDATORY)
 
-## Metadata Policy (YAML front matter)
-All root `PROJECTS_OVERVIEW.md` and project `PROJECT_SUMMARY.md` files must begin with YAML front matter.
+**Prohibited**:
+- Multiple `PROJECT_SUMMARY.md` files per project
+- Project folders without `PROJECT_SUMMARY.md`
+- Storing authoritative data outside `PROJECT_SUMMARY.md`
 
-Required fields:
-- `project_name` (string)
-- `project_stage` (enum: Ideation | Validation | Build | Operational | Archived)
-- `owner` (string)
-- `last_updated` (ISO date string)
-- `version` (semver string)
-- `tags` (array of strings)
+## Metadata (YAML Front Matter)
+**Required**: `project_name`, `project_stage` (Ideation|Validation|Build|Operational|Archived), `owner`, `last_updated` (ISO), `version` (semver), `tags`
+**Optional**: `summary`, `links`, `stakeholders`, `milestones`, `risks`
+**Validation**: Ensure required fields exist, normalize stage, update `last_updated` on material edits, bump patch version.
 
-Optional fields:
-- `summary`, `links` (map of name->url), `stakeholders` (array), `milestones` (array), `risks` (array)
+## Dashboard (`PROJECTS_OVERVIEW.md`)
+**Purpose**: Mission control dashboard - immediate snapshot, onboarding, cross-project visibility
 
-Validation rules:
-- Ensure required fields exist and are non-empty.
-- `version` must be a valid semver (e.g., 1.0.0). If unsure, bump patch.
-- `last_updated` must be set to current date when material edits occur.
-- Normalize `project_stage` to one of the allowed values; prompt if ambiguous.
+**Structure**:
+- Active Projects Index (name, folder, stage, owner, last updated, link to `PROJECT_SUMMARY.md`)
+- AI-Generated Highlights (achievements, blockers, cross-project themes)
+- Quick Status Summary (counts by stage)
+- Project Details (brief per project: dates, status, summary)
+- Archived Projects
 
-## Dashboard Management (Root `PROJECTS_OVERVIEW.md`)
+**Update Triggers**: New project, stage change, archiving, major milestones, blockers identified, owner change, significant status updates
 
-### Purpose and Role
-- **Mission Control**: `PROJECTS_OVERVIEW.md` serves as the central "mission control" dashboard providing an immediate snapshot of all ongoing projects.
-- **Onboarding & Planning**: Enables quick onboarding, status updates, high-level planning, and cross-project visibility for both humans and AI.
-- **Single Source of Truth**: This is the global dashboard that summarizes all projects at a glance.
+**Update Process**: 1) Update index table, 2) Refresh highlights, 3) Update status counts, 4) Update project details, 5) Update YAML `last_updated`, 6) Validate links
 
-### Required Content Structure
-The dashboard must include:
-- **Active Projects Index**: Table with project name, folder, stage, owner, last updated, and link to project's `PROJECT_SUMMARY.md`
-- **AI-Generated Highlights**:
-  - Recent Achievements Across Projects (auto-populated from recent milestones)
-  - Top Blockers & Risks (identified blockers and risks)
-  - Cross-Project Themes & Dependencies (relationships and dependencies across projects)
-- **Quick Status Summary**: Count of projects by stage
-- **Project Details**: Brief details for each active project including key dates, status, and summary
-- **Archived Projects**: Section for completed or archived projects
+## PROJECT_SUMMARY.md Management
+**Requirement**: Always required, non-negotiable. Living source-of-truth for all project info.
 
-### Maintenance Requirements
-- **Auto-Indexing**: Automatically index all projects with links, brief status, and last updated date.
-- **Update After Major Changes**: AI must update this overview after any major change in a project, including:
-  - Stage transitions
-  - Significant milestone completions
-  - New blockers or risks identified
-  - Owner changes
-  - Project creation or archiving
-- **Cross-Project Awareness**: Ensure that cross-project dependencies or themes are identified and surfaced in the AI-Generated Highlights section.
-- **Real-Time Accuracy**: Keep the dashboard current to reflect the latest project states.
+**Content**: Overview, goals, milestones, tasks, decisions, links, status, insights, learnings, progress updates
 
-### Update Triggers
-Update `PROJECTS_OVERVIEW.md` when:
-- A new project is created (add immediately)
-- A project's stage changes
-- A project is archived (move to Archived section)
-- Major milestones are completed (update highlights)
-- Blockers or risks are identified (update highlights)
-- Cross-project dependencies are discovered (update themes section)
-- Project owner changes
-- Significant status updates occur
+**Maintenance**: Update atomically, use date tags (`## Updates [2024-01-15]`), consolidate related info, prompt before overwriting/deleting significant info
 
-### Update Process
-1. Update the Active Projects Index table with latest information
-2. Refresh AI-Generated Highlights based on recent project updates
-3. Update Quick Status Summary counts
-4. Update individual Project Details sections as needed
-5. Update `last_updated` date in YAML front matter
-6. Ensure all links to `PROJECT_SUMMARY.md` files are valid
-
-## Project `PROJECT_SUMMARY.md` Management
-
-### Requirement and Purpose
-- **Always Required**: Every project MUST have a `PROJECT_SUMMARY.md` file. This is non-negotiable.
-- **Living Source-of-Truth**: This document serves as the continuously updated repository for all project information. It must reflect the latest insights, status, summaries, decisions, and progress.
-- **Prevents Information Scatter**: By consolidating key information in one place, this prevents critical details from being omitted or scattered across multiple files.
-
-### Content Management
-- Treat it as the single source of truth for: overview, goals, milestones, tasks, decisions, links, status, insights, learnings, and progress updates.
-- When user requests updates, modify this file directly and atomically.
-- Keep sections tidy; prefer concise headings and tables where appropriate.
-- Consolidate related information within this file using clear section headings and date tags (e.g., `## Updates [2024-01-15]`).
-- Regularly update this document as the project evolves - it should always reflect current state.
-- Before overwriting or deleting significant project information, always prompt the user for clarification and confirmation.
-
-### Validation
-- If a project folder exists without `PROJECT_SUMMARY.md`, immediately create it using the appropriate template.
-- Ensure the file is always present and up-to-date before considering any project work complete.
+**Validation**: If missing, create immediately using template. Ensure present and current before completing work.
 
 ## Templates
 
-### Triggered Template Loading
-AI should load templates **on-demand** only at specific trigger points:
-- A new project folder is detected with sparse metadata
-- The user requests project setup assistance
-- AI detects gaps or missing standard folders/files in an existing project
-- User's project description or stage matches template keywords
+### Loading (On-Demand Only)
+**Triggers**: New project with sparse metadata, user requests setup, missing folders/files detected, project matches template keywords
+**Strategy**: Load only selected template (not all), use `Templates_Index.md` for quick reference
 
-**Loading Strategy**: Load only the selected template file (not all templates) to minimize context overhead and keep processing focused.
+### Selection
+- Auto-select based on: project description, metadata, stage, keywords from index
+- Don't ask users to pick - make selection automatically
+- If no match: research project type, auto-generate template, update index
 
-### Templates Index
-- Maintain `Templates_Index.md` at the root of the `/Templates/` folder as a concise reference.
-- The index contains: template name, keywords, stage, and use case - kept minimal to reduce context size.
-- AI refers to this index first to quickly identify which template to load based on:
-  - User conversation keywords
-  - Project metadata (stage, tags, description)
-  - Detected gaps in project structure
-- Update the index whenever adding new templates.
+### Structure Standards
+Each template must include: YAML (`template_type`, `keywords`, `stage`), Purpose, Key Questions, Common Documents, Recommended Folder Structure, Milestones, Pitfalls, Example Prompts, Date-stamped footer
 
-### AI-Driven Template Selection
-- Automatically select the best-fit template by analyzing the user's project description, metadata, and current stage.
-- Match templates using:
-  - Keywords from Templates Index
-  - Project stage alignment
-  - User's stated goals or needs
-- **Do not ask users to pick templates** - make the selection automatically based on context.
-- If no suitable template exists:
-  1. Perform online research to infer the project type and best practices
-  2. Auto-generate a new template markdown file following the standard template structure
-  3. Update `Templates_Index.md` with the new template entry
-  4. Save the template for future reuse
-
-### Template Structure Standards
-Each template markdown file must include:
-- **YAML front matter** with: `template_type`, `keywords` (array), `stage` (enum)
-- **Purpose of This Stage/Scenario** - Clear description of when to use this template
-- **Key Questions for Founders** - Questions to guide information gathering
-- **Common Documents to Prepare** - List of expected deliverables
-- **Recommended Folder Structure Components** - Suggested folder/file organization with examples
-- **Typical Milestones and Checkpoints** - Stage progression markers
-- **Pitfalls to Avoid** - Common mistakes to warn about
-- **Example Prompts for AI** - Reference prompts for AI during setup conversations
-- **Date-stamped footer** for traceability
-
-### Using Templates During Project Setup
-When a template is loaded:
-1. Use the template's **Key Questions** as a conversation scaffold to gather required information
-2. **AI-Guided Consultation**: Prompt user for missing project details (stage, product type, business function, team size, special requirements) to inform folder creation decisions
-3. **Adaptive Folder Creation**: 
-   - Reference template's **Recommended Folder Structure** as a starting point (not rigid requirement)
-   - Customize folder structure based on gathered project details and project-specific needs
-   - Adapt to project type (SaaS, marketplace, hardware, etc.), business model, and current stage
-   - Add folders specific to identified requirements (compliance, grants, partnerships, etc.)
-   - Remove or defer folders not relevant to current stage
-   - Document folder structure rationale in `PROJECT_SUMMARY.md`
-4. Use **Common Documents** list to identify what needs to be created
-5. Track progress against **Typical Milestones** and advise on next steps
-6. Reference **Pitfalls to Avoid** for coaching throughout setup
-7. Use **Example Prompts** as reference for productive conversations
-8. **Future-Proofing**: Create structures that can evolve as project grows and needs change
-
-### Proactive Research and Data Gathering
-- **Don't assume user knowledge**: Users may not know best practices, available options, or industry standards. Don't assume they have complete information.
-- **Assume users can't write good AI prompts**: Users may struggle to articulate their needs clearly. Strive to understand underlying intent, not just literal words.
-- **Clarify when ambiguous**: When requests are unclear or potentially misinterpreted, ask specific clarifying questions rather than making assumptions.
-- **Research proactively**: Recognize that users often lack full information; proactively conduct supplementary internet research to help fill gaps.
-- Use research to inform template selection, content generation, and project guidance.
-- Present suggestions, best practices, and relevant data tailored to the user's project goals.
-- This collaborative approach improves data quality and helps the user learn.
-- When conducting research, clearly indicate sources and date-stamp findings.
-- **Read between the lines**: Look for unstated needs, concerns, or goals that the user may not have explicitly mentioned.
+### Usage During Setup
+1. Use Key Questions as conversation scaffold
+2. AI-Guided Consultation: Prompt for missing details (stage, product type, function, requirements)
+3. Adaptive Folder Creation: Start with template structure, customize by project type/model/stage, document rationale
+4. Reference Common Documents, track Milestones, heed Pitfalls
+5. Consolidate all info into `PROJECT_SUMMARY.md`
 
 ## AI-Guided Folder Creation
 
-### Consultative Approach
-- **Prompt for Missing Details**: Before creating folder structures, AI should proactively prompt the user for missing project details to inform folder creation:
-  - Project stage (Ideation, Validation, Build, Operational)
-  - Product/service type (SaaS, marketplace, hardware, consulting, research, etc.)
-  - Business function/domain (B2B, B2C, B2G, etc.)
-  - Team size and structure
-  - Special requirements (compliance, grants, partnerships, certifications, etc.)
-- **Adaptive Structures**: Folder structures are not rigid "one size fits all" - they adapt based on:
-  - Project stage and current needs
-  - Business model and product type
-  - Team size and organizational structure
-  - Specific requirements identified through consultation
-  - Project evolution over time
+### Process
+1. **Gather Context**: Review metadata, prompt for missing details (stage, product type, business function, team size, requirements), analyze description, ask clarifying questions
+2. **Select Template**: Match by stage/type, review recommended structure
+3. **Customize**: Start with template, add folders by product type (SaaS: `/api/`, `/frontend/`), business model (marketplace: `/seller-onboarding/`, `/payment-processing/`), compliance (`/compliance/`, `/dpia/`), grants (`/grant-proposals/`), partnerships (`/partner-contracts/`). Remove/defer irrelevant folders.
+4. **Document**: Note rationale in `PROJECT_SUMMARY.md`, reference template, explain adaptations
+5. **Future-Proof**: Flexible structure, anticipate needs but don't over-engineer, add folders as project evolves
 
-### Folder Creation Process
-1. **Gather Project Context**:
-   - Review existing project metadata (stage, tags, description)
-   - Prompt user for missing details about project type, function, and requirements
-   - Analyze project description to infer needs
-   - Ask clarifying questions if information is sparse
-2. **Select Base Template**:
-   - Match project to appropriate template based on stage and type
-   - Review template's "Recommended Folder Structure Components"
-3. **Customize Structure**:
-   - Use template structure as a starting point (not a rigid requirement)
-   - Add additional folders based on:
-     - Product type (e.g., SaaS projects may need `/api/`, `/frontend/`, `/deployment/`)
-     - Business model (e.g., marketplace projects may need `/seller-onboarding/`, `/payment-processing/`)
-     - Compliance needs (e.g., `/compliance/`, `/audits/`, `/dpia/`)
-     - Grant requirements (e.g., `/grant-proposals/`, `/reporting/`)
-     - Partnership needs (e.g., `/partner-contracts/`, `/collaboration/`)
-   - Remove or defer folders not relevant to current stage
-   - Consider future needs but don't over-engineer
-4. **Document Rationale**:
-   - Note in `PROJECT_SUMMARY.md` why specific folders were created
-   - Reference the template used and any customizations made
-   - Explain adaptations based on project-specific needs
-5. **Future-Proofing**:
-   - Structure should be flexible enough to evolve as project grows
-   - Anticipate future needs but don't create empty folders prematurely
-   - Add folders as project evolves and new needs emerge
+### Evolution
+- **Stage-Based**: Ideation→Validation (add research), Validation→Build (add development), Build→Operational (add operations)
+- **Business Model**: SaaS (dev/deploy/ops), Marketplace (buyer/seller/payments/trust), Hardware (manufacturing/supply/certs), Research/Grants (proposals/compliance/reporting), Consulting (clients/proposals/deliverables)
+- **Continuous**: Detect gaps, suggest folders, adapt structure, update documentation
 
-### Evolution and Adaptation
-- **Stage-Based Evolution**: As projects progress through stages, folder structures may need updates:
-  - Ideation → Validation: Add customer research folders
-  - Validation → Build: Add product development folders
-  - Build → Operational: Add operations and team folders
-- **Business Model Adaptation**: Different business models require different structures:
-  - SaaS: Emphasize product development, deployment, operations, API documentation
-  - Marketplace: Emphasize buyer/seller management, payments, trust & safety, moderation
-  - Hardware: Emphasize manufacturing, supply chain, certifications, quality control
-  - Research/Grants: Emphasize proposals, compliance, reporting, data management
-  - Consulting: Emphasize client management, proposals, deliverables, contracts
-- **Continuous Consultation**: When detecting new needs or gaps:
-  - Prompt user about missing components
-  - Suggest additional folders based on project evolution
-  - Adapt structure based on user feedback and project requirements
-  - Update folder structure documentation in `PROJECT_SUMMARY.md`
+## Project Creation Workflow
+1. **Gather Details**: Prompt for stage, product type, business function, team size, requirements. Infer if sparse, ask clarifying questions.
+2. **Create Directory**: Use kebab-case naming
+3. **Create PROJECT_SUMMARY.md**: IMMEDIATELY (mandatory)
+4. **Select Template**: Auto-select based on stage/type
+5. **Populate PROJECT_SUMMARY.md**: From template with required YAML
+6. **Create Folders**: Start with template structure, customize by gathered details, document rationale
+7. **Update Dashboard**: Add row to `PROJECTS_OVERVIEW.md`
 
-### Integration with Templates
-- Templates provide **recommended** folder structures, not prescriptive requirements
-- Use template structures as intelligent defaults
-- Customize based on consultation with user and project-specific needs
-- Combine elements from multiple templates if project spans multiple domains
-- Treat folder structures as living, evolving components that adapt to project needs
+## Research and Data Gathering
+- **Don't assume user knowledge**: Provide context, explain options
+- **Assume users can't write good prompts**: Understand underlying intent, not just literal words
+- **Clarify when ambiguous**: Ask specific questions, don't assume
+- **Research proactively**: Conduct internet research to fill gaps, inform decisions
+- **Read between the lines**: Look for unstated needs, concerns, goals
+- When researching: indicate sources, date-stamp findings
 
-## Creation and Update Semantics
-
-### Project Creation Workflow
-When creating a new project:
-1. **Gather Project Details** (AI-Guided Consultation):
-   - Prompt user for: project stage, product/service type, business function, team size, special requirements
-   - Use responses to inform folder structure decisions
-   - If details are sparse, infer from project description and ask clarifying questions
-2. **Create Project Directory**: Use kebab-case naming
-3. **IMMEDIATELY create `PROJECT_SUMMARY.md`** (mandatory, not optional)
-4. **Select and Load Template**: Choose appropriate template based on stage and type
-5. **Populate PROJECT_SUMMARY.md**: From template with required YAML front matter
-6. **Create Folder Structure** (AI-Guided):
-   - Start with template's recommended folder structure
-   - Customize based on gathered project details (product type, business model, requirements)
-   - Add folders specific to project needs
-   - Document folder rationale in `PROJECT_SUMMARY.md`
-7. **Add to Dashboard**: Add project row to root `PROJECTS_OVERVIEW.md`
-
-### Folder Structure Creation
-- **Consultative Process**: Prompt user for missing details before creating folders
-- **Template-Based**: Use template's "Recommended Folder Structure Components" as starting point
-- **Adaptive**: Customize folders based on:
-  - Project stage (current and anticipated)
-  - Product/service type
-  - Business model and function
-  - Team structure and size
-  - Compliance and regulatory requirements
-  - Grant or partnership needs
-- **Evolution-Ready**: Create structures that can grow as project evolves
-- **Documentation**: Note folder structure decisions in `PROJECT_SUMMARY.md`
-
-### File and Folder Updates
-- **Missing PROJECT_SUMMARY.md**: If a project folder exists without `PROJECT_SUMMARY.md`, treat this as a critical error and create it immediately before proceeding with any other work.
-- **Missing Folders**: If AI detects gaps in project structure:
-  - Consult with user about needs
-  - Reference templates for recommendations
-  - Create folders adaptively based on project evolution
-- Avoid creating new documents unless the topic is substantially new and unrelated to existing documents. When in doubt, consolidate into `PROJECT_SUMMARY.md`.
-- File updates: Make minimal diffs; do not introduce unrelated changes. When adding new information, consolidate within existing files (especially `PROJECT_SUMMARY.md`) using clear section headings and date tags.
-- Naming: Use kebab-case for directories; avoid spaces where feasible.
-- Confirmations: Always prompt the user for clarification before overwriting or deleting significant project information. Ask for confirmation before renames, deletions, or moving content across projects.
-- Date-stamping: Include date tags (e.g., `[2024-01-15]`) for significant changes and updates to maintain traceability.
+## File and Folder Updates
+- **Missing PROJECT_SUMMARY.md**: Critical error - create immediately before proceeding
+- **Missing Folders**: Consult user, reference templates, create adaptively
+- **Document Creation**: Avoid new docs unless substantially new. Consolidate into `PROJECT_SUMMARY.md` when in doubt.
+- **Updates**: Minimal diffs, consolidate with date tags, use kebab-case naming
+- **Confirmations**: Prompt before overwriting/deleting significant info, renames, deletions, cross-project moves
 
 ## Consistency and Synchronization
-- Update `last_updated` and bump `version` (patch) for meaningful changes in both `PROJECT_SUMMARY.md` and `PROJECTS_OVERVIEW.md`.
-- Keep root dashboard (`PROJECTS_OVERVIEW.md`) in sync with project status/stage, milestones, blockers, and achievements.
-- Reflect decisions and milestones immediately in both `PROJECT_SUMMARY.md` and `PROJECTS_OVERVIEW.md` to prevent drift.
-- Surface cross-project dependencies and themes in the dashboard's AI-Generated Highlights section.
-- Ensure the dashboard provides accurate, at-a-glance visibility into all projects.
+- Update `last_updated` and bump `version` (patch) in both `PROJECT_SUMMARY.md` and `PROJECTS_OVERVIEW.md`
+- Keep dashboard in sync with status/stage, milestones, blockers, achievements
+- Reflect decisions/milestones immediately in both files
+- Surface cross-project dependencies in dashboard highlights
+- Ensure dashboard provides accurate at-a-glance visibility
 
-## Delegation to Domain Rules
-- If a domain- or folder-specific rule exists (e.g., under `.cursor/rules/`), follow it for that domain while preserving the principles here.
-- The dispatcher rule (`current-task.mdc`) controls the task loop; this Master Rule defines how to perform the work.
+## Error Handling
+- **Missing PROJECT_SUMMARY.md**: Critical - create immediately using template
+- **Unclear user intent**: Don't assume - ask clarifying questions, understand underlying intent, research context
+- **Missing/invalid metadata**: Prompt for exact fields needed, don't assume users know requirements
+- **Conflicting information**: Surface conflict, ask for resolution, update `PROJECT_SUMMARY.md`
+- **Template not found**: Propose closest match, create new if approved
+- **Information scattered**: Consolidate into `PROJECT_SUMMARY.md`
+- **Knowledge gaps**: Research proactively rather than asking user
 
-## Error Handling and Ambiguities
-- **Missing PROJECT_SUMMARY.md**: If a project folder exists without `PROJECT_SUMMARY.md`, this is a critical error. Immediately create the file using the appropriate template before proceeding with any other work.
-- **Unclear user intent**: When user requests are ambiguous, vague, or potentially misinterpreted:
-  - Don't assume - ask specific clarifying questions
-  - Understand underlying intent, not just literal words
-  - Consider what the user might not have explicitly stated
-  - If needed, perform research to better understand context
-- Missing/invalid metadata: prompt the user with the exact fields needed (ensure `PROJECT_SUMMARY.md` has required YAML front matter). Don't assume users know what metadata is required.
-- Conflicting information: surface the conflict and ask for resolution. Update `PROJECT_SUMMARY.md` once resolved.
-- Template not found: propose the closest template and, if approved, create a new one.
-- Information scattered across files: consolidate into `PROJECT_SUMMARY.md` as the single source of truth.
-- **Knowledge gaps**: When more information is needed to serve the user effectively, perform internet research proactively rather than asking the user to provide information they may not have.
-
-## Operational Loop (When Invoked)
-1. Read this Master Rule.
-2. Validate context (project, folder, intended change). If unclear, ask for confirmation.
-3. **PROJECT_SUMMARY.md Validation** (CRITICAL CHECK):
-   - **Verify `PROJECT_SUMMARY.md` exists** in the project folder.
-   - If missing: STOP and create it immediately before proceeding. This is a mandatory requirement.
-   - Ensure it contains required YAML front matter and reflects current project state.
-4. **Template Selection (Triggered Loading)**:
-   - **Check triggers**: New project folder with sparse metadata? User requesting setup? Missing standard folders/files? Project description matches template keywords?
-   - If triggered: Check `Templates_Index.md` first (concise reference only).
-   - Analyze user's project description, metadata, and stage to auto-select best-fit template.
-   - Load **only the selected template file** (not all templates) to keep context focused.
-   - If no suitable template exists, conduct research and auto-generate a new template following Template Structure Standards.
-5. **Template Usage**: If a template is loaded:
-   - Use template's **Key Questions** as conversation scaffold to gather information.
-   - **AI-Guided Consultation**: Prompt user for missing project details (stage, product type, function, requirements) to inform folder creation.
-   - **Adaptive Folder Creation**: 
-     - Reference template's **Recommended Folder Structure** as starting point
-     - Customize based on gathered project details and project-specific needs
-     - Create folders that adapt to project type, business model, and evolution
-     - Document folder structure rationale in `PROJECT_SUMMARY.md`
-   - Use **Common Documents** list to identify deliverables.
-   - Track progress against **Typical Milestones**.
-   - Reference **Pitfalls to Avoid** for guidance.
-   - **Ensure all information is consolidated into `PROJECT_SUMMARY.md`** as the living source-of-truth.
-6. **Research and Data Gathering**: If user information is incomplete, proactively conduct supplementary research to fill gaps and present suggestions.
-7. Validate metadata and collect missing fields (in `PROJECT_SUMMARY.md`).
-8. Plan minimal edits; prefer updating `PROJECT_SUMMARY.md` and `PROJECTS_OVERVIEW.md` directly. Consolidate related information within `PROJECT_SUMMARY.md` rather than creating new documents.
-9. Before making destructive changes, prompt user for clarification and confirmation.
-10. Apply the edits atomically; update `PROJECT_SUMMARY.md` metadata (`last_updated`, `version`). Include date tags for traceability.
-11. **Update Root Dashboard**: After any major project change (stage transition, milestone completion, blocker identification, owner change, project creation/archiving):
-    - Update `PROJECTS_OVERVIEW.md` Active Projects Index
-    - Refresh AI-Generated Highlights (achievements, blockers, cross-project themes)
-    - Update Quick Status Summary counts
-    - Update Project Details section
-    - Update `last_updated` in dashboard YAML front matter
-    - Ensure cross-project dependencies are surfaced
-12. **Final Validation**: Ensure `PROJECT_SUMMARY.md` reflects all changes and is up-to-date.
-13. Summarize changes succinctly and confirm completion.
+## Operational Loop
+1. Read Master Rule
+2. Validate context - ask if unclear
+3. **PROJECT_SUMMARY.md Check**: Verify exists, create if missing (CRITICAL)
+4. **Template Selection** (if triggered): Check index, auto-select, load only selected file
+5. **Template Usage** (if loaded): Use Key Questions, prompt for details, create adaptive folders, consolidate into `PROJECT_SUMMARY.md`
+6. **Research**: If info incomplete, research proactively
+7. Validate metadata in `PROJECT_SUMMARY.md`
+8. Plan edits - prefer updating `PROJECT_SUMMARY.md` and `PROJECTS_OVERVIEW.md` directly
+9. Prompt before destructive changes
+10. Apply edits atomically, update metadata, date-stamp
+11. **Update Dashboard**: After major changes, update index, refresh highlights, update counts/details, update YAML
+12. Final validation: Ensure `PROJECT_SUMMARY.md` reflects all changes
+13. Summarize changes
 
 ## Safeguards
-- **PROJECT_SUMMARY.md Mandatory**: Never work on a project that lacks `PROJECT_SUMMARY.md`. Always verify its existence first and create it immediately if missing.
-- Never create multiple sources of truth - `PROJECT_SUMMARY.md` is the single source of truth for each project.
-- Never proceed with destructive operations without confirmation.
-- Keep edits scoped; avoid cross-project edits unless explicitly requested.
-- Always update `PROJECT_SUMMARY.md` to reflect the latest project state - it must remain a living document.
+- Never work on project without `PROJECT_SUMMARY.md` - verify first, create if missing
+- Never create multiple sources of truth - `PROJECT_SUMMARY.md` is single source per project
+- Never proceed with destructive operations without confirmation
+- Keep edits scoped - avoid cross-project edits unless explicit
+- Always update `PROJECT_SUMMARY.md` to reflect latest state - living document
 
 ---
 
