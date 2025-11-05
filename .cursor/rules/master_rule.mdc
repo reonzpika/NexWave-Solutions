@@ -184,11 +184,15 @@ When a template is loaded:
 8. **Future-Proofing**: Create structures that can evolve as project grows and needs change
 
 ### Proactive Research and Data Gathering
-- Recognize that users often lack full information; proactively conduct supplementary internet research to help fill gaps.
-- Use research to inform template selection and content generation.
+- **Don't assume user knowledge**: Users may not know best practices, available options, or industry standards. Don't assume they have complete information.
+- **Assume users can't write good AI prompts**: Users may struggle to articulate their needs clearly. Strive to understand underlying intent, not just literal words.
+- **Clarify when ambiguous**: When requests are unclear or potentially misinterpreted, ask specific clarifying questions rather than making assumptions.
+- **Research proactively**: Recognize that users often lack full information; proactively conduct supplementary internet research to help fill gaps.
+- Use research to inform template selection, content generation, and project guidance.
 - Present suggestions, best practices, and relevant data tailored to the user's project goals.
 - This collaborative approach improves data quality and helps the user learn.
 - When conducting research, clearly indicate sources and date-stamp findings.
+- **Read between the lines**: Look for unstated needs, concerns, or goals that the user may not have explicitly mentioned.
 
 ## AI-Guided Folder Creation
 
@@ -315,10 +319,16 @@ When creating a new project:
 
 ## Error Handling and Ambiguities
 - **Missing PROJECT_SUMMARY.md**: If a project folder exists without `PROJECT_SUMMARY.md`, this is a critical error. Immediately create the file using the appropriate template before proceeding with any other work.
-- Missing/invalid metadata: prompt the user with the exact fields needed (ensure `PROJECT_SUMMARY.md` has required YAML front matter).
+- **Unclear user intent**: When user requests are ambiguous, vague, or potentially misinterpreted:
+  - Don't assume - ask specific clarifying questions
+  - Understand underlying intent, not just literal words
+  - Consider what the user might not have explicitly stated
+  - If needed, perform research to better understand context
+- Missing/invalid metadata: prompt the user with the exact fields needed (ensure `PROJECT_SUMMARY.md` has required YAML front matter). Don't assume users know what metadata is required.
 - Conflicting information: surface the conflict and ask for resolution. Update `PROJECT_SUMMARY.md` once resolved.
 - Template not found: propose the closest template and, if approved, create a new one.
 - Information scattered across files: consolidate into `PROJECT_SUMMARY.md` as the single source of truth.
+- **Knowledge gaps**: When more information is needed to serve the user effectively, perform internet research proactively rather than asking the user to provide information they may not have.
 
 ## Operational Loop (When Invoked)
 1. Read this Master Rule.
