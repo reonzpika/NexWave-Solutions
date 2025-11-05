@@ -55,9 +55,52 @@ Validation rules:
 - Normalize `project_stage` to one of the allowed values; prompt if ambiguous.
 
 ## Dashboard Management (Root `PROJECTS_OVERVIEW.md`)
-- Maintain a table of active projects with folder, status/stage, and last updated.
-- When creating a new project, add a row immediately.
-- When archiving, move the row to an Archived section or clearly mark status.
+
+### Purpose and Role
+- **Mission Control**: `PROJECTS_OVERVIEW.md` serves as the central "mission control" dashboard providing an immediate snapshot of all ongoing projects.
+- **Onboarding & Planning**: Enables quick onboarding, status updates, high-level planning, and cross-project visibility for both humans and AI.
+- **Single Source of Truth**: This is the global dashboard that summarizes all projects at a glance.
+
+### Required Content Structure
+The dashboard must include:
+- **Active Projects Index**: Table with project name, folder, stage, owner, last updated, and link to project's `PROJECT_SUMMARY.md`
+- **AI-Generated Highlights**:
+  - Recent Achievements Across Projects (auto-populated from recent milestones)
+  - Top Blockers & Risks (identified blockers and risks)
+  - Cross-Project Themes & Dependencies (relationships and dependencies across projects)
+- **Quick Status Summary**: Count of projects by stage
+- **Project Details**: Brief details for each active project including key dates, status, and summary
+- **Archived Projects**: Section for completed or archived projects
+
+### Maintenance Requirements
+- **Auto-Indexing**: Automatically index all projects with links, brief status, and last updated date.
+- **Update After Major Changes**: AI must update this overview after any major change in a project, including:
+  - Stage transitions
+  - Significant milestone completions
+  - New blockers or risks identified
+  - Owner changes
+  - Project creation or archiving
+- **Cross-Project Awareness**: Ensure that cross-project dependencies or themes are identified and surfaced in the AI-Generated Highlights section.
+- **Real-Time Accuracy**: Keep the dashboard current to reflect the latest project states.
+
+### Update Triggers
+Update `PROJECTS_OVERVIEW.md` when:
+- A new project is created (add immediately)
+- A project's stage changes
+- A project is archived (move to Archived section)
+- Major milestones are completed (update highlights)
+- Blockers or risks are identified (update highlights)
+- Cross-project dependencies are discovered (update themes section)
+- Project owner changes
+- Significant status updates occur
+
+### Update Process
+1. Update the Active Projects Index table with latest information
+2. Refresh AI-Generated Highlights based on recent project updates
+3. Update Quick Status Summary counts
+4. Update individual Project Details sections as needed
+5. Update `last_updated` date in YAML front matter
+6. Ensure all links to `PROJECT_SUMMARY.md` files are valid
 
 ## Project `PROJECT_SUMMARY.md` Management
 
@@ -154,9 +197,11 @@ When a template is loaded:
 - Date-stamping: Include date tags (e.g., `[2024-01-15]`) for significant changes and updates to maintain traceability.
 
 ## Consistency and Synchronization
-- Update `last_updated` and bump `version` (patch) for meaningful changes.
-- Keep root dashboard in sync with project status/stage.
-- Reflect decisions and milestones immediately to prevent drift.
+- Update `last_updated` and bump `version` (patch) for meaningful changes in both `PROJECT_SUMMARY.md` and `PROJECTS_OVERVIEW.md`.
+- Keep root dashboard (`PROJECTS_OVERVIEW.md`) in sync with project status/stage, milestones, blockers, and achievements.
+- Reflect decisions and milestones immediately in both `PROJECT_SUMMARY.md` and `PROJECTS_OVERVIEW.md` to prevent drift.
+- Surface cross-project dependencies and themes in the dashboard's AI-Generated Highlights section.
+- Ensure the dashboard provides accurate, at-a-glance visibility into all projects.
 
 ## Delegation to Domain Rules
 - If a domain- or folder-specific rule exists (e.g., under `.cursor/rules/`), follow it for that domain while preserving the principles here.
@@ -194,7 +239,13 @@ When a template is loaded:
 8. Plan minimal edits; prefer updating `PROJECT_SUMMARY.md` and `PROJECTS_OVERVIEW.md` directly. Consolidate related information within `PROJECT_SUMMARY.md` rather than creating new documents.
 9. Before making destructive changes, prompt user for clarification and confirmation.
 10. Apply the edits atomically; update `PROJECT_SUMMARY.md` metadata (`last_updated`, `version`). Include date tags for traceability.
-11. Update the root dashboard if project status changed.
+11. **Update Root Dashboard**: After any major project change (stage transition, milestone completion, blocker identification, owner change, project creation/archiving):
+    - Update `PROJECTS_OVERVIEW.md` Active Projects Index
+    - Refresh AI-Generated Highlights (achievements, blockers, cross-project themes)
+    - Update Quick Status Summary counts
+    - Update Project Details section
+    - Update `last_updated` in dashboard YAML front matter
+    - Ensure cross-project dependencies are surfaced
 12. **Final Validation**: Ensure `PROJECT_SUMMARY.md` reflects all changes and is up-to-date.
 13. Summarize changes succinctly and confirm completion.
 
