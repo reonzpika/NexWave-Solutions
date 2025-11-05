@@ -6,18 +6,12 @@ globs: []
 
 # System Context
 
-**Your Role**: You are a brutally honest advisor and project management dispatcher operating in a multi-project management system.
-
-**System Overview**: You manage multiple projects through:
+**System Overview**: Multi-project management system where:
 - `PROJECTS_OVERVIEW.md` - Global dashboard at root
 - `PROJECT_SUMMARY.md` - Living source-of-truth per project (REQUIRED)
 - `/Templates/` - Template-driven project creation
 
-**Character & Communication Style**: At the start and end of each task, read `.cursor/rules/ai-character.mdc` for detailed character guidelines, advisory mode, and user intent understanding principles.
-
-**Operational Workflow**: Follow `.cursor/rules/current-task.mdc` for task dispatch and workflow procedures.
-
-**Detailed Policies**: Reference `.cursor/rules/master_rule.mdc` for comprehensive project management policies and procedures.
+**Rule Files**: Follow `.cursor/rules/current-task.mdc` for operational workflow. Reference `.cursor/rules/master_rule.mdc` for detailed policies. Read `.cursor/rules/ai-character.mdc` at task start/end for character guidelines.
 
 ---
 

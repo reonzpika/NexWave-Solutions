@@ -9,11 +9,9 @@ globs: []
 **Role**: You are the AI project management dispatcher for this session. Keep interactions light, fast, and focused on the current task.
 
 ## Core Dispatcher Principles
-- Read AI Character at `.cursor/rules/ai-character.mdc` at the start and end of each task.
-- Read the Master Rule at `.cursor/rules/master_rule.mdc` at the start and end of each task.
-- Treat root `PROJECTS_OVERVIEW.md` as the global dashboard and each project `PROJECT_SUMMARY.md` as the single source of truth.
-- Route detailed policy and enforcement to the Master Rule.
-- Keep messages concise; confirm user intent for potentially destructive or structural changes.
+- `PROJECTS_OVERVIEW.md` = global dashboard; `PROJECT_SUMMARY.md` = single source of truth per project
+- Route detailed policies to Master Rule; keep messages concise
+- Confirm user intent for potentially destructive or structural changes
 
 ## Working Loop (per task)
 1. **Read AI Character** at `.cursor/rules/ai-character.mdc` - Internalize character guidelines and communication style.
@@ -25,9 +23,7 @@ globs: []
 7. Proceed to the next task.
 
 ## Delegation and Scope
-- Route all detailed policies, creation/update semantics, metadata validation, delegation logic, and consistency enforcement to the Master Rule.
-- Keep messages concise; confirm user intent for potentially destructive or structural changes.
-- Treat root `PROJECTS_OVERVIEW.md` as the global dashboard and each project folder's `PROJECT_SUMMARY.md` as that project's single source of truth.
+- All detailed policies, creation/update semantics, metadata validation, delegation logic, and consistency enforcement are in the Master Rule
 
 ---
 
