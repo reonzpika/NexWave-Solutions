@@ -61,34 +61,61 @@ Validation rules:
 
 ## Templates
 
-### Template Selection and Loading
-- On project creation or when insufficient project details exist, check the `/Templates/` folder.
-- Load only the relevant markdown template file that matches the project type or scenario (using a short reference key or user-provided project classification).
-- Prevent scanning all templates unnecessarily; keep context light and focused by loading only the selected template.
+### Triggered Template Loading
+AI should load templates **on-demand** only at specific trigger points:
+- A new project folder is detected with sparse metadata
+- The user requests project setup assistance
+- AI detects gaps or missing standard folders/files in an existing project
+- User's project description or stage matches template keywords
+
+**Loading Strategy**: Load only the selected template file (not all templates) to minimize context overhead and keep processing focused.
 
 ### Templates Index
-- Maintain `Templates_Index.md` at the root of the `/Templates/` folder summarizing available templates with keywords.
-- AI refers to this index to quickly decide which template to load and parse fully based on user conversation or project metadata.
-- Update the index when adding new templates.
+- Maintain `Templates_Index.md` at the root of the `/Templates/` folder as a concise reference.
+- The index contains: template name, keywords, stage, and use case - kept minimal to reduce context size.
+- AI refers to this index first to quickly identify which template to load based on:
+  - User conversation keywords
+  - Project metadata (stage, tags, description)
+  - Detected gaps in project structure
+- Update the index whenever adding new templates.
 
 ### AI-Driven Template Selection
-- Instead of asking users to pick templates, automatically select the best-fit template by analyzing the user's initial project description and metadata.
-- Use the Templates Index keywords and project context to match the most appropriate template.
+- Automatically select the best-fit template by analyzing the user's project description, metadata, and current stage.
+- Match templates using:
+  - Keywords from Templates Index
+  - Project stage alignment
+  - User's stated goals or needs
+- **Do not ask users to pick templates** - make the selection automatically based on context.
 - If no suitable template exists:
-  1. Perform online research to infer the project type and best practices.
-  2. Auto-generate a new template markdown file based on research findings.
-  3. Update `Templates_Index.md` with the new template entry.
-  4. Save the template for future reuse.
+  1. Perform online research to infer the project type and best practices
+  2. Auto-generate a new template markdown file following the standard template structure
+  3. Update `Templates_Index.md` with the new template entry
+  4. Save the template for future reuse
 
-### Template Structure
-Templates should include:
-- YAML front matter skeleton
-- Recommended sections
-- Example milestones and tags
-- Date-stamped sections for traceability
+### Template Structure Standards
+Each template markdown file must include:
+- **YAML front matter** with: `template_type`, `keywords` (array), `stage` (enum)
+- **Purpose of This Stage/Scenario** - Clear description of when to use this template
+- **Key Questions for Founders** - Questions to guide information gathering
+- **Common Documents to Prepare** - List of expected deliverables
+- **Recommended Folder Structure Components** - Suggested folder/file organization with examples
+- **Typical Milestones and Checkpoints** - Stage progression markers
+- **Pitfalls to Avoid** - Common mistakes to warn about
+- **Example Prompts for AI** - Reference prompts for AI during setup conversations
+- **Date-stamped footer** for traceability
+
+### Using Templates During Project Setup
+When a template is loaded:
+1. Use the template's **Key Questions** as a conversation scaffold to gather required information
+2. Reference **Recommended Folder Structure** to create project folder and subfolder structure
+3. Use **Common Documents** list to identify what needs to be created
+4. Track progress against **Typical Milestones** and advise on next steps
+5. Reference **Pitfalls to Avoid** for coaching throughout setup
+6. Use **Example Prompts** as reference for productive conversations
 
 ### Proactive Research and Data Gathering
 - Recognize that users often lack full information; proactively conduct supplementary internet research to help fill gaps.
+- Use research to inform template selection and content generation.
 - Present suggestions, best practices, and relevant data tailored to the user's project goals.
 - This collaborative approach improves data quality and helps the user learn.
 - When conducting research, clearly indicate sources and date-stamp findings.
@@ -118,18 +145,25 @@ Templates should include:
 ## Operational Loop (When Invoked)
 1. Read this Master Rule.
 2. Validate context (project, folder, intended change). If unclear, ask for confirmation.
-3. **Template Selection**: If creating a new project or details are insufficient:
-   - Check `Templates_Index.md` to identify relevant templates.
-   - Analyze user's project description and metadata to auto-select the best-fit template.
-   - Load only the selected template file (not all templates).
-   - If no suitable template exists, conduct research and auto-generate a new template.
-4. **Research and Data Gathering**: If user information is incomplete, proactively conduct supplementary research to fill gaps and present suggestions.
-5. Validate metadata and collect missing fields.
-6. Plan minimal edits; prefer updating `PROJECT_SUMMARY.md` and `PROJECTS_OVERVIEW.md` directly. Consolidate related information within existing files rather than creating new documents.
-7. Before making destructive changes, prompt user for clarification and confirmation.
-8. Apply the edits atomically; update metadata (`last_updated`, `version`). Include date tags for traceability.
-9. Update the root dashboard if project status changed.
-10. Summarize changes succinctly and confirm completion.
+3. **Template Selection (Triggered Loading)**:
+   - **Check triggers**: New project folder with sparse metadata? User requesting setup? Missing standard folders/files? Project description matches template keywords?
+   - If triggered: Check `Templates_Index.md` first (concise reference only).
+   - Analyze user's project description, metadata, and stage to auto-select best-fit template.
+   - Load **only the selected template file** (not all templates) to keep context focused.
+   - If no suitable template exists, conduct research and auto-generate a new template following Template Structure Standards.
+4. **Template Usage**: If a template is loaded:
+   - Use template's **Key Questions** as conversation scaffold to gather information.
+   - Reference **Recommended Folder Structure** to create project organization.
+   - Use **Common Documents** list to identify deliverables.
+   - Track progress against **Typical Milestones**.
+   - Reference **Pitfalls to Avoid** for guidance.
+5. **Research and Data Gathering**: If user information is incomplete, proactively conduct supplementary research to fill gaps and present suggestions.
+6. Validate metadata and collect missing fields.
+7. Plan minimal edits; prefer updating `PROJECT_SUMMARY.md` and `PROJECTS_OVERVIEW.md` directly. Consolidate related information within existing files rather than creating new documents.
+8. Before making destructive changes, prompt user for clarification and confirmation.
+9. Apply the edits atomically; update metadata (`last_updated`, `version`). Include date tags for traceability.
+10. Update the root dashboard if project status changed.
+11. Summarize changes succinctly and confirm completion.
 
 ## Safeguards
 - Never create multiple sources of truth.
