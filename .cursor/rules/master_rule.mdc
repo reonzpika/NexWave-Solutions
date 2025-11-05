@@ -10,10 +10,11 @@ globs: []
 This document is the authoritative source of truth for how the AI manages multiple projects, enforces documentation consistency, validates metadata, and delegates to domain-specific rules. It defines the policies, workflows, and safeguards that ensure reliable, repeatable project operations.
 
 ## Core Principles
-- Single Source of Truth: Root `PROJECTS_OVERVIEW.md` is the global dashboard; each project folder has exactly one `PROJECT_SUMMARY.md` as the project's canonical record.
+- **PROJECT_SUMMARY.md is Always Required**: Every project folder MUST have exactly one `PROJECT_SUMMARY.md` file. This is a mandatory requirement, not optional. It serves as the living source-of-truth document, continuously updated to reflect the latest insights, status, and summaries for that project. This keeps tracking, documentation, and knowledge management structured and prevents key info from being omitted or scattered.
+- Single Source of Truth: Root `PROJECTS_OVERVIEW.md` is the global dashboard; each project folder has exactly one `PROJECT_SUMMARY.md` as the project's canonical record and living document.
 - Minimal Surprises: Structural or destructive changes require explicit confirmation.
 - Consistency Over Time: Keep metadata and content synchronized; avoid drift between instructions, files, and memory.
-- Document Consolidation: Avoid creating new documents unless the topic is substantially new and unrelated to existing documents. Consolidate related information within existing central files using clear section headings and date tags.
+- Document Consolidation: Avoid creating new documents unless the topic is substantially new and unrelated to existing documents. Consolidate related information within existing central files (especially `PROJECT_SUMMARY.md`) using clear section headings and date tags.
 - Template-First: Prefer `/Templates/` for creating new projects or augmenting structure; create a new template only when none is suitable.
 - Delegation: The short dispatcher (`.cursor/rules/current-task.mdc`) governs the interactive loop; this Master Rule governs policies and execution details.
 - Traceability: Keep all output in clean Markdown with dates for traceability. Date-stamp significant changes and updates.
@@ -22,10 +23,16 @@ This document is the authoritative source of truth for how the AI manages multip
 - Root level contains:
   - Global `PROJECTS_OVERVIEW.md` dashboard summarizing all projects.
   - `/Templates/` containing scenario templates and an index.
-  - One directory per project with its own `PROJECT_SUMMARY.md`.
+  - One directory per project with its own `PROJECT_SUMMARY.md` (REQUIRED).
+- **PROJECT_SUMMARY.md Requirement**:
+  - Every project folder MUST contain a `PROJECT_SUMMARY.md` file.
+  - This file is created immediately when a new project is initialized.
+  - If a project folder exists without `PROJECT_SUMMARY.md`, create it immediately.
+  - This document serves as the living source-of-truth, continuously updated with latest insights, status, and summaries.
 - Prohibited:
   - Multiple `PROJECT_SUMMARY.md` files in the same project folder.
   - Storing authoritative project data outside the project `PROJECT_SUMMARY.md`.
+  - Project folders without a `PROJECT_SUMMARY.md` file.
 
 ## Metadata Policy (YAML front matter)
 All root `PROJECTS_OVERVIEW.md` and project `PROJECT_SUMMARY.md` files must begin with YAML front matter.
@@ -53,11 +60,23 @@ Validation rules:
 - When archiving, move the row to an Archived section or clearly mark status.
 
 ## Project `PROJECT_SUMMARY.md` Management
-- Treat it as the single source of truth for: overview, goals, milestones, tasks, decisions, links, and status.
+
+### Requirement and Purpose
+- **Always Required**: Every project MUST have a `PROJECT_SUMMARY.md` file. This is non-negotiable.
+- **Living Source-of-Truth**: This document serves as the continuously updated repository for all project information. It must reflect the latest insights, status, summaries, decisions, and progress.
+- **Prevents Information Scatter**: By consolidating key information in one place, this prevents critical details from being omitted or scattered across multiple files.
+
+### Content Management
+- Treat it as the single source of truth for: overview, goals, milestones, tasks, decisions, links, status, insights, learnings, and progress updates.
 - When user requests updates, modify this file directly and atomically.
 - Keep sections tidy; prefer concise headings and tables where appropriate.
 - Consolidate related information within this file using clear section headings and date tags (e.g., `## Updates [2024-01-15]`).
+- Regularly update this document as the project evolves - it should always reflect current state.
 - Before overwriting or deleting significant project information, always prompt the user for clarification and confirmation.
+
+### Validation
+- If a project folder exists without `PROJECT_SUMMARY.md`, immediately create it using the appropriate template.
+- Ensure the file is always present and up-to-date before considering any project work complete.
 
 ## Templates
 
@@ -121,9 +140,15 @@ When a template is loaded:
 - When conducting research, clearly indicate sources and date-stamp findings.
 
 ## Creation and Update Semantics
-- File creation: Create missing project directories and `PROJECT_SUMMARY.md` atomically; populate from a template.
-- Avoid creating new documents unless the topic is substantially new and unrelated to existing documents.
-- File updates: Make minimal diffs; do not introduce unrelated changes. When adding new information, consolidate within existing files using clear section headings and date tags.
+- **Project Creation**: When creating a new project:
+  1. Create the project directory
+  2. **IMMEDIATELY create `PROJECT_SUMMARY.md`** (this is mandatory, not optional)
+  3. Populate `PROJECT_SUMMARY.md` from the appropriate template
+  4. Ensure it contains required YAML front matter with all required fields
+  5. Add project row to root `PROJECTS_OVERVIEW.md`
+- **Missing PROJECT_SUMMARY.md**: If a project folder exists without `PROJECT_SUMMARY.md`, treat this as a critical error and create it immediately before proceeding with any other work.
+- Avoid creating new documents unless the topic is substantially new and unrelated to existing documents. When in doubt, consolidate into `PROJECT_SUMMARY.md`.
+- File updates: Make minimal diffs; do not introduce unrelated changes. When adding new information, consolidate within existing files (especially `PROJECT_SUMMARY.md`) using clear section headings and date tags.
 - Naming: Use kebab-case for directories; avoid spaces where feasible.
 - Confirmations: Always prompt the user for clarification before overwriting or deleting significant project information. Ask for confirmation before renames, deletions, or moving content across projects.
 - Date-stamping: Include date tags (e.g., `[2024-01-15]`) for significant changes and updates to maintain traceability.
@@ -138,37 +163,47 @@ When a template is loaded:
 - The dispatcher rule (`current-task.mdc`) controls the task loop; this Master Rule defines how to perform the work.
 
 ## Error Handling and Ambiguities
-- Missing/invalid metadata: prompt the user with the exact fields needed.
-- Conflicting information: surface the conflict and ask for resolution.
+- **Missing PROJECT_SUMMARY.md**: If a project folder exists without `PROJECT_SUMMARY.md`, this is a critical error. Immediately create the file using the appropriate template before proceeding with any other work.
+- Missing/invalid metadata: prompt the user with the exact fields needed (ensure `PROJECT_SUMMARY.md` has required YAML front matter).
+- Conflicting information: surface the conflict and ask for resolution. Update `PROJECT_SUMMARY.md` once resolved.
 - Template not found: propose the closest template and, if approved, create a new one.
+- Information scattered across files: consolidate into `PROJECT_SUMMARY.md` as the single source of truth.
 
 ## Operational Loop (When Invoked)
 1. Read this Master Rule.
 2. Validate context (project, folder, intended change). If unclear, ask for confirmation.
-3. **Template Selection (Triggered Loading)**:
+3. **PROJECT_SUMMARY.md Validation** (CRITICAL CHECK):
+   - **Verify `PROJECT_SUMMARY.md` exists** in the project folder.
+   - If missing: STOP and create it immediately before proceeding. This is a mandatory requirement.
+   - Ensure it contains required YAML front matter and reflects current project state.
+4. **Template Selection (Triggered Loading)**:
    - **Check triggers**: New project folder with sparse metadata? User requesting setup? Missing standard folders/files? Project description matches template keywords?
    - If triggered: Check `Templates_Index.md` first (concise reference only).
    - Analyze user's project description, metadata, and stage to auto-select best-fit template.
    - Load **only the selected template file** (not all templates) to keep context focused.
    - If no suitable template exists, conduct research and auto-generate a new template following Template Structure Standards.
-4. **Template Usage**: If a template is loaded:
+5. **Template Usage**: If a template is loaded:
    - Use template's **Key Questions** as conversation scaffold to gather information.
    - Reference **Recommended Folder Structure** to create project organization.
    - Use **Common Documents** list to identify deliverables.
    - Track progress against **Typical Milestones**.
    - Reference **Pitfalls to Avoid** for guidance.
-5. **Research and Data Gathering**: If user information is incomplete, proactively conduct supplementary research to fill gaps and present suggestions.
-6. Validate metadata and collect missing fields.
-7. Plan minimal edits; prefer updating `PROJECT_SUMMARY.md` and `PROJECTS_OVERVIEW.md` directly. Consolidate related information within existing files rather than creating new documents.
-8. Before making destructive changes, prompt user for clarification and confirmation.
-9. Apply the edits atomically; update metadata (`last_updated`, `version`). Include date tags for traceability.
-10. Update the root dashboard if project status changed.
-11. Summarize changes succinctly and confirm completion.
+   - **Ensure all information is consolidated into `PROJECT_SUMMARY.md`** as the living source-of-truth.
+6. **Research and Data Gathering**: If user information is incomplete, proactively conduct supplementary research to fill gaps and present suggestions.
+7. Validate metadata and collect missing fields (in `PROJECT_SUMMARY.md`).
+8. Plan minimal edits; prefer updating `PROJECT_SUMMARY.md` and `PROJECTS_OVERVIEW.md` directly. Consolidate related information within `PROJECT_SUMMARY.md` rather than creating new documents.
+9. Before making destructive changes, prompt user for clarification and confirmation.
+10. Apply the edits atomically; update `PROJECT_SUMMARY.md` metadata (`last_updated`, `version`). Include date tags for traceability.
+11. Update the root dashboard if project status changed.
+12. **Final Validation**: Ensure `PROJECT_SUMMARY.md` reflects all changes and is up-to-date.
+13. Summarize changes succinctly and confirm completion.
 
 ## Safeguards
-- Never create multiple sources of truth.
+- **PROJECT_SUMMARY.md Mandatory**: Never work on a project that lacks `PROJECT_SUMMARY.md`. Always verify its existence first and create it immediately if missing.
+- Never create multiple sources of truth - `PROJECT_SUMMARY.md` is the single source of truth for each project.
 - Never proceed with destructive operations without confirmation.
 - Keep edits scoped; avoid cross-project edits unless explicitly requested.
+- Always update `PROJECT_SUMMARY.md` to reflect the latest project state - it must remain a living document.
 
 ---
 
