@@ -13,8 +13,10 @@ This document is the authoritative source of truth for how the AI manages multip
 - Single Source of Truth: Root `PROJECTS_OVERVIEW.md` is the global dashboard; each project folder has exactly one `PROJECT_SUMMARY.md` as the project's canonical record.
 - Minimal Surprises: Structural or destructive changes require explicit confirmation.
 - Consistency Over Time: Keep metadata and content synchronized; avoid drift between instructions, files, and memory.
+- Document Consolidation: Avoid creating new documents unless the topic is substantially new and unrelated to existing documents. Consolidate related information within existing central files using clear section headings and date tags.
 - Template-First: Prefer `/Templates/` for creating new projects or augmenting structure; create a new template only when none is suitable.
 - Delegation: The short dispatcher (`.cursor/rules/current-task.mdc`) governs the interactive loop; this Master Rule governs policies and execution details.
+- Traceability: Keep all output in clean Markdown with dates for traceability. Date-stamp significant changes and updates.
 
 ## Project Structure and Governance
 - Root level contains:
@@ -54,20 +56,50 @@ Validation rules:
 - Treat it as the single source of truth for: overview, goals, milestones, tasks, decisions, links, and status.
 - When user requests updates, modify this file directly and atomically.
 - Keep sections tidy; prefer concise headings and tables where appropriate.
+- Consolidate related information within this file using clear section headings and date tags (e.g., `## Updates [2024-01-15]`).
+- Before overwriting or deleting significant project information, always prompt the user for clarification and confirmation.
 
 ## Templates
-- Match new projects to a template in `/Templates/` using scenario fit.
-- If none match, create a new template in `/Templates/` and update `Templates_Index.md`.
-- Templates should include:
-  - YAML front matter skeleton
-  - Recommended sections
-  - Example milestones and tags
+
+### Template Selection and Loading
+- On project creation or when insufficient project details exist, check the `/Templates/` folder.
+- Load only the relevant markdown template file that matches the project type or scenario (using a short reference key or user-provided project classification).
+- Prevent scanning all templates unnecessarily; keep context light and focused by loading only the selected template.
+
+### Templates Index
+- Maintain `Templates_Index.md` at the root of the `/Templates/` folder summarizing available templates with keywords.
+- AI refers to this index to quickly decide which template to load and parse fully based on user conversation or project metadata.
+- Update the index when adding new templates.
+
+### AI-Driven Template Selection
+- Instead of asking users to pick templates, automatically select the best-fit template by analyzing the user's initial project description and metadata.
+- Use the Templates Index keywords and project context to match the most appropriate template.
+- If no suitable template exists:
+  1. Perform online research to infer the project type and best practices.
+  2. Auto-generate a new template markdown file based on research findings.
+  3. Update `Templates_Index.md` with the new template entry.
+  4. Save the template for future reuse.
+
+### Template Structure
+Templates should include:
+- YAML front matter skeleton
+- Recommended sections
+- Example milestones and tags
+- Date-stamped sections for traceability
+
+### Proactive Research and Data Gathering
+- Recognize that users often lack full information; proactively conduct supplementary internet research to help fill gaps.
+- Present suggestions, best practices, and relevant data tailored to the user's project goals.
+- This collaborative approach improves data quality and helps the user learn.
+- When conducting research, clearly indicate sources and date-stamp findings.
 
 ## Creation and Update Semantics
 - File creation: Create missing project directories and `PROJECT_SUMMARY.md` atomically; populate from a template.
-- File updates: Make minimal diffs; do not introduce unrelated changes.
+- Avoid creating new documents unless the topic is substantially new and unrelated to existing documents.
+- File updates: Make minimal diffs; do not introduce unrelated changes. When adding new information, consolidate within existing files using clear section headings and date tags.
 - Naming: Use kebab-case for directories; avoid spaces where feasible.
-- Confirmations: Ask for confirmation before renames, deletions, or moving content across projects.
+- Confirmations: Always prompt the user for clarification before overwriting or deleting significant project information. Ask for confirmation before renames, deletions, or moving content across projects.
+- Date-stamping: Include date tags (e.g., `[2024-01-15]`) for significant changes and updates to maintain traceability.
 
 ## Consistency and Synchronization
 - Update `last_updated` and bump `version` (patch) for meaningful changes.
@@ -86,11 +118,18 @@ Validation rules:
 ## Operational Loop (When Invoked)
 1. Read this Master Rule.
 2. Validate context (project, folder, intended change). If unclear, ask for confirmation.
-3. Validate metadata and collect missing fields.
-4. Plan minimal edits; prefer updating `PROJECT_SUMMARY.md` and `PROJECTS_OVERVIEW.md` directly.
-5. Apply the edits atomically; update metadata (`last_updated`, `version`).
-6. Update the root dashboard if project status changed.
-7. Summarize changes succinctly and confirm completion.
+3. **Template Selection**: If creating a new project or details are insufficient:
+   - Check `Templates_Index.md` to identify relevant templates.
+   - Analyze user's project description and metadata to auto-select the best-fit template.
+   - Load only the selected template file (not all templates).
+   - If no suitable template exists, conduct research and auto-generate a new template.
+4. **Research and Data Gathering**: If user information is incomplete, proactively conduct supplementary research to fill gaps and present suggestions.
+5. Validate metadata and collect missing fields.
+6. Plan minimal edits; prefer updating `PROJECT_SUMMARY.md` and `PROJECTS_OVERVIEW.md` directly. Consolidate related information within existing files rather than creating new documents.
+7. Before making destructive changes, prompt user for clarification and confirmation.
+8. Apply the edits atomically; update metadata (`last_updated`, `version`). Include date tags for traceability.
+9. Update the root dashboard if project status changed.
+10. Summarize changes succinctly and confirm completion.
 
 ## Safeguards
 - Never create multiple sources of truth.
