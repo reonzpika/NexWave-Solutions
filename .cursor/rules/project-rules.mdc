@@ -1,0 +1,131 @@
+# ClinicPro Project Rules
+
+**Project:** NZ GP Clinical LLM R&D Grant Submission  
+**Duration:** 27 Jan 2026 ? 26 Jan 2027  
+**Organisation:** NexWave Solutions Ltd
+
+---
+
+## ?? For All LLM Agents
+
+### ?? When to Read the Master Index
+
+**Read `00-admin-and-governance/project-master-index.md` ONLY:**
+
+1. ? **At the START of a new task** (once only)
+   - Orient yourself to the project
+   - Identify which documents to read for your task
+   - Understand what to update when done
+
+2. ? **At the END of the task** (once only)
+   - Update change log
+   - Update any cross-references
+   - Mark task complete
+
+**Do NOT read master index:**
+- ? During multi-turn conversation on the same task
+- ? For every response
+- ? When you already know what to do
+
+---
+
+## ?? Always Update (At Task End)
+
+**After completing any task:**
+
+1. **Update change log** in `00-admin-and-governance/risk-and-change-management.md`:
+   - Document name, version, date, changes, approver
+
+2. **Update document version** and "Last Updated" date in the edited file
+
+3. **If you changed objectives/dates/costs:**
+   - Update `00-admin-and-governance/project-master-index.md` (quick reference tables)
+
+4. **If you added/changed sub-processor or data source:**
+   - Update `04-compliance-and-safety/safety-and-transparency-framework.md` (registers)
+   - Flag for DPIA update (requires Privacy Lead approval)
+
+---
+
+## ?? STOP Immediately If You See These
+
+**Escalate to human before proceeding:**
+
+- ?? New sub-processor or region proposed
+- ?? Prohibited-claim rate > 0.5% (safety failure)
+- ?? PHI leakage detected
+- ?? Cashflow negative
+- ?? Request to skip safety checks or safety regression
+- ?? Material DPIA change needed
+- ?? Conflicting instructions or ambiguity
+
+**Escalation path:**
+- **Privacy Lead** ? Privacy/compliance issues, DPIA updates, DPA negotiations
+- **Security Lead** ? Safety regressions, technical security, incident response
+- **NexWave Director** ? Financial, strategic, Callaghan relationship, final approvals
+
+---
+
+## ? Never Do This
+
+- ? **Fragment documents** (keep related info consolidated in comprehensive files)
+- ? **Skip change log updates** (every edit = change log entry)
+- ? **Add sub-processors without Privacy Lead approval**
+- ? **Store PHI outside NZ** (ephemeral AU inference only; no persistent storage)
+- ? **Train on production PHI** (synthetic/de-identified only)
+- ? **Deploy without passing safety regression**
+- ? **Update DPIA without Director sign-off**
+- ? **Create new documents unless absolutely necessary** (prefer editing existing)
+
+---
+
+## ?? Task Workflow
+
+```
+START NEW TASK
+    ?
+1. Read project-rules.mdc (this file)
+    ?
+2. Read project-master-index.md (ONCE)
+    ? Identify task type
+    ? Note which files to read
+    ? Note what to update at task end
+    ?
+3. Read domain-specific documents
+    ? (as identified in master index)
+    ?
+4. Work on task (multi-turn conversation OK)
+    ? Refer back to domain docs as needed
+    ? NO need to re-read master index during work
+    ?
+5. Complete task
+    ?
+6. Update files (per "Always Update" section above)
+    ? Update change log
+    ? Update cross-references
+    ? Mark task complete
+    ?
+END TASK
+```
+
+---
+
+## ?? Quick Success Checklist
+
+Before marking any task complete:
+
+- [ ] Completed the requested work
+- [ ] Updated change log in `risk-and-change-management.md`
+- [ ] Updated document version and "Last Updated" date
+- [ ] Updated `project-master-index.md` if objectives/dates/costs changed
+- [ ] Updated transparency registers if sub-processor/source changed
+- [ ] Checked for escalation triggers (did NOT proceed if ??)
+- [ ] Did NOT do any prohibited actions (? list above)
+
+---
+
+**That's it!** The master index will guide you to the right files and rules for your specific task.
+
+---
+
+**END OF PROJECT RULES**
