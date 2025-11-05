@@ -169,11 +169,19 @@ Each template markdown file must include:
 ### Using Templates During Project Setup
 When a template is loaded:
 1. Use the template's **Key Questions** as a conversation scaffold to gather required information
-2. Reference **Recommended Folder Structure** to create project folder and subfolder structure
-3. Use **Common Documents** list to identify what needs to be created
-4. Track progress against **Typical Milestones** and advise on next steps
-5. Reference **Pitfalls to Avoid** for coaching throughout setup
-6. Use **Example Prompts** as reference for productive conversations
+2. **AI-Guided Consultation**: Prompt user for missing project details (stage, product type, business function, team size, special requirements) to inform folder creation decisions
+3. **Adaptive Folder Creation**: 
+   - Reference template's **Recommended Folder Structure** as a starting point (not rigid requirement)
+   - Customize folder structure based on gathered project details and project-specific needs
+   - Adapt to project type (SaaS, marketplace, hardware, etc.), business model, and current stage
+   - Add folders specific to identified requirements (compliance, grants, partnerships, etc.)
+   - Remove or defer folders not relevant to current stage
+   - Document folder structure rationale in `PROJECT_SUMMARY.md`
+4. Use **Common Documents** list to identify what needs to be created
+5. Track progress against **Typical Milestones** and advise on next steps
+6. Reference **Pitfalls to Avoid** for coaching throughout setup
+7. Use **Example Prompts** as reference for productive conversations
+8. **Future-Proofing**: Create structures that can evolve as project grows and needs change
 
 ### Proactive Research and Data Gathering
 - Recognize that users often lack full information; proactively conduct supplementary internet research to help fill gaps.
@@ -182,14 +190,112 @@ When a template is loaded:
 - This collaborative approach improves data quality and helps the user learn.
 - When conducting research, clearly indicate sources and date-stamp findings.
 
+## AI-Guided Folder Creation
+
+### Consultative Approach
+- **Prompt for Missing Details**: Before creating folder structures, AI should proactively prompt the user for missing project details to inform folder creation:
+  - Project stage (Ideation, Validation, Build, Operational)
+  - Product/service type (SaaS, marketplace, hardware, consulting, research, etc.)
+  - Business function/domain (B2B, B2C, B2G, etc.)
+  - Team size and structure
+  - Special requirements (compliance, grants, partnerships, certifications, etc.)
+- **Adaptive Structures**: Folder structures are not rigid "one size fits all" - they adapt based on:
+  - Project stage and current needs
+  - Business model and product type
+  - Team size and organizational structure
+  - Specific requirements identified through consultation
+  - Project evolution over time
+
+### Folder Creation Process
+1. **Gather Project Context**:
+   - Review existing project metadata (stage, tags, description)
+   - Prompt user for missing details about project type, function, and requirements
+   - Analyze project description to infer needs
+   - Ask clarifying questions if information is sparse
+2. **Select Base Template**:
+   - Match project to appropriate template based on stage and type
+   - Review template's "Recommended Folder Structure Components"
+3. **Customize Structure**:
+   - Use template structure as a starting point (not a rigid requirement)
+   - Add additional folders based on:
+     - Product type (e.g., SaaS projects may need `/api/`, `/frontend/`, `/deployment/`)
+     - Business model (e.g., marketplace projects may need `/seller-onboarding/`, `/payment-processing/`)
+     - Compliance needs (e.g., `/compliance/`, `/audits/`, `/dpia/`)
+     - Grant requirements (e.g., `/grant-proposals/`, `/reporting/`)
+     - Partnership needs (e.g., `/partner-contracts/`, `/collaboration/`)
+   - Remove or defer folders not relevant to current stage
+   - Consider future needs but don't over-engineer
+4. **Document Rationale**:
+   - Note in `PROJECT_SUMMARY.md` why specific folders were created
+   - Reference the template used and any customizations made
+   - Explain adaptations based on project-specific needs
+5. **Future-Proofing**:
+   - Structure should be flexible enough to evolve as project grows
+   - Anticipate future needs but don't create empty folders prematurely
+   - Add folders as project evolves and new needs emerge
+
+### Evolution and Adaptation
+- **Stage-Based Evolution**: As projects progress through stages, folder structures may need updates:
+  - Ideation → Validation: Add customer research folders
+  - Validation → Build: Add product development folders
+  - Build → Operational: Add operations and team folders
+- **Business Model Adaptation**: Different business models require different structures:
+  - SaaS: Emphasize product development, deployment, operations, API documentation
+  - Marketplace: Emphasize buyer/seller management, payments, trust & safety, moderation
+  - Hardware: Emphasize manufacturing, supply chain, certifications, quality control
+  - Research/Grants: Emphasize proposals, compliance, reporting, data management
+  - Consulting: Emphasize client management, proposals, deliverables, contracts
+- **Continuous Consultation**: When detecting new needs or gaps:
+  - Prompt user about missing components
+  - Suggest additional folders based on project evolution
+  - Adapt structure based on user feedback and project requirements
+  - Update folder structure documentation in `PROJECT_SUMMARY.md`
+
+### Integration with Templates
+- Templates provide **recommended** folder structures, not prescriptive requirements
+- Use template structures as intelligent defaults
+- Customize based on consultation with user and project-specific needs
+- Combine elements from multiple templates if project spans multiple domains
+- Treat folder structures as living, evolving components that adapt to project needs
+
 ## Creation and Update Semantics
-- **Project Creation**: When creating a new project:
-  1. Create the project directory
-  2. **IMMEDIATELY create `PROJECT_SUMMARY.md`** (this is mandatory, not optional)
-  3. Populate `PROJECT_SUMMARY.md` from the appropriate template
-  4. Ensure it contains required YAML front matter with all required fields
-  5. Add project row to root `PROJECTS_OVERVIEW.md`
+
+### Project Creation Workflow
+When creating a new project:
+1. **Gather Project Details** (AI-Guided Consultation):
+   - Prompt user for: project stage, product/service type, business function, team size, special requirements
+   - Use responses to inform folder structure decisions
+   - If details are sparse, infer from project description and ask clarifying questions
+2. **Create Project Directory**: Use kebab-case naming
+3. **IMMEDIATELY create `PROJECT_SUMMARY.md`** (mandatory, not optional)
+4. **Select and Load Template**: Choose appropriate template based on stage and type
+5. **Populate PROJECT_SUMMARY.md**: From template with required YAML front matter
+6. **Create Folder Structure** (AI-Guided):
+   - Start with template's recommended folder structure
+   - Customize based on gathered project details (product type, business model, requirements)
+   - Add folders specific to project needs
+   - Document folder rationale in `PROJECT_SUMMARY.md`
+7. **Add to Dashboard**: Add project row to root `PROJECTS_OVERVIEW.md`
+
+### Folder Structure Creation
+- **Consultative Process**: Prompt user for missing details before creating folders
+- **Template-Based**: Use template's "Recommended Folder Structure Components" as starting point
+- **Adaptive**: Customize folders based on:
+  - Project stage (current and anticipated)
+  - Product/service type
+  - Business model and function
+  - Team structure and size
+  - Compliance and regulatory requirements
+  - Grant or partnership needs
+- **Evolution-Ready**: Create structures that can grow as project evolves
+- **Documentation**: Note folder structure decisions in `PROJECT_SUMMARY.md`
+
+### File and Folder Updates
 - **Missing PROJECT_SUMMARY.md**: If a project folder exists without `PROJECT_SUMMARY.md`, treat this as a critical error and create it immediately before proceeding with any other work.
+- **Missing Folders**: If AI detects gaps in project structure:
+  - Consult with user about needs
+  - Reference templates for recommendations
+  - Create folders adaptively based on project evolution
 - Avoid creating new documents unless the topic is substantially new and unrelated to existing documents. When in doubt, consolidate into `PROJECT_SUMMARY.md`.
 - File updates: Make minimal diffs; do not introduce unrelated changes. When adding new information, consolidate within existing files (especially `PROJECT_SUMMARY.md`) using clear section headings and date tags.
 - Naming: Use kebab-case for directories; avoid spaces where feasible.
@@ -229,7 +335,12 @@ When a template is loaded:
    - If no suitable template exists, conduct research and auto-generate a new template following Template Structure Standards.
 5. **Template Usage**: If a template is loaded:
    - Use template's **Key Questions** as conversation scaffold to gather information.
-   - Reference **Recommended Folder Structure** to create project organization.
+   - **AI-Guided Consultation**: Prompt user for missing project details (stage, product type, function, requirements) to inform folder creation.
+   - **Adaptive Folder Creation**: 
+     - Reference template's **Recommended Folder Structure** as starting point
+     - Customize based on gathered project details and project-specific needs
+     - Create folders that adapt to project type, business model, and evolution
+     - Document folder structure rationale in `PROJECT_SUMMARY.md`
    - Use **Common Documents** list to identify deliverables.
    - Track progress against **Typical Milestones**.
    - Reference **Pitfalls to Avoid** for guidance.
