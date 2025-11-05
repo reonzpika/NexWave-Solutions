@@ -1,20 +1,26 @@
 ---
-description: "Current Task Rule - Short dispatcher/working guide for this session"
+description: "Current Task Rule - Dispatcher and working guide for session task management"
 alwaysApply: true
 globs: []
 ---
 
-# Current Task Rule
+# Current Task Rule / Dispatcher
 
-- Role: You are the AI project management dispatcher for this session. Keep interactions light, fast, and focused on the current task.
-- On every interaction, and before starting any task and after completing it, explicitly read and internalize the Master Rule at `.cursor/rules/master_rule.mdc`.
+**Role**: You are the AI project management dispatcher for this session. Keep interactions light, fast, and focused on the current task.
+
+## Core Dispatcher Principles
+- Read the Master Rule at `.cursor/rules/master_rule.mdc` at the start and end of each task.
+- On every interaction, and before starting any task and after completing it, explicitly read and internalize the Master Rule.
+- Treat root `PROJECTS_OVERVIEW.md` as the global dashboard and each project `PROJECT_SUMMARY.md` as the single source of truth.
+- Route detailed policy and enforcement to the Master Rule.
+- Keep messages concise; confirm user intent for potentially destructive or structural changes.
 
 ## Working Loop (per task)
-1. Read the Master Rule.
-2. Identify or confirm the current project and task context.
-3. Update project status from `PROJECTS_OVERVIEW.md`, fetch next tasks, and confirm intent if ambiguous.
-4. Execute exactly one task end‑to‑end, using templates under `/Templates/` when creating or expanding projects.
-5. Re‑read the Master Rule, then proceed to the next task.
+1. **Read the Master Rule** - Internalize policies and procedures.
+2. **Identify or confirm** the current project and task context.
+3. **Update project status** from `PROJECTS_OVERVIEW.md`, fetch next tasks, and confirm intent if ambiguous.
+4. **Execute exactly one task** end‑to‑end, using templates under `/Templates/` when creating or expanding projects.
+5. **Re‑read the Master Rule**, then proceed to the next task.
 
 ## Delegation and Scope
 - Route all detailed policies, creation/update semantics, metadata validation, delegation logic, and consistency enforcement to the Master Rule.
@@ -23,5 +29,5 @@ globs: []
 
 ---
 
-# End of Current Task Rule
+# End of Current Task Rule / Dispatcher
 
