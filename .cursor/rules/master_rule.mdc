@@ -122,15 +122,6 @@ Each template must include: YAML (`template_type`, `keywords`, `stage`), Purpose
 - Surface cross-project dependencies in dashboard highlights
 - Ensure dashboard provides accurate at-a-glance visibility
 
-## Error Handling
-- **Missing PROJECT_SUMMARY.md**: Critical - create immediately using template
-- **Unclear user intent**: Follow guidelines in `.cursor/rules/ai-character.mdc` - don't assume, ask clarifying questions, understand underlying intent, research context
-- **Missing/invalid metadata**: Prompt for exact fields needed, don't assume users know requirements
-- **Conflicting information**: Surface conflict, ask for resolution, update `PROJECT_SUMMARY.md`
-- **Template not found**: Propose closest match, create new if approved
-- **Information scattered**: Consolidate into `PROJECT_SUMMARY.md`
-- **Knowledge gaps**: Research proactively rather than asking user
-
 ## Operational Loop
 1. Read Master Rule
 2. Validate context - ask if unclear
@@ -145,6 +136,129 @@ Each template must include: YAML (`template_type`, `keywords`, `stage`), Purpose
 11. **Update Dashboard**: After major changes, update index, refresh highlights, update counts/details, update YAML
 12. Final validation: Ensure `PROJECT_SUMMARY.md` reflects all changes
 13. Summarize changes
+
+### Validation Checkpoints
+- **After Step 3**: Verify `PROJECT_SUMMARY.md` has required YAML fields (if exists)
+- **After Step 5**: Verify template was loaded correctly (if applicable)
+- **After Step 10**: Verify metadata updates are valid (semver format, ISO date, valid stage enum)
+- **After Step 11**: Verify dashboard links are valid, highlights are formatted correctly
+- **After Step 12**: Final validation - all changes reflected, no inconsistencies between files
+
+## Decision Trees for Common Scenarios
+
+### Ambiguous Project Selection
+When user says "my project" or project name is unclear:
+1. Check `PROJECTS_OVERVIEW.md` Active Projects Index
+2. If 1 active project: Confirm project name with user ("Assuming you mean [Project Name]?")
+3. If multiple active projects: List projects with brief context (stage, last updated), ask user to specify
+4. If no active projects: Check archived projects, ask if reviving archived project
+5. If still unclear: Ask for project folder name or key identifier
+
+### Template Inference from Folder Structure
+If `PROJECT_SUMMARY.md` missing but folder exists:
+1. Analyze folder contents and file names
+2. Match against template keywords in `Templates_Index.md`:
+   - Look for folder names that match template keywords
+   - Check for common files (e.g., `pitch-deck.md` → Fundraising, `user-stories.md` → Product Development)
+   - Identify stage indicators (e.g., `customer-interviews/` → Idea Validation)
+3. Select best-fit template based on folder structure analysis
+4. If cannot infer: Prompt user for project stage and type to select template
+
+### Template Composition Strategy
+When auto-generating template (no exact match):
+1. **Identify Primary Template**: Best match based on stage or primary function
+2. **Identify Secondary Templates**: Additional templates that contribute relevant elements
+3. **YAML Front Matter**: Use primary template as base, merge unique tags/fields from secondary
+4. **Key Questions**: Combine unique questions, remove duplicates, maintain logical flow
+5. **Folder Structure**: 
+   - Merge structures from all templates
+   - Resolve conflicts by priority: Current stage > Product type > General
+   - Remove duplicates, keep most specific recommendations
+6. **Milestones**: Merge chronologically, remove duplicates, ensure logical progression
+7. **Pitfalls**: Combine all unique pitfalls from all templates
+8. **Common Documents**: Merge lists, remove duplicates
+9. **Conflict Resolution**: If conflicting guidance (e.g., different approaches):
+   - Document both approaches with explanations
+   - Explain trade-offs
+   - Default to primary template's approach
+   - Note conflict resolution in template rationale
+10. **Documentation**: In template, note which templates were combined and why
+
+## Standard Documentation Formats
+
+### Cross-Project Dependencies
+**Location**: Document in both projects' `PROJECT_SUMMARY.md` under `## Dependencies` section
+
+**Format**:
+```markdown
+## Dependencies [2024-01-15]
+
+### Outgoing Dependencies
+- **[Project Name]** - [Type: Data/Resource/Integration/API] - [Description] - [Status: Active/Blocked/Resolved]
+
+### Incoming Dependencies  
+- **[Project Name]** depends on this project for [Description] - [Status: Active/Blocked/Resolved]
+
+### Notes
+[Any additional context about dependencies]
+```
+
+**Update Process**: When dependency identified:
+1. Update both projects' `PROJECT_SUMMARY.md` with dependency info
+2. Update `PROJECTS_OVERVIEW.md` Cross-Project Themes & Dependencies section
+3. Date-stamp the dependency entry
+4. Update dashboard highlights if dependency affects project status
+
+### Consolidated Information Structure
+When consolidating scattered information into `PROJECT_SUMMARY.md`:
+
+**Format**: `## [Topic] [Date]`
+
+**Organization**:
+- Group by topic: Goals, Decisions, Learnings, Risks, Blockers, Insights, Updates
+- Date-stamp each entry
+- Maintain chronological order within sections
+- Preserve original context/source if relevant: `[Source: filename.md]`
+
+**Example Structure**:
+```markdown
+## Decisions [2024-01-15]
+
+### Technology Stack Decision [2024-01-10]
+[Decision details] - [Rationale] - [Source: tech-meeting-notes.md]
+
+### Pricing Model Decision [2024-01-12]
+[Decision details] - [Rationale] - [Source: business-planning.md]
+```
+
+## Rules of Thumb
+
+### When to Research vs. Ask User
+- **Research**: Industry standards, best practices, common patterns, typical approaches, market data
+- **Ask User**: Project-specific details, preferences, constraints, team capabilities, business context
+
+### When to Create New Document vs. Consolidate
+- **New Document**: Substantially new topic unrelated to existing content, different domain/function
+- **Consolidate**: Related information, updates, variations of same topic, refinements
+
+### Template Selection Confidence
+- **High confidence (>80% keyword match)**: Auto-select immediately, explain reasoning briefly
+- **Medium confidence (50-80%)**: Auto-select but explain reasoning, offer to adjust if needed
+- **Low confidence (<50%)**: Research project type first, then select or generate, explain process
+
+### Dashboard Update Frequency
+- **Immediate**: Stage changes, major milestones, project creation/archiving, blocker identification
+- **Can Defer**: Minor updates can batch, update on next major change (unless user specifically requests immediate update)
+
+## Error Handling
+- **Missing PROJECT_SUMMARY.md**: Critical - create immediately using template (use Decision Tree for template inference)
+- **Unclear user intent**: Follow guidelines in `.cursor/rules/ai-character.mdc` - don't assume, use context-aware clarification, research context
+- **Ambiguous project selection**: Use Decision Tree for Ambiguous Project Selection
+- **Missing/invalid metadata**: Prompt for exact fields needed, don't assume users know requirements
+- **Conflicting information**: Surface conflict, ask for resolution, update `PROJECT_SUMMARY.md`
+- **Template not found**: Use Template Composition Strategy to auto-generate (don't ask user to approve)
+- **Information scattered**: Consolidate into `PROJECT_SUMMARY.md` using Standard Documentation Formats
+- **Knowledge gaps**: Research proactively rather than asking user
 
 ## Safeguards
 - Never work on project without `PROJECT_SUMMARY.md` - verify first, create if missing
