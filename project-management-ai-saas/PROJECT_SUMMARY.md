@@ -86,6 +86,52 @@ This structure supports the "personal use first, then commercialize" strategy.
 5. **MVP Planning**: Define MVP scope and features
 6. **Development**: Build MVP for personal use
 
+## Questions to Consider (When Returning to This Project)
+
+### Product Differentiation & Market
+- [ ] What makes this different from existing project management tools? (Notion, Linear, Asana, Monday.com, etc.)
+- [ ] What's the core value proposition? (Brutally honest AI advisor? Adaptive project structures? Template-driven guidance?)
+- [ ] Who is the target market? (Indie founders, small teams, enterprises?)
+- [ ] What specific problem does this solve for users?
+- [ ] What evidence do we have that people would pay for this solution?
+
+### Technical Decisions
+- [ ] Tech stack preference? (Next.js + TypeScript? React? Other?)
+- [ ] AI/LLM integration approach? (Which provider? Custom fine-tuning? API integration?)
+- [ ] Backend architecture? (Serverless? Traditional? Microservices?)
+- [ ] Database choices? (PostgreSQL? MongoDB? Supabase?)
+- [ ] Authentication & authorization approach?
+- [ ] Hosting & infrastructure? (Vercel? AWS? Other?)
+- [ ] Multi-tenant architecture needs?
+- [ ] Data storage and privacy considerations?
+
+### Business Model
+- [ ] Pricing model? (Freemium? Subscription tiers? Usage-based?)
+- [ ] Revenue streams? (Subscription only? Enterprise? API access?)
+- [ ] Go-to-market strategy?
+- [ ] Key metrics and KPIs?
+- [ ] Unit economics? (CAC, LTV, gross margin?)
+
+### MVP Scope
+- [ ] What features are essential for MVP?
+- [ ] What's the minimum feature set for personal use?
+- [ ] What can wait for v2?
+- [ ] What's needed before commercialization?
+- [ ] What's the launch strategy?
+
+### Competitor Analysis
+- [ ] Who are direct competitors?
+- [ ] Who are indirect competitors?
+- [ ] What are their strengths and weaknesses?
+- [ ] What's our competitive advantage?
+
+### Validation & Assumptions
+- [ ] What assumptions need to be validated before building?
+- [ ] How will we test and validate features?
+- [ ] What's the customer discovery plan?
+- [ ] What's the go/no-go decision criteria?
+
 ---
 
 *Project Created: [2025-11-06]*
+*Last Updated: [2025-11-06]*
