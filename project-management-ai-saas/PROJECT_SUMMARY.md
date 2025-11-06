@@ -1,95 +1,126 @@
 ---
 project_name: Project Management AI SaaS
-project_stage: Ideation
+project_stage: Validation
 owner: TBD
 last_updated: "2025-11-06"
-version: "0.2.0"
+version: "0.3.0"
 tags:
   - saas
   - ai
   - project-management
-  - product-development
+  - mvp
   - chatgpt
   - startups
-  - small-business
-  - healthcare
-summary: "AI-powered workspace for startups, small businesses, and GP practices to organize information, track changes, and automate workflows—powered by ChatGPT."
+summary: "AI-powered project management system for startups. SaaS version of our current template-driven PM system with conversational AI. MVP targets startups only, no third-party integrations."
 ---
 
 # Project Management AI SaaS
 
 ## Project Overview
 
-**Vision**: An AI-powered workspace designed for startups, small businesses, and GP practices to organize their information, track changes, and automate workflows—all in one place. Powered by ChatGPT, it uses conversational AI to centralize documents, monitor evolving strategies, and provide smart, contextual guidance, so you can move faster, stay organized, and make better decisions as your business grows.
+**Vision**: AI-powered project management system for startups. A SaaS version of our current template-driven PM system, enhanced with conversational AI to guide founders through project setup, track progress, and provide contextual advice.
 
-**Tagline**: No more fragmented files or lost updates—just one dynamic hub for everything important to your business.
+**Tagline**: Project management that understands your startup—from idea to launch.
 
-**Current Stage**: Ideation - Research and planning phase
+**Current Stage**: Validation - MVP scoping and architecture
 
-**Strategy**: 
-- Phase 1: MVP development using ChatGPT API
-- Phase 2: Validate key workflows with target users (startups, small businesses, GP practices)
-- Phase 3: Iterate based on feedback and usage data
-- Phase 4: Scale and commercialize
+**MVP Strategy** (FOCUSED):
+- **Target**: Startups only (founders, indie hackers, small startup teams)
+- **Core**: SaaS version of our current project management system
+- **AI**: ChatGPT API for conversational guidance and context-aware assistance
+- **Scope**: No third-party integrations for MVP (Slack, GitHub, etc.)
+- **Timeline**: Ship testable MVP in 2-4 weeks
 
 ## Core Concept
 
-This app is akin to **Cursor for non-technical users**—an AI-powered workspace that addresses the fragmentation and dynamic nature of business information management. Unlike existing project management tools that focus on technical or enterprise users, this app deeply integrates conversational AI with dynamic knowledge tracking for niche markets.
+**"Cursor for startup founders"** — An AI-powered project management system that combines template-driven structure with conversational AI guidance. Based on our proven PM system, but accessible as a web app with ChatGPT integration.
 
-**Key Differentiators**:
-- **Niche specialization**: Tailored for startups, small businesses, and GP practices (not generic enterprise)
-- **Adaptive AI guidance**: Context-aware, conversational assistance that evolves with your business
-- **Dynamic change tracking**: Monitors evolving strategies, documents, and decisions in real-time
-- **Single source of truth**: Centralized repository replacing fragmented files and tools
+**What We're Building (MVP)**:
+1. **Template-Driven Project Setup**: Like our current system (Idea Validation, Product Development, Business Planning templates)
+2. **Conversational AI**: ChatGPT integration for project guidance, task generation, and context-aware advice
+3. **Living Documentation**: PROJECT_SUMMARY.md concept as web interface (not markdown files)
+4. **Progress Tracking**: Visual dashboard showing project stage, milestones, blockers
+5. **AI Advisor**: Brutally honest feedback on project decisions and priorities
 
-## Goals
+**MVP Scope - What's IN**:
+- ✅ Project creation with template selection (auto-selected based on description)
+- ✅ Conversational AI for project setup and guidance
+- ✅ Document management (goals, decisions, milestones, blockers)
+- ✅ Project stage tracking (Ideation → Validation → Build → Operational)
+- ✅ AI-generated insights and recommendations
+- ✅ Simple task/milestone tracking
+- ✅ Project dashboard (single view of project status)
 
-- **Primary Goal**: Build a production-ready SaaS version targeting startups, small businesses, and GP practices
-- **Secondary Goal**: Validate key workflows with target users and iterate based on real usage
-- **Long-term Goal**: Scale and commercialize as the go-to AI workspace for non-technical business users
+**MVP Scope - What's OUT** (v2+):
+- ❌ Third-party integrations (Slack, GitHub, Notion, etc.)
+- ❌ Real-time collaboration (multiplayer editing)
+- ❌ Advanced permissions/team features
+- ❌ Mobile apps (web-responsive only)
+- ❌ Multiple target audiences (only startups for MVP)
+- ❌ API access for external tools
+- ❌ Custom templates (use our predefined templates only)
 
-## Target Audiences & Pain Points [2025-11-06]
+## Goals [Updated 2025-11-06]
 
-Based on Reddit discussions, market research, and user workflow analysis:
+**MVP Goal**: Ship a working AI project management system for startups in 2-4 weeks and get it in front of 10 real users.
 
-### Startups
-**Key Pain Points**:
-- **Pivot management**: Strategies and plans change rapidly; hard to track evolution and maintain documentation
-- **Fragmented information**: Documents, decisions, and updates scattered across multiple tools
-- **Prioritization challenges**: Difficulty deciding what to focus on next with limited resources
-- **Lost context**: Hard to onboard new team members or recall why decisions were made
+**Success Criteria**:
+1. 10 startup founders sign up and create projects
+2. 5+ founders use it for 1+ week consistently
+3. 3+ founders say they'd pay $20-30/month for it
+4. AI guidance is actually helpful (qualitative feedback)
+5. System is stable and usable (no critical bugs)
 
-**How This App Helps**:
-- Centralizes all business information in one dynamic hub
-- Tracks changes and maintains version history of evolving strategies
-- AI provides contextual guidance on prioritization and next steps
-- Maintains decision logs and rationale automatically
+**Post-MVP Goals**:
+- Iterate based on user feedback
+- Add features users actually request (not what we assume)
+- Expand to other audiences IF startups validate
+- Build paid tier when usage justifies it
 
-### Small Businesses
-**Key Pain Points**:
-- **Regulatory compliance**: Keeping up with changing regulations and documentation requirements
-- **Cash flow management**: Tracking finances, expenses, and projections across tools
-- **Process documentation**: Maintaining SOPs and operational knowledge as business grows
-- **Team coordination**: Multiple stakeholders with different levels of technical ability
+## Target Audience - Startups [2025-11-06]
 
-**How This App Helps**:
-- Compliance tracking and document organization
-- Centralized financial planning and cash flow monitoring
-- Easy-to-maintain process documentation with AI assistance
-- Simple, conversational interface for non-technical users
+**MVP Target**: Startup founders and small startup teams (1-5 people)
 
-### GP Practices (Healthcare)
-**Key Pain Points**:
-- **Complex patient information management**: Navigating regulations, privacy, and documentation
-- **Staff burnout**: Administrative burden takes time away from patient care
-- **Regulatory compliance**: GDPR, medical record requirements, audits
-- **Fragmented systems**: Multiple tools for scheduling, records, billing, compliance
+### Who This Is For:
+- **Solo founders** building their first startup
+- **Indie hackers** shipping products quickly
+- **Small startup teams** (2-5 people) in early stages (Ideation → Build)
+- **Non-technical founders** who need structure without complexity
+- **Serial entrepreneurs** managing multiple projects
 
-**How This App Helps**:
-- GDPR-compliant information organization with privacy-first design
-- Reduces administrative burden with AI-powered document management
-- Compliance monitoring and automated reminders
-- Single workspace for practice management (excluding clinical records)
+### Pain Points We're Solving:
+1. **Pivot Management**: 
+   - Strategies change weekly; documentation becomes outdated
+   - Hard to remember why you made certain decisions 3 months ago
+   - Team (or future hires) can't understand project evolution
+
+2. **Fragmented Information**:
+   - Notes in Notion, tasks in Trello, docs in Google Drive, decisions in Slack
+   - Spending 20+ minutes finding that important document or decision
+   - No single source of truth for project status
+
+3. **Prioritization Paralysis**:
+   - Too many ideas, unclear which to focus on
+   - No framework for deciding what matters most
+   - Wasting time on low-impact tasks
+
+4. **Lost Context**:
+   - Can't recall the context behind old decisions
+   - New team members or advisors ask "Why did you do it this way?"
+   - Onboarding takes forever because information is scattered
+
+5. **Lack of Structure**:
+   - Don't know what to work on next
+   - No clear framework for moving from idea → validation → build
+   - Existing PM tools are too complex or enterprise-focused
+
+### How Our System Solves This:
+- **Template-Driven Setup**: Auto-guides you through project setup based on stage (like our current system)
+- **Conversational AI**: Ask "What should I work on next?" and get contextual advice
+- **Living Documentation**: PROJECT_SUMMARY concept - everything in one place, always up-to-date
+- **Decision Tracking**: AI automatically logs key decisions and rationale
+- **Honest Feedback**: AI advisor that challenges assumptions and exposes blind spots
+- **Stage-Based Guidance**: Clear framework from Ideation → Validation → Build → Operational
 
 ## Competitive Landscape [2025-11-06]
 
@@ -116,84 +147,88 @@ Based on Reddit discussions, market research, and user workflow analysis:
 - **GP Practices**: Facing increasing administrative burden and seeking efficiency tools
 - **Underserved Market**: Existing tools don't adequately serve non-technical business users in these niches
 
-## Technology Stack & Architecture [2025-11-06]
+## Technology Stack - MVP [2025-11-06]
 
-### Proposed Tech Stack
+**Decision Made**: Keep it simple. Ship fast. Optimize later.
+
+### MVP Tech Stack (LOCKED IN)
 
 **Frontend**:
-- **React** (or Vue.js alternative) - Modern, component-based UI framework
-- **TypeScript** - Type safety and better developer experience
-- Responsive design for desktop and mobile usage
+- **Next.js 14** (React + TypeScript) - Full-stack framework with API routes
+- **Tailwind CSS** - Fast styling without design overhead
+- **Shadcn/ui** - Pre-built components (don't build everything from scratch)
+- **Server-side rendering** for better performance and SEO
 
 **Backend**:
-- **Node.js** or **FastAPI** (Python) - Scalable API backend
-- RESTful API design with GraphQL consideration for future
-- Microservices architecture for scalability
+- **Next.js API Routes** - No separate backend needed for MVP
+- **tRPC** (optional) - Type-safe API calls if needed
+- **RESTful endpoints** for simplicity
 
 **Database**:
-- **PostgreSQL** - Primary relational database for structured data (users, projects, permissions)
-- **MongoDB** or **Elasticsearch** - Document storage for unstructured content and search
-- Hybrid approach: PostgreSQL for transactional data, MongoDB/ES for document content and search
+- **PostgreSQL** (via Vercel Postgres or Supabase) - Single database for everything
+- **Prisma ORM** - Type-safe database access, easy migrations
+- Store documents as JSON in PostgreSQL (no MongoDB needed for MVP)
 
-**Real-Time Collaboration**:
-- **Socket.io** or **Firebase** - Real-time updates and collaborative editing
-- Live document syncing across users
+**Authentication**:
+- **Clerk** or **NextAuth.js** - Drop-in auth solution (don't build from scratch)
+- Social login (Google, GitHub) + email/password
 
-**Hosting & Infrastructure**:
-- **Vercel** or **AWS** - Scalable cloud hosting
-- **CDN** for global performance
-- Auto-scaling for variable load
+**AI Integration**:
+- **OpenAI ChatGPT API** (GPT-4 or GPT-3.5-turbo) - You already have access
+- Direct API calls, no abstraction layer for MVP
+- Store conversation history in PostgreSQL
 
-### AI/LLM Integration - ChatGPT Decision [2025-11-06]
+**Hosting**:
+- **Vercel** - Deploy with one click, automatic scaling, edge functions
+- **Vercel Postgres** - Database included, no separate DB hosting needed
 
-**Selected LLM**: OpenAI ChatGPT API
+**Why These Choices**:
+1. **Next.js**: Everything in one framework (frontend + backend + deployment)
+2. **PostgreSQL**: One database for everything (simpler than hybrid approach)
+3. **Vercel**: Zero DevOps, focus on product, free tier for development
+4. **Clerk/NextAuth**: Auth is hard, use proven solutions
+5. **No microservices**: Monolith for MVP (easier to build and debug)
 
-**Rationale**:
-1. **Cost-Effective Prototyping**: 
-   - Free tier offers ~10-60 messages per 5 hours
-   - Sufficient for MVP development and early testing
-   - No upfront costs for initial development
+**What We're NOT Using for MVP**:
+- ❌ Separate backend (Node.js/FastAPI) - Next.js API routes sufficient
+- ❌ MongoDB/Elasticsearch - PostgreSQL JSON columns are fine for MVP
+- ❌ Redis - No caching needed yet
+- ❌ WebSockets/Socket.io - No real-time collaboration for MVP
+- ❌ Docker/Kubernetes - Vercel handles deployment
+- ❌ CDN - Vercel includes edge network
 
-2. **Accessible Developer Experience**:
-   - Well-documented API with extensive examples
-   - Large developer community and ecosystem
-   - Mature SDKs and libraries
+### AI Integration - ChatGPT [2025-11-06]
 
-3. **Scalable Pricing**:
-   - Pay-as-you-go model scales with usage
-   - Paid tiers enable higher message limits
-   - Production-ready pricing structure
+**Model**: OpenAI GPT-4-turbo (or GPT-3.5-turbo for cost optimization)
 
-4. **Feature-Rich**:
-   - Function calling for tool integration
-   - Streaming responses for better UX
-   - Context window suitable for document analysis
-   - Multiple model tiers (GPT-3.5, GPT-4, GPT-4-turbo)
+**Implementation**:
+```typescript
+// Direct API calls via OpenAI SDK
+import OpenAI from 'openai';
 
-5. **Production-Ready**:
-   - API designed for production use at scale
-   - Enterprise SLAs available
-   - Rate limiting and usage management
+// Store conversation context in PostgreSQL
+// Pass project context + conversation history to each API call
+// Stream responses for better UX
+```
 
-**Alternative Considered - Gemini Pro**:
-- While Gemini Pro is powerful, it currently restricts free API access for production use
-- Less mature developer ecosystem compared to OpenAI
-- ChatGPT offers more straightforward path to MVP and production
+**Key Features Powered by AI** (MVP):
+1. **Conversational Project Setup**: "I want to build a SaaS tool" → AI asks clarifying questions → generates project structure
+2. **Context-Aware Guidance**: "What should I work on next?" → AI considers project stage, goals, blockers → provides prioritized recommendations
+3. **Brutally Honest Advisor**: AI challenges assumptions and exposes blind spots (like our AI character rules)
+4. **Decision Logging**: AI extracts and logs key decisions from conversations automatically
+5. **Milestone Generation**: Based on project type and stage, AI suggests relevant milestones
+6. **Task Extraction**: AI identifies action items from free-form text and creates tasks
 
-**Future Flexibility**:
-- Architecture will support swappable LLM providers
-- Can evaluate Gemini, Claude, or other models post-MVP
-- Multi-model strategy possible for different use cases
+**Prompt Engineering Strategy**:
+- System prompt includes: project context, stage, goals, decisions, blockers
+- AI character persona: brutally honest advisor (reference our current system's AI character)
+- Context management: Include last N messages + full project summary
+- Function calling: For creating tasks, updating project status, logging decisions
 
-### Key Features Enabled by ChatGPT
-
-1. **Conversational Interface**: Natural language interaction for document management
-2. **Context-Aware Assistance**: Understands project history and provides relevant guidance
-3. **Change Tracking**: Monitors document evolution and highlights key changes
-4. **Smart Search**: Semantic search across all project documents
-5. **Auto-Summarization**: Generates summaries of meetings, documents, decisions
-6. **Task Extraction**: Identifies action items from conversations and documents
-7. **Compliance Assistance**: Helps with regulatory requirements and documentation (especially for GP practices)
+**Cost Management**:
+- GPT-3.5-turbo for simple queries (~$0.001/1K tokens)
+- GPT-4-turbo for complex advice/analysis (~$0.01/1K tokens)
+- Estimated cost: $10-30/month for 10 active users during testing
 
 ## Project Structure
 
@@ -208,134 +243,244 @@ This project structure adapts to SaaS project needs, combining elements from Ide
 
 This structure supports the "MVP → validation → commercialization" strategy.
 
-## Next Steps [2025-11-06]
+## MVP Development Plan - 2-4 Weeks [2025-11-06]
 
-Based on the business proposal analysis, prioritized action items:
+**Goal**: Ship testable MVP to 10 startup founders in 4 weeks.
 
-### Immediate (Next 1-2 Weeks)
-1. **MVP Design & Architecture**:
-   - Finalize technical architecture using React + Node.js/FastAPI + PostgreSQL + MongoDB
-   - Design ChatGPT API integration approach (streaming, function calling, context management)
-   - Create system architecture diagram
-   - Define data models and database schema
+### Week 1: Foundation (Days 1-7)
+**Goal**: Project setup + database + auth working
 
-2. **User Workflow Validation**:
-   - Create user journey maps for each target audience (startups, small businesses, GP practices)
-   - Identify 3-5 core workflows to build for MVP
-   - Document user stories and acceptance criteria
-   - Prioritize features based on impact vs. effort
+- [ ] **Day 1-2: Project Setup**
+  - Initialize Next.js 14 project with TypeScript
+  - Set up Tailwind CSS + Shadcn/ui
+  - Configure ESLint, Prettier, basic tooling
+  - Deploy "Hello World" to Vercel (confirm deployment works)
 
-3. **ChatGPT API Setup**:
-   - Set up OpenAI API account and get API keys
-   - Test API integration with proof-of-concept
-   - Evaluate free tier limits and plan for paid tier transition
-   - Design prompt engineering strategy for core features
+- [ ] **Day 3-4: Database & Schema**
+  - Set up Vercel Postgres (or Supabase)
+  - Install Prisma ORM
+  - Define database schema: Users, Projects, Conversations, Tasks, Decisions
+  - Run migrations, confirm DB connection works
 
-### Short-Term (Next 1-3 Months)
-4. **MVP Development**:
-   - Build core frontend (React + TypeScript)
-   - Develop backend API (Node.js/FastAPI)
-   - Implement ChatGPT integration
-   - Create basic authentication & authorization
-   - Build document management and versioning
-   - Implement conversational AI interface
+- [ ] **Day 5-7: Authentication**
+  - Implement NextAuth.js (or Clerk)
+  - Add Google/GitHub social login + email/password
+  - Protected routes and middleware
+  - Basic user profile page
 
-5. **Target User Validation**:
-   - Recruit 5-10 users from each target audience
-   - Conduct user testing sessions
-   - Gather feedback on workflows and features
-   - Iterate based on feedback
+**Deliverable**: Working app with auth, deployed to Vercel
 
-6. **Privacy & Compliance Planning**:
-   - Develop data privacy compliance plan (especially for GP practices)
-   - Create GDPR compliance documentation
-   - Plan for healthcare data handling (if applicable)
-   - Design user onboarding with privacy considerations
+---
 
-### Medium-Term (3-6 Months)
-7. **Flexible LLM Integration**:
-   - Design abstraction layer for LLM provider switching
-   - Allow potential integration of Gemini, Claude, or other models
-   - Test multi-model strategy for different use cases
+### Week 2: Core Features (Days 8-14)
+**Goal**: Project creation + AI chat interface working
 
-8. **Business Model & Pricing**:
-   - Define pricing tiers (freemium vs. subscription)
-   - Calculate unit economics (CAC, LTV, gross margin)
-   - Plan go-to-market strategy
-   - Identify early adopter channels
+- [ ] **Day 8-10: Project Creation Flow**
+  - Build project creation form (name, description, stage)
+  - Template selection logic (auto-select based on description)
+  - Project dashboard (list of user's projects)
+  - Single project view (PROJECT_SUMMARY equivalent)
 
-### Key Decisions to Make
-- [ ] Final tech stack choice (Node.js vs. FastAPI for backend)
-- [ ] Database strategy (MongoDB vs. Elasticsearch for document storage)
-- [ ] Hosting provider (Vercel vs. AWS)
-- [ ] MVP feature scope (what's in, what's deferred to v2)
-- [ ] Pricing model and tiers
-- [ ] Initial target audience focus (start with one niche or all three?)
+- [ ] **Day 11-12: AI Chat Interface**
+  - Build chat UI component (input, messages, streaming)
+  - Integrate OpenAI API (basic text completion)
+  - Store conversation history in PostgreSQL
+  - Test streaming responses
 
-## Open Questions & Decisions Needed
+- [ ] **Day 13-14: AI Project Setup**
+  - Implement conversational project setup
+  - AI asks clarifying questions → generates project structure
+  - Auto-populate goals, milestones, key questions
+  - Test with 3 different project types
 
-### MVP Scope & Features
-- [ ] **MVP Feature Priority**: Which features are must-have for MVP vs. nice-to-have for v2?
-- [ ] **Initial Target Focus**: Should we focus on one niche first (e.g., startups) or build for all three audiences simultaneously?
-- [ ] **Collaboration Features**: How much real-time collaboration is needed for MVP vs. v2?
-- [ ] **Mobile Strategy**: Mobile-responsive web app vs. native mobile apps?
+**Deliverable**: Users can create projects via AI conversation
 
-### Technical Implementation
-- [ ] **Backend Choice**: Node.js vs. FastAPI - which aligns better with team skills and requirements?
-- [ ] **Document Storage**: MongoDB vs. Elasticsearch - which provides better search capabilities?
-- [ ] **Authentication**: Build custom vs. use Auth0/Firebase/Supabase?
-- [ ] **Multi-Tenancy**: How to handle data isolation for different users/organizations?
-- [ ] **Hosting**: Vercel (easier) vs. AWS (more control) - what's right for MVP?
+---
 
-### Business Model
-- [ ] **Pricing Strategy**: Freemium with free tier, or paid-only from start?
-- [ ] **Pricing Tiers**: Per-user vs. per-workspace vs. feature-based tiers?
-- [ ] **ChatGPT API Costs**: How to balance AI costs with user pricing? Pass-through vs. absorb costs?
-- [ ] **Enterprise Features**: When to add SSO, advanced permissions, audit logs?
+### Week 3: AI Features (Days 15-21)
+**Goal**: Context-aware AI guidance + decision tracking
 
-### User Validation
-- [ ] **Early Adopters**: Where to find early users from each target audience?
-- [ ] **Beta Testing**: Open beta vs. closed beta with selected users?
-- [ ] **Feedback Loop**: How to gather and prioritize user feedback systematically?
+- [ ] **Day 15-16: Context Management**
+  - Load project context into AI prompts (stage, goals, decisions, blockers)
+  - Implement AI character system prompt (brutally honest advisor)
+  - Test "What should I work on next?" queries
 
-### Compliance & Privacy
-- [ ] **GDPR Compliance**: What features needed for GDPR compliance?
-- [ ] **Healthcare Data**: How to handle GP practice data - full HIPAA compliance or business data only?
-- [ ] **Data Residency**: Single region vs. multi-region data storage?
-- [ ] **Audit Logging**: What level of audit logging for compliance?
+- [ ] **Day 17-18: Decision & Task Tracking**
+  - AI extracts decisions from conversations → logs automatically
+  - AI extracts action items → creates tasks
+  - Display decisions and tasks in project dashboard
 
-## Research & References [2025-11-06]
+- [ ] **Day 19-20: Project Stage Management**
+  - Stage selection (Ideation → Validation → Build → Operational)
+  - Stage-specific milestone suggestions
+  - Visual progress tracking
 
-This project proposal is based on comprehensive research including:
-- Market analysis of existing AI project management tools (Asana, ClickUp, Motion, Dart)
-- User pain point research from Reddit discussions and community forums
-- Technical evaluation of LLM options (ChatGPT vs. Gemini Pro)
-- Tech stack analysis for scalable SaaS architecture
+- [ ] **Day 21: Templates**
+  - Port our existing templates (Idea Validation, Product Development, Business Planning)
+  - Template-driven milestone and question generation
+  - Test with each template type
 
-**Key Sources**:
-- OpenAI ChatGPT API documentation and pricing
-- Market sizing for startups, small businesses, and GP practices
-- Competitive analysis of AI-powered project management tools
-- User workflow research for target audiences
+**Deliverable**: AI provides contextual guidance based on project state
 
-**References**:
-1. [ChatGPT Free Tier Limits Guide](https://www.cursor-ide.com/blog/chatgpt-free-limits-guide)
-2. [ChatGPT API Free Tier Limits 2025](https://blog.laozhang.ai/api-guides/chatgpt-free-tier-limits-2025/)
-3. [OpenAI API Pricing](https://openai.com/api/pricing/)
-4. [ChatGPT Free Tier FAQ](https://help.openai.com/en/articles/9275245-chatgpt-free-tier-faq)
+---
 
-## Conclusion [2025-11-06]
+### Week 4: Polish & Testing (Days 22-28)
+**Goal**: MVP ready for 10 users
 
-Selecting ChatGPT as the core LLM engine ensures easier and cost-effective prototyping with a robust AI foundation. The app's focus on niche user workflows (startups, small businesses, GP practices), combined with advanced conversational AI for organization and change tracking, positions it strongly to address underserved markets. 
+- [ ] **Day 22-23: UI Polish**
+  - Improve mobile responsiveness
+  - Better empty states, loading states, error handling
+  - Clean up UI inconsistencies
+  - Add basic onboarding flow
 
-The scalable tech stack (React + Node.js/FastAPI + PostgreSQL + MongoDB + ChatGPT API) and AI integration plan enable rapid MVP development and pave the way for future enhancements.
+- [ ] **Day 24-25: Testing & Bug Fixes**
+  - Test all core workflows end-to-end
+  - Fix critical bugs
+  - Add basic error logging (Sentry or similar)
+  - Test on mobile devices
 
-**Key Success Factors**:
-1. Deep niche specialization vs. generic project management
-2. Conversational AI as core experience, not add-on
-3. Dynamic change tracking for evolving business needs
-4. Non-technical UX for business users
-5. Privacy-first design for sensitive data (especially GP practices)
+- [ ] **Day 26-27: Documentation & Onboarding**
+  - Write simple onboarding guide
+  - Add tooltips and help text
+  - Create demo video (2-3 minutes)
+  - Prepare feedback collection form
+
+- [ ] **Day 28: Launch Prep**
+  - Recruit 10 startup founders (Reddit, Twitter, indie hacker communities)
+  - Send invite links with context
+  - Set up feedback collection system (Typeform or similar)
+  - Monitor for critical issues
+
+**Deliverable**: 10 users using MVP, collecting feedback
+
+---
+
+### Post-Week 4: Iteration
+- Collect feedback from 10 users (1 week)
+- Prioritize top 3 requested features/fixes
+- Ship updates based on actual usage patterns
+- Decide: Expand MVP or pivot based on feedback
+
+## MVP Feature Breakdown
+
+### Core Features (Must-Have for MVP)
+
+**1. Authentication & User Management**
+- Sign up / login (email + social)
+- User profile (basic settings)
+- Session management
+
+**2. Project Management**
+- Create project (via AI conversation)
+- View project dashboard (PROJECT_SUMMARY concept)
+- List all user projects
+- Update project stage (Ideation → Validation → Build → Operational)
+
+**3. AI Conversational Interface**
+- Chat interface (input, message history, streaming)
+- Context-aware responses (knows project state)
+- Brutally honest advisor persona
+- Multi-turn conversations with memory
+
+**4. Template System**
+- Auto-select template based on project description
+- 3 templates: Idea Validation, Product Development, Business Planning
+- Generate goals, milestones, key questions from template
+
+**5. Task & Milestone Tracking**
+- AI extracts tasks from conversations
+- Simple task list (title, status, created date)
+- Milestone tracking with progress visualization
+- Manual task creation/editing
+
+**6. Decision Logging**
+- AI identifies key decisions from conversations
+- Decision log (what, when, why, context)
+- Display in project dashboard
+
+**7. Project Context Display**
+- PROJECT_SUMMARY view (goals, stage, milestones, tasks, decisions)
+- Recent activity/updates
+- AI-generated insights and recommendations
+
+### Deferred to v2+ (Post-MVP)
+
+**Not Building for MVP**:
+- ❌ Multi-user collaboration (single user only)
+- ❌ Team permissions and roles
+- ❌ Real-time collaborative editing
+- ❌ Third-party integrations (Slack, GitHub, etc.)
+- ❌ Mobile native apps
+- ❌ Advanced search/filtering
+- ❌ Custom templates (user-created)
+- ❌ File uploads/attachments
+- ❌ Calendar/scheduling integration
+- ❌ Gantt charts or timeline views
+- ❌ Notifications (email/push)
+- ❌ API access for external tools
+- ❌ White-label/enterprise features
+
+### Database Schema (MVP)
+
+```sql
+-- Users
+User { id, email, name, created_at, updated_at }
+
+-- Projects
+Project { id, user_id, name, description, stage, created_at, updated_at }
+
+-- Conversations (AI chat history)
+Conversation { id, project_id, messages (JSON), created_at }
+
+-- Tasks
+Task { id, project_id, title, status, created_at, completed_at }
+
+-- Decisions
+Decision { id, project_id, title, description, rationale, created_at }
+
+-- Milestones
+Milestone { id, project_id, title, description, target_date, status }
+```
+
+## Key Decisions Made [2025-11-06]
+
+**✅ Locked In**:
+- **Target Audience**: Startups only (solo founders, indie hackers, small teams 1-5 people)
+- **Tech Stack**: Next.js 14 + PostgreSQL + Prisma + ChatGPT API + Vercel
+- **MVP Scope**: No third-party integrations, single-user only, web-only (no native apps)
+- **Timeline**: 4 weeks to ship MVP to 10 users
+- **Core Features**: AI conversational setup, template-driven projects, decision/task tracking
+- **Success Metric**: 3+ founders willing to pay $20-30/month after testing
+
+**❌ Deferred to Post-MVP**:
+- Small businesses and GP practices as target audiences
+- Third-party integrations (Slack, GitHub, Notion)
+- Multi-user collaboration features
+- Mobile native apps
+- Custom templates
+
+## Next Immediate Actions
+
+**Start Week 1 (Days 1-7)**:
+1. Initialize Next.js 14 project with TypeScript + Tailwind + Shadcn/ui
+2. Set up Vercel Postgres + Prisma ORM
+3. Implement NextAuth.js authentication (Google/GitHub + email)
+4. Deploy to Vercel and confirm everything works
+
+**By End of Week 1**: Working app with auth, deployed and accessible.
+
+## References
+
+**Research Sources**:
+- Market analysis: Existing AI PM tools (Asana, ClickUp, Motion, Dart, Notion AI)
+- User pain points: Reddit r/startups, r/SideProject, r/IndieBiz
+- Tech stack: Next.js docs, OpenAI API docs, Vercel docs
+
+**Technical Resources**:
+- [OpenAI API Documentation](https://platform.openai.com/docs)
+- [Next.js 14 Documentation](https://nextjs.org/docs)
+- [Prisma Documentation](https://www.prisma.io/docs)
+- [Vercel Postgres](https://vercel.com/docs/storage/vercel-postgres)
 
 ---
 
