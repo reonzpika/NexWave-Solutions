@@ -3,7 +3,7 @@ project_name: Project Management AI SaaS
 project_stage: Validation
 owner: TBD
 last_updated: "2025-11-06"
-version: "0.3.0"
+version: "0.4.0"
 tags:
   - saas
   - ai
@@ -18,9 +18,11 @@ summary: "AI-powered project management system for startups. SaaS version of our
 
 ## Project Overview
 
-**Vision**: AI-powered project management system for startups. A SaaS version of our current template-driven PM system, enhanced with conversational AI to guide founders through project setup, track progress, and provide contextual advice.
+**Vision**: An AI advisor and organizational system for first-time founders drowning in information. Cuts through the noise, provides structure, and tells you exactly what to do next—so you stop researching and start building.
 
-**Tagline**: Project management that understands your startup—from idea to launch.
+**Tagline**: Stop drowning in startup advice. Get clear next steps.
+
+**One-Liner**: The AI co-founder that turns information overload into focused action—for solo founders building their first startup.
 
 **Current Stage**: Validation - MVP scoping and architecture
 
@@ -33,7 +35,11 @@ summary: "AI-powered project management system for startups. SaaS version of our
 
 ## Core Concept
 
-**"Cursor for startup founders"** — An AI-powered project management system that combines template-driven structure with conversational AI guidance. Based on our proven PM system, but accessible as a web app with ChatGPT integration.
+**"AI co-founder for solo founders"** — An AI-powered system that turns information overload into clear action. Combines battle-tested startup frameworks with conversational AI that understands where you are and tells you what to do next.
+
+**The Problem We're Solving**: New founders read 100 articles, watch 50 videos, buy courses... then freeze. Too much information, no clear next step. They need a system + guidance, not another tool.
+
+**Our Solution**: AI that cuts through noise + templates that provide structure + conversational interface that feels like talking to an experienced co-founder.
 
 **What We're Building (MVP)**:
 1. **Template-Driven Project Setup**: Like our current system (Idea Validation, Product Development, Business Planning templates)
@@ -62,14 +68,14 @@ summary: "AI-powered project management system for startups. SaaS version of our
 
 ## Goals [Updated 2025-11-06]
 
-**MVP Goal**: Ship a working AI project management system for startups in 2-4 weeks and get it in front of 10 real users.
+**MVP Goal**: Ship a working AI advisor system for first-time founders in 2-4 weeks and get it in front of 10 solo founders drowning in information.
 
 **Success Criteria**:
-1. 10 startup founders sign up and create projects
-2. 5+ founders use it for 1+ week consistently
-3. 3+ founders say they'd pay $20-30/month for it
-4. AI guidance is actually helpful (qualitative feedback)
-5. System is stable and usable (no critical bugs)
+1. 10 first-time founders sign up and create projects
+2. 5+ founders say "This reduced my overwhelm and gave me clarity"
+3. 3+ founders say "I'd pay $20-30/month for this"
+4. Founders actually complete the AI-guided setup (not abandon halfway)
+5. Users ask "What should I do next?" and get actionable answers (not generic advice)
 
 **Post-MVP Goals**:
 - Iterate based on user feedback
@@ -77,50 +83,94 @@ summary: "AI-powered project management system for startups. SaaS version of our
 - Expand to other audiences IF startups validate
 - Build paid tier when usage justifies it
 
-## Target Audience - Startups [2025-11-06]
+## Target Audience - Solo Founders & Side-Hustlers [2025-11-06]
 
-**MVP Target**: Startup founders and small startup teams (1-5 people)
+**MVP Target**: Solo founders and side-hustlers who are NEW to building startups
 
-### Who This Is For:
-- **Solo founders** building their first startup
-- **Indie hackers** shipping products quickly
-- **Small startup teams** (2-5 people) in early stages (Ideation → Build)
-- **Non-technical founders** who need structure without complexity
-- **Serial entrepreneurs** managing multiple projects
+### Who This Is For (Specific):
+- **First-time founders** building their first startup (no prior startup experience)
+- **Side-hustlers** building products while working a day job
+- **Solo founders** (no co-founder yet, doing everything themselves)
+- **Career-switchers** transitioning from corporate/employment to entrepreneurship
+- **Aspiring indie hackers** who have ideas but don't know where to start
 
-### Pain Points We're Solving:
-1. **Pivot Management**: 
-   - Strategies change weekly; documentation becomes outdated
-   - Hard to remember why you made certain decisions 3 months ago
-   - Team (or future hires) can't understand project evolution
+### What Defines This Audience:
+- ✅ **New to the field** (0-2 years startup experience)
+- ✅ **Working alone** (solo founder or very small team)
+- ✅ **Information overload** (too many resources, unclear priorities)
+- ✅ **Paralysis** (knows they should plan, doesn't know how)
+- ✅ **Fragmented workflow** (notes everywhere, no system)
+- ✅ **Seeking structure** (wants framework but not complex PM tools)
 
-2. **Fragmented Information**:
-   - Notes in Notion, tasks in Trello, docs in Google Drive, decisions in Slack
-   - Spending 20+ minutes finding that important document or decision
-   - No single source of truth for project status
+### Pain Points We're Solving (For New Solo Founders):
 
-3. **Prioritization Paralysis**:
-   - Too many ideas, unclear which to focus on
-   - No framework for deciding what matters most
-   - Wasting time on low-impact tasks
+**1. Information Overload & Paralysis**
+   - "I've read 50 articles, watched 20 YouTube videos, bought 3 courses... now what?"
+   - Too many frameworks, conflicting advice, analysis paralysis
+   - Can't separate signal from noise
+   - Feels like drowning in information but no clarity
 
-4. **Lost Context**:
-   - Can't recall the context behind old decisions
-   - New team members or advisors ask "Why did you do it this way?"
-   - Onboarding takes forever because information is scattered
+**2. Don't Know What to Do Next**
+   - "I have an idea... what's my actual next step?"
+   - No clear roadmap from idea → validation → MVP → launch
+   - Existing advice is too generic or too enterprise-focused
+   - Wasting weeks researching instead of building
 
-5. **Lack of Structure**:
-   - Don't know what to work on next
-   - No clear framework for moving from idea → validation → build
-   - Existing PM tools are too complex or enterprise-focused
+**3. Fragmented Notes & Lost Ideas**
+   - Notes scattered across: iPhone notes, Google Docs, Notion, random notebooks
+   - Can't remember where you wrote that important insight
+   - Revisiting old notes feels like starting from scratch
+   - No system to organize thoughts and decisions
+
+**4. No Structure or Framework**
+   - "Should I validate first or just build?"
+   - Don't know what milestones to aim for
+   - No sense of progress (feels like spinning wheels)
+   - Existing PM tools (Asana, Linear) are overkill and confusing
+
+**5. Working in Isolation**
+   - No co-founder or team to bounce ideas off
+   - No one to challenge assumptions or provide feedback
+   - Second-guessing every decision
+   - Need guidance but can't afford a consultant/advisor
+
+**6. Making It Up As You Go**
+   - No playbook or template for what to do
+   - Constantly wondering "Am I doing this right?"
+   - Fear of missing critical steps (legal, validation, tech choices)
+   - Wish someone would just tell you the order of operations
 
 ### How Our System Solves This:
-- **Template-Driven Setup**: Auto-guides you through project setup based on stage (like our current system)
-- **Conversational AI**: Ask "What should I work on next?" and get contextual advice
-- **Living Documentation**: PROJECT_SUMMARY concept - everything in one place, always up-to-date
-- **Decision Tracking**: AI automatically logs key decisions and rationale
-- **Honest Feedback**: AI advisor that challenges assumptions and exposes blind spots
-- **Stage-Based Guidance**: Clear framework from Ideation → Validation → Build → Operational
+
+**For Information Overload:**
+- AI filters noise and gives you ONLY what matters for your current stage
+- "I have an idea" → AI asks 5 key questions → generates focused action plan
+- No generic advice - context-aware guidance based on YOUR project
+
+**For "What Do I Do Next?"**
+- Template-driven roadmap (Idea Validation → Product Dev → Launch)
+- AI breaks down big goals into small, actionable next steps
+- Clear milestones so you know if you're making progress
+
+**For Fragmented Notes:**
+- Single place for ALL project info (goals, decisions, tasks, learnings)
+- Conversational interface - dump thoughts, AI organizes them
+- Never lose context - AI maintains project history
+
+**For Lack of Structure:**
+- Pre-built templates for common startup journeys
+- Stage-based guidance (Ideation vs. Validation vs. Build = different advice)
+- Proven frameworks so you're not making it up
+
+**For Working Alone:**
+- AI acts as thinking partner and advisor
+- Challenges your assumptions (brutally honest feedback)
+- Asks the hard questions a co-founder would ask
+
+**For Making It Up:**
+- Playbook built-in (based on proven startup methodologies)
+- AI knows the "order of operations" for startups
+- Reduces anxiety - you're following a tested path
 
 ## Competitive Landscape [2025-11-06]
 

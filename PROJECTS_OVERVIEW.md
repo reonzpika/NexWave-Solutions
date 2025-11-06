@@ -3,7 +3,7 @@ project_name: Projects Overview - Mission Control
 project_stage: Operational
 owner: AI Assistant
 last_updated: "2025-11-06"
-version: "1.3"
+version: "1.4"
 tags:
   - dashboard
   - portfolio
@@ -32,7 +32,7 @@ tags:
 ### Recent Achievements Across Projects
 *[AI will auto-populate this section based on recent milestones and updates]*
 
-- **2025-11-06**: **Project Management AI SaaS** - MVP scoped and planned: 4-week development timeline, focused on startups only, tech stack locked in (Next.js 14 + PostgreSQL + ChatGPT API), no third-party integrations for MVP. Ready to start building.
+- **2025-11-06**: **Project Management AI SaaS** - Target refined to solo founders/side-hustlers struggling with information overload. Positioning: "AI co-founder that turns overwhelm into clear next steps." MVP scope and 4-week plan finalized. Ready to start building.
 
 ### Top Blockers & Risks
 *[AI will auto-populate this section based on identified blockers and risks]*
@@ -78,8 +78,8 @@ tags:
 - **Stage**: Validation
 - **Owner**: TBD
 - **Last Updated**: 2025-11-06
-- **Summary**: AI-powered project management for startups. SaaS version of our PM system with ChatGPT integration. MVP targets solo founders/small teams (1-5 people). Tech stack: Next.js 14 + PostgreSQL + OpenAI API. No third-party integrations for MVP.
-- **Key Dates**: 4-week MVP plan finalized (2025-11-06); Target: Ship to 10 users in 4 weeks
+- **Summary**: AI co-founder for solo founders drowning in information. Targets first-time founders and side-hustlers struggling with info overload and unclear next steps. Provides structure + AI guidance to turn overwhelm into action. Tech: Next.js 14 + PostgreSQL + ChatGPT API.
+- **Key Dates**: 4-week MVP plan finalized (2025-11-06); Target: Ship to 10 first-time founders
 - **Status**: Active - Ready to start Week 1 (project setup + auth)
 - **Link**: [View Full Summary](./project-management-ai-saas/PROJECT_SUMMARY.md)
 
