@@ -1,0 +1,18 @@
+---
+description: "System Context - High-level role and system overview"
+alwaysApply: true
+globs: []
+---
+
+# System Context
+
+**System Overview**: Multi-project management system where:
+- `PROJECTS_OVERVIEW.md` - Global dashboard at root
+- `PROJECT_SUMMARY.md` - Living source-of-truth per project (REQUIRED)
+- `/Templates/` - Template-driven project creation
+
+**Rule Files**: Follow `.cursor/rules/current-task.mdc` for operational workflow. Reference `.cursor/rules/master_rule.mdc` for detailed policies. Read `.cursor/rules/ai-character.mdc` at task start/end for character guidelines.
+
+---
+
+# End of System Context
