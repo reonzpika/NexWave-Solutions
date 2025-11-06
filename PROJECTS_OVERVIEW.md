@@ -2,8 +2,8 @@
 project_name: Projects Overview - Mission Control
 project_stage: Operational
 owner: AI Assistant
-last_updated: "2024-01-15"
-version: "1.0"
+last_updated: "2025-11-06"
+version: "1.1"
 tags:
   - dashboard
   - portfolio
@@ -14,7 +14,7 @@ tags:
 
 **Purpose**: This document serves as the central "mission control" dashboard providing an immediate snapshot of all ongoing projects. It enables quick onboarding, status updates, high-level planning, and cross-project visibility for both humans and AI.
 
-**Last Updated**: [2024-01-15]
+**Last Updated**: [2025-11-06]
 
 ---
 
@@ -23,6 +23,7 @@ tags:
 | Project Name | Folder | Stage | Owner | Last Updated | Link to Summary |
 |--------------|--------|-------|-------|--------------|-----------------|
 | R&D Grant Submission | `new_to_r&d_grant` | Validation | TBD | 2025-11-01 | [PROJECT_SUMMARY.md](./new_to_r&d_grant/PROJECT_SUMMARY.md) |
+| Project Management AI SaaS | `project-management-ai-saas` | Ideation | TBD | 2025-11-06 | [PROJECT_SUMMARY.md](./project-management-ai-saas/PROJECT_SUMMARY.md) |
 
 ---
 
@@ -31,7 +32,7 @@ tags:
 ### Recent Achievements Across Projects
 *[AI will auto-populate this section based on recent milestones and updates]*
 
-- *No recent achievements recorded*
+- **2025-11-06**: New project created - Project Management AI SaaS (Ideation stage)
 
 ### Top Blockers & Risks
 *[AI will auto-populate this section based on identified blockers and risks]*
@@ -41,7 +42,7 @@ tags:
 ### Cross-Project Themes & Dependencies
 *[AI will identify and surface themes, dependencies, or relationships across projects]*
 
-- *No cross-project themes currently identified*
+- **Project Management AI SaaS** is based on the current project management system (this repository) - the SaaS will commercialize the system we're using now
 
 ---
 
@@ -49,13 +50,13 @@ tags:
 
 | Stage | Count | Projects |
 |-------|-------|----------|
-| Ideation | 0 | - |
+| Ideation | 1 | Project Management AI SaaS |
 | Validation | 1 | R&D Grant Submission |
 | Build | 0 | - |
 | Operational | 0 | - |
 | Archived | 0 | - |
 
-**Total Active Projects**: 1
+**Total Active Projects**: 2
 
 ---
 
@@ -70,6 +71,16 @@ tags:
 - **Key Dates**: *[Upcoming milestones or deadlines]*
 - **Status**: Active
 - **Link**: [View Full Summary](./new_to_r&d_grant/PROJECT_SUMMARY.md)
+
+### Project Management AI SaaS
+- **Folder**: `project-management-ai-saas`
+- **Stage**: Ideation
+- **Owner**: TBD
+- **Last Updated**: 2025-11-06
+- **Summary**: AI-powered project management SaaS tool based on our current system. Strategy: Use personally first, then commercialize.
+- **Key Dates**: Project just created - planning phase
+- **Status**: Active
+- **Link**: [View Full Summary](./project-management-ai-saas/PROJECT_SUMMARY.md)
 
 ---
 
@@ -88,4 +99,4 @@ tags:
 
 ---
 
-*Dashboard Last Updated: [2024-01-15]*
+*Dashboard Last Updated: [2025-11-06]*

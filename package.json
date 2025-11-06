@@ -1,0 +1,9 @@
+{
+  "name": "project-management-system",
+  "version": "1.0.0",
+  "description": "Project management documentation and future SaaS",
+  "scripts": {
+    "build": "echo 'Documentation-only repository - no build needed'"
+  },
+  "private": true
+}
