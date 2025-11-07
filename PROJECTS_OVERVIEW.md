@@ -23,7 +23,7 @@ tags:
 | Project Name | Folder | Stage | Owner | Last Updated | Link to Summary |
 |--------------|--------|-------|-------|--------------|-----------------|
 | R&D Grant Submission | `new_to_r&d_grant` | Validation | TBD | 2025-11-01 | [PROJECT_SUMMARY.md](./new_to_r&d_grant/PROJECT_SUMMARY.md) |
-| Project Management AI SaaS | `project-management-ai-saas` | Ideation | TBD | 2025-11-06 | [PROJECT_SUMMARY.md](./project-management-ai-saas/PROJECT_SUMMARY.md) |
+| Project Management AI SaaS | `project-management-ai-saas` | Validation | TBD | 2025-11-06 | [PROJECT_SUMMARY.md](./project-management-ai-saas/PROJECT_SUMMARY.md) |
 
 ---
 
@@ -58,6 +58,27 @@ tags:
 | Archived | 0 | - |
 
 **Total Active Projects**: 2
+
+---
+
+## Schedule
+
+*[AI will auto-populate this section with upcoming dates, appointments, meetings, deadlines, and due dates from all projects]*
+
+### Upcoming Events
+
+| Date | Time | Event | Project | Type | Notes |
+|------|------|-------|---------|------|-------|
+| 2025-11-12 | 8:30am | Mentor meeting | R&D Grant Submission | Meeting | Mentor engagement for R&D Grant |
+| 2025-11-13 | 2:00pm | Callaghan Innovation meeting | R&D Grant Submission | Meeting | Meeting with Callaghan Innovation/Paul |
+| 2026-01-27 | - | Project start | R&D Grant Submission | Milestone | R&D Grant project commencement |
+| 2027-01-26 | - | Project end | R&D Grant Submission | Milestone | R&D Grant project completion |
+
+### Past Events
+
+| Date | Event | Project | Type | Notes |
+|------|-------|---------|------|-------|
+| 2025-11-06 | Mentor proposal sent | R&D Grant Submission | Action | Proposal submitted for review |
 
 ---
 
@@ -100,4 +121,4 @@ tags:
 
 ---
 
-*Dashboard Last Updated: [2025-11-06]*
+*Dashboard Last Updated: [2025-11-06] - Added Schedule section for centralized date and appointment tracking*
